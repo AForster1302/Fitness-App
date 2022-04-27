@@ -172,7 +172,7 @@ namespace MyWorkoutRoutines {
             return;
             case 9:
             
-            #line 54 "..\..\MainWindow.xaml"
+            #line 52 "..\..\MainWindow.xaml"
             ((System.Windows.Controls.TabItem)(target)).GotFocus += new System.Windows.RoutedEventHandler(this.TabItem_GotFocus);
             
             #line default

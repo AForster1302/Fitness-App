@@ -25,15 +25,6 @@ namespace MyWorkoutRoutines
             InitializeComponent();
         }
 
-        //private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-        //    if (e.LeftButton == MouseButtonState.Pressed)
-        //    {
-        //        //wip
-        //        this.DragMove();
-        //    }
-        //}
-
         private void DrawWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -42,16 +33,6 @@ namespace MyWorkoutRoutines
                 //wip
                 this.DragMove();
             }
-        }
-
-        private void TabItem_GotFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void TabItem_MouseEnter(object sender, MouseEventArgs e)
-        {
-
         }
 
         private void Close_Program(object sender, RoutedEventArgs e)
