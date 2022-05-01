@@ -12,3 +12,4 @@ C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWork
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.csproj.CoreCompileInputs.cache
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.exe
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.pdb
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.csproj.AssemblyReference.cache
