@@ -18,6 +18,10 @@ namespace MyWorkoutRoutines
     /// <summary>
     /// Interaktionslogik für MainWindow.xaml
     /// </summary>
+    /// 
+
+
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -25,6 +29,8 @@ namespace MyWorkoutRoutines
             InitializeComponent();
         }
 
+        //MyWorkoutRoutinesEntities ctx = new MyWorkoutRoutinesEntities();
+        
         private void DrawWindow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
@@ -38,6 +44,7 @@ namespace MyWorkoutRoutines
         private void Close_Program(object sender, RoutedEventArgs e)
         {
             Close();
+            
         }
 
 
@@ -66,6 +73,12 @@ namespace MyWorkoutRoutines
         private void Minimize_Program(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
+        }
+
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
