@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyWorkoutRoutinesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Exercises">
+    <Key>
+      <PropertyRef Name="ExerciseID" />
+    </Key>
+    <Property Name="ExerciseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Difficulty" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Routine" Relationship="Self.ZugewiesenerMA" FromRole="Exercises" ToRole="Routine" />
+  </EntityType>
+  <EntityType Name="Reminders">
+    <Key>
+      <PropertyRef Name="ReminderID" />
+    </Key>
+    <Property Name="ReminderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+  </EntityType>
+  <EntityType Name="Routine">
+    <Key>
+      <PropertyRef Name="RoutineID" />
+    </Key>
+    <Property Name="RoutineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoutineName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Datum" Type="DateTime" Precision="3" />
+    <Property Name="UserID" Type="Int32" />
+    <Property Name="ExerciseID" Type="Int32" />
+    <NavigationProperty Name="Exercises" Relationship="Self.ZugewiesenerMA" FromRole="Routine" ToRole="Exercises" />
+    <NavigationProperty Name="Users" Relationship="Self.Login" FromRole="Routine" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RoutineExercises">
+    <Key>
+      <PropertyRef Name="RoutineID" />
+      <PropertyRef Name="ExerciseID" />
+    </Key>
+    <Property Name="Repetitions" Type="Int32" />
+    <Property Name="Duration" Type="Int32" />
+    <Property Name="BreakRoutine" Type="Time" Precision="7" />
+    <Property Name="RoutineID" Type="Int32" Nullable="false" />
+    <Property Name="ExerciseID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoutineHistory">
+    <Key>
+      <PropertyRef Name="ExerciseID" />
+    </Key>
+    <Property Name="ExerciseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DateHistory" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HashPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Salt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Routine" Relationship="Self.Login" FromRole="Users" ToRole="Routine" />
+  </EntityType>
+  <Association Name="ZugewiesenerMA">
+    <End Role="Exercises" Type="Self.Exercises" Multiplicity="0..1" />
+    <End Role="Routine" Type="Self.Routine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exercises">
+        <PropertyRef Name="ExerciseID" />
+      </Principal>
+      <Dependent Role="Routine">
+        <PropertyRef Name="ExerciseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Login">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Routine" Type="Self.Routine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Routine">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyWorkoutRoutines_Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Exercises" EntityType="Self.Exercises" />
+    <EntitySet Name="Reminders" EntityType="Self.Reminders" />
+    <EntitySet Name="Routine" EntityType="Self.Routine" />
+    <EntitySet Name="RoutineExercises" EntityType="Self.RoutineExercises" />
+    <EntitySet Name="RoutineHistory" EntityType="Self.RoutineHistory" />
+    <EntitySet Name="Users" EntityType="Self.Users" />
+    <AssociationSet Name="ZugewiesenerMA" Association="Self.ZugewiesenerMA">
+      <End Role="Exercises" EntitySet="Exercises" />
+      <End Role="Routine" EntitySet="Routine" />
+    </AssociationSet>
+    <AssociationSet Name="Login" Association="Self.Login">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Routine" EntitySet="Routine" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

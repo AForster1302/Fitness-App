@@ -20,13 +20,16 @@ namespace MyWorkoutRoutines
     /// </summary>
     /// 
 
-
-
     public partial class MainWindow : Window
     {
+        public int userid;
+
         public MainWindow()
         {
+            this.Hide();
             InitializeComponent();
+            WindowLogin();
+
         }
 
         //MyWorkoutRoutinesEntities ctx = new MyWorkoutRoutinesEntities();
@@ -75,10 +78,14 @@ namespace MyWorkoutRoutines
             WindowState = WindowState.Minimized;
         }
 
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+        public void WindowLogin()
+        {
+            WindowLogin windowLogin = new WindowLogin(this);
+            windowLogin.Show();
         }
     }
 }

@@ -8,18 +8,92 @@ GO
 USE MyWorkoutRoutines;
 GO
 
+-------------------------------------
+
+IF OBJECT_ID('Users') IS NOT NULL
+    DROP TABLE Users;
+GO
+
+CREATE TABLE Users(
+	UserID INT Not Null Primary Key Identity(1,1),
+	UserName VARCHAR(100) NOT NULL,
+	HashPassword VARCHAR(100) NOT NULL,
+	Salt VARCHAR(100) NOT NULL,
+	
+);
+
+-------------------------------------
+
 IF OBJECT_ID('Exercises') IS NOT NULL
     DROP TABLE Exercises;
 GO
 
 CREATE TABLE Exercises(
-	ExercisesID INT Not Null Primary Key Identity(1,1),
+	ExerciseID INT Not Null Primary Key Identity(1,1),
 	Category NVARCHAR(10),
-	Name NVARCHAR(100),
+	ExerciseName NVARCHAR(100),
 	Difficulty NVARCHAR(20),
 	Description TEXT,
 	
 );
+
+-------------------------------------
+
+IF OBJECT_ID('Routine') IS NOT NULL
+    DROP TABLE Routine;
+GO
+
+CREATE TABLE Routine(
+	RoutineID INT Not Null Primary Key Identity(1,1),
+	RoutineName NVARCHAR(100),
+	Datum Datetime,
+	UserID INT
+		Constraint Login Foreign Key (UserID) References Users(UserID), 
+	ExerciseID INT
+		Constraint ZugewiesenerMA Foreign Key(ExerciseID) References Exercises(ExerciseID)
+);
+
+-------------------------------------
+
+IF OBJECT_ID('RoutineExercises') IS NOT NULL
+    DROP TABLE RoutineExercises;
+GO
+
+CREATE TABLE RoutineExercises(
+	Repetitions INT,
+	Duration INT,
+	BreakRoutine TIME,
+	RoutineID INT, 
+	ExerciseID INT,
+	CONSTRAINT pk_routine_exercise PRIMARY KEY (RoutineID,ExerciseID)
+);
+
+-------------------------------------
+
+IF OBJECT_ID('Reminders') IS NOT NULL
+    DROP TABLE Reminders;
+GO
+
+CREATE TABLE Reminders(
+  ReminderID INT Not Null Primary Key Identity(1,1), 
+
+);
+
+-------------------------------------
+
+IF OBJECT_ID('RoutineHistory') IS NOT NULL
+    DROP TABLE RoutineHistory;
+GO
+
+CREATE TABLE RoutineHistory(
+	ExerciseID INT Not Null Primary Key Identity(1,1),
+	DateHistory Datetime,
+	
+
+);
+
+-------------------------------------
+
 
 --Bauch:
 
