@@ -55,7 +55,7 @@
 
         <CheckBox x:Name="CheckboxPW" VerticalContentAlignment="Center" FontSize="16" Margin="234,273,35,453" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen"/>
 
-        <Button Margin="35,385,35,293" Content="Login" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" BorderBrush="Transparent" Background="#8B0000" >
+        <Button Margin="35,385,35,293" Content="Login" Click="Button_Login" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" BorderBrush="Transparent" Background="#8B0000" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="5"></Setter>

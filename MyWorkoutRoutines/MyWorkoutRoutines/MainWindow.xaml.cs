@@ -46,8 +46,7 @@ namespace MyWorkoutRoutines
 
         private void Close_Program(object sender, RoutedEventArgs e)
         {
-            Close();
-            
+            Close();          
         }
 
 

@@ -78,7 +78,7 @@ namespace MyWorkoutRoutines
                 this.DragMove();
         }
 
-        private void UserLogin(object sender, RoutedEventArgs e)
+        private void Button_Login(object sender, RoutedEventArgs e)
         {
             if (Username.Text != "" && Password.Text != "" && CheckPassword())
             {
@@ -87,10 +87,9 @@ namespace MyWorkoutRoutines
                 {
                     mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
 
-
-                    MainWindow mw = new MainWindow();
-                    mw.Show();
+                    
                 }
+                    
             }
 
             else if (Username.Text == "")
@@ -167,7 +166,7 @@ namespace MyWorkoutRoutines
         {
             if (e.Key == Key.Enter)
             {
-                UserLogin(sender, e);
+                Button_Login(sender, e);
             }
         }
 
@@ -180,5 +179,6 @@ namespace MyWorkoutRoutines
             Login.Hide();
 
         }
+
     }
 }

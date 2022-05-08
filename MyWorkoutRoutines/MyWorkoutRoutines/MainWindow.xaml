@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWorkoutRoutines"
         mc:Ignorable="d"
-        AllowDrop="True" ResizeMode="CanResizeWithGrip" AllowsTransparency="True"
+        AllowDrop="True" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" x:Name="Screen"
         Title="MyWorkoutRoutines" Height="450" Width="810" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded">
 
     <Border x:Name="ParentBorder" Background="#8B0000" CornerRadius="15,15,15,15" Padding="8" BorderThickness=".65">
