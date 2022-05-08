@@ -5,21 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyWorkoutRoutines"
         mc:Ignorable="d"
-        AllowDrop="True" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" x:Name="Screen"
+        AllowDrop="True" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" x:Name="MainScreen" WindowStartupLocation="CenterScreen"
         Title="MyWorkoutRoutines" Height="450" Width="810" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded">
 
-    <Border x:Name="ParentBorder" Background="#8B0000" CornerRadius="15,15,15,15" Padding="8" BorderThickness=".65">
-        <Grid x:Name="ParentGrid" >
+    <Border x:Name="ParentBorder" Background="#8B0000" CornerRadius="15,15,15,15" Padding="8" BorderThickness=".65" MouseLeftButtonDown="DrawWindow_MouseLeftButtonDown">
+        <Grid x:Name="ParentGrid" Margin="-8,0,-8,8">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="45"></RowDefinition>
+                <RowDefinition Height="355"></RowDefinition>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <UserControl Grid.Row="0" Name="UserControl"/>
-            <Border x:Name="TitleDrawBar" CornerRadius="25,15,0,0" Background="#8B0000" Margin="-8,-8,-8,391.333"
-                    VerticalAlignment="Top" MinHeight="50" UseLayoutRounding="False"
-                    MouseLeftButtonDown="DrawWindow_MouseLeftButtonDown"/>
 
-            
+
+            <TextBlock Grid.Row="0" Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="0,-2,23,27" Text="MyWorkoutRoutines"/>
+
             <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-5,-10,0">
                 <Button Width="25"
                         Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program"
@@ -30,16 +31,20 @@
                 <Button Width="25"
                         Margin="138,2,47,2" Height="25" Content="🗕" Click="Minimize_Program"
                         Background="{x:Null}" Foreground="#EBEBEB" BorderBrush="{x:Null}"/>
-
             </Grid>
-            <TextBlock Grid.Row="0" Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="0,-2,0,402" Text="MyWorkoutRoutines" Grid.RowSpan="2"/>
-            
-            <!--<ContentControl Margin="92,0,0,407" Grid.Row="1"/>-->
-            <TabControl Grid.Row="1" Margin="-8,0,-8,0" BorderThickness="0" Height="397" VerticalAlignment="Top" Background="#EBEBEB"
-                    >
+
+
+
+            <!--<TabControl Grid.Row="1" Margin="-8,0,-8,0" BorderThickness="0" Height="397" VerticalAlignment="Top" Background="#EBEBEB">
                 <TabItem x:Name="Hauptbildschirm" Header="Hauptbildschirm" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" Height="30" FontWeight="Bold" Foreground="#8B0000">
 
-                    <Button x:Name="btnUpload" Background="#8B0000" Foreground="#EBEBEB" FontWeight="Light" FontFamily="Arial" Grid.Row="2" Height="48" Width="48" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,15" FontSize="32" VerticalContentAlignment="Center" BorderBrush="#8B0000" Content="+">
+                </TabItem>
+
+
+                <TabItem Header="Routinen erstellen" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
+                    <Button x:Name="btnUpload" Background="#8B0000" Foreground="#EBEBEB" BorderThickness="0" FontWeight="Light" FontFamily="Arial" Grid.Row="2" Height="48" Width="48"
+                            VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,15" FontSize="32" VerticalContentAlignment="Center" BorderBrush="#8B0000" Content="+"
+                            Click="btnCreateRoutine">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="21"></Setter>
@@ -47,19 +52,25 @@
                         </Button.Resources>
                     </Button>
 
-                </TabItem>
 
-
-                <TabItem Header="Routinen erstellen" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
 
                 </TabItem>
+                <UserControl Name="Main"/>
                 <TabItem Header="Meine Routinen" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
 
                 </TabItem>
-                <TabItem Header="Trainingsverlauf" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB" >
+                <TabItem Header="Trainingsverlauf" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
 
                 </TabItem>
-            </TabControl>
+                    
+            </TabControl>-->
+
+            <Button Grid.Row="1" Margin="0,7,649,8" Content="Hauptbildschirm" Background="White" BorderBrush="White" Height="30" FontWeight="Bold" Foreground="#8B0000"/>
+            <Button Grid.Row="1" Margin="160,7,465,8" Content="Routinen erstellen" Background="White" BorderBrush="White" Height="30" FontWeight="Bold" Foreground="#8B0000" Click="btnCreateRoutine"/>
+            <Button Grid.Row="1" Margin="364,10,246,5" Content="Meine Routinen" Background="White" BorderBrush="White" Height="30" FontWeight="Bold" Foreground="#8B0000" />
+            <Button Grid.Row="1" Margin="573,10,0,5" Content="Trainingsverlauf" Background="White" BorderBrush="White" Height="30" FontWeight="Bold" Foreground="#8B0000"/>
+
+            <UserControl Grid.Row="2" x:Name="Main"/>
 
         </Grid>
     </Border>

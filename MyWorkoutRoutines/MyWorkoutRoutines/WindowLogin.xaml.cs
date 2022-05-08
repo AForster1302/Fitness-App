@@ -85,9 +85,10 @@ namespace MyWorkoutRoutines
 
                 using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
                 {
-                    mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
+                   mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
 
-                    
+                    mainWindow.Show();
+                    this.Close();
                 }
                     
             }

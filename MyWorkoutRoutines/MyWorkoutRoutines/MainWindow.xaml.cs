@@ -39,7 +39,6 @@ namespace MyWorkoutRoutines
 
             if (e.LeftButton == MouseButtonState.Pressed)
             {
-                //wip
                 this.DragMove();
             }
         }
@@ -57,12 +56,12 @@ namespace MyWorkoutRoutines
                 case WindowState.Maximized:
                     MaximizeProgram.Content = "🗖";
                     WindowState = WindowState.Normal;
-                    TitleDrawBar.CornerRadius = new CornerRadius(25, 15, 0, 0);
+                    ParentBorder.CornerRadius = new CornerRadius(25, 15, 0, 0);
                     break;
                 case WindowState.Normal:
                     MaximizeProgram.Content = "🗗";
                     WindowState = WindowState.Maximized;
-                    TitleDrawBar.CornerRadius = new CornerRadius(0);
+                    ParentBorder.CornerRadius = new CornerRadius(0);
                     break;
             }
         }
@@ -85,6 +84,23 @@ namespace MyWorkoutRoutines
         {
             WindowLogin windowLogin = new WindowLogin(this);
             windowLogin.Show();
+        }
+
+        private void btnCreateRoutine(object sender, RoutedEventArgs e)
+        {
+            PanelCreatingRoutine();
+        }
+
+        public void CreatingRoutine()
+        {
+            CreatingRoutine creatingRoutine = new CreatingRoutine(this);
+            Main.Content = creatingRoutine;
+        }
+
+        public void PanelCreatingRoutine()
+        {
+            PanelCreatingRoutine creatingRoutine = new PanelCreatingRoutine(this);
+            Main.Content = creatingRoutine;
         }
     }
 }
