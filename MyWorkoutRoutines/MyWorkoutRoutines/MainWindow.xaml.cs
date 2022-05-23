@@ -56,7 +56,7 @@ namespace MyWorkoutRoutines
                 case WindowState.Maximized:
                     MaximizeProgram.Content = "🗖";
                     WindowState = WindowState.Normal;
-                    ParentBorder.CornerRadius = new CornerRadius(25, 15, 0, 0);
+                    ParentBorder.CornerRadius = new CornerRadius(15, 15, 15, 15);
                     break;
                 case WindowState.Normal:
                     MaximizeProgram.Content = "🗗";

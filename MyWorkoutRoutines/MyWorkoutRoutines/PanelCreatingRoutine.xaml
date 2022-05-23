@@ -5,25 +5,108 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyWorkoutRoutines"
              mc:Ignorable="d" 
-             d:DesignHeight="355" d:DesignWidth="810" Background="#EBEBEB" x:Name="CreateRoutinePage" Loaded="CreateRoutinePage_Loaded">
-    <Grid>
+             Background="#EBEBEB" x:Name="CreateRoutinePage" Loaded="CreateRoutinePage_Loaded" BorderThickness="0">
+
+
+    <Grid x:Name="ParentGrid" MinWidth="810" MinHeight="355">
         <UserControl x:Name="Pagee"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition MinWidth="270"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition MinHeight="250"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-        <ListBox Margin="10,10,599,10" Loaded="ListBox_Loaded" x:Name="listboxExercises">
-            <ListBoxItem >
-                <TextBlock></TextBlock>
-            </ListBoxItem>
+                    
+                    <ToggleButton x:Name="btnStomach" Grid.Row="0" Grid.Column="0" Margin="0 0 55 0"  Content="Bauch"  Height="25" Width="25" Checked="tBtn_Stomach" Unchecked="tBtnStomach_Unchecked"/>
+                    
+                    <ToggleButton x:Name="btnBack"  Grid.Row="1" Grid.Column="0" Margin="0 0 30 0" Content="Rücken" Height="25" Width="25" Checked="tBtn_Back" Unchecked="tBtnBack_Unchecked"/>
+                    
+                    <ToggleButton x:Name="btnChest" Grid.Row="0" Grid.Column="1" Margin="0 0 55 0" Content="Brust" Height="25" Width="25" Checked="tBtn_Chest" Unchecked="tBtnChest_Unchecked"/>
+                    
+                    <ToggleButton x:Name="btnArm" Grid.Row="1" Grid.Column="1" Margin="0 0 30 0" Content="Arm" Height="25" Width="25" Checked="tBtn_Arm" Unchecked="tBtnArm_Unchecked"/>
+                    
+                    <ToggleButton x:Name="btnShoulders" Grid.Row="0" Grid.Column="2" Margin="0 0 55 0" Content="Schultern" Height="25" Width="25" Checked="tBtn_Shoulders" Unchecked="tBtnShoulders_Unchecked"/>
+                    
+                    <ToggleButton x:Name="btnLegs" Grid.Row="1" Grid.Column="2" Margin="0 0 30 0" Content="Beine" Height="25" Width="25" Checked="tBtn_Legs" Unchecked="tBtnLegs_Unchecked"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Bauch" VerticalAlignment="Center" Margin="35 0 0 0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Rücken" VerticalAlignment="Center" Margin="47 0 0 0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Brust" VerticalAlignment="Center" Margin="35 0 0 0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Arme" VerticalAlignment="Center" Margin="47 0 0 0"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Text="Schultern" VerticalAlignment="Center" Margin="35 0 0 0"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Beine" VerticalAlignment="Center" Margin="47 0 0 0"/>
+                </Grid>
 
-        </ListBox>
+                <TextBox Grid.Column="0" Grid.Row="1" Margin="5" Text="Suche" FontWeight="Bold" FontSize="16" Padding="5 0 0 0" Foreground="#50000000" VerticalContentAlignment="Center" x:Name="Searchbox" GotFocus="Searchbox_GotFocus"  TextChanged="Searchbox_TextChanged">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
 
-        <ListBox Margin="373,10,236,10" Loaded="ListBox_Loaded">
-            <ListBoxItem >
-                <TextBlock></TextBlock>
-            </ListBoxItem>
+                <ListView Grid.Row="2" Grid.Column="0" MouseDoubleClick="lbExercises_MouseDoubleClick" x:Name="lwExercises" ItemsSource="{Binding}" FontSize="14" Foreground="Black" IsSynchronizedWithCurrentItem="True" BorderBrush="Transparent" Background="#F0F0F0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ExerciseName}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
-        </ListBox>
+            </Grid>
+            <Grid Grid.Column="1" Margin="100 0 100 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
 
-        <Button x:Name="btnUpload" Background="#8B0000" Foreground="#EBEBEB" BorderThickness="0" FontWeight="Light" FontFamily="Arial" Grid.Row="2" Height="48" Width="48"
+                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" Text="Name"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="8"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+
+                <ListView x:Name="lwRoutine" Grid.Row="1" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding ExerciseName}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Button Grid.Column="1" Grid.Row="2" Content="Routine erstellen" FontFamily="Nirmala UI"  Height="28" Width="120" VerticalContentAlignment="Center" Foreground="#EBEBEB" FontWeight="Bold" Click="btnCreateRoutine" BorderBrush="Transparent" Background="#8B0000">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"></Setter>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+
+
+        </Grid>
+
+
+
+        <Button x:Name="btnUpload" Background="#8B0000" Foreground="#EBEBEB" BorderThickness="0" FontWeight="Light" FontFamily="Arial" Height="48" Width="48"
                             VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,15" FontSize="32" VerticalContentAlignment="Center" BorderBrush="#8B0000" Content="+"
                             Click="btnCreatingRoutine">
             <Button.Resources>
@@ -32,5 +115,8 @@
                 </Style>
             </Button.Resources>
         </Button>
+
+        <TextBlock x:Name="tb" Margin="780,201,-760,-186" Foreground="AliceBlue"/>
+        <!--<ToggleButton x:Name="btnWarmUp" Grid.Row="0" Content="Aufwärmen" Height="20" Width="20" Margin="306,35,484,300" Checked="tBtn_WarmUp" Unchecked="tBtnWarmUp_Unchecked"/>-->
     </Grid>
 </UserControl>

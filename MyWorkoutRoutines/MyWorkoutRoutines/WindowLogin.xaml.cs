@@ -25,8 +25,7 @@ namespace MyWorkoutRoutines
         {
             InitializeComponent();
             mainWindow = _mainWindow;
-            Username.Focus();
-        
+
         }
 
         public WindowLogin()
@@ -46,26 +45,6 @@ namespace MyWorkoutRoutines
             mainWindow.Close();
         }
 
-        private void WindowNormalMaximize()
-        {
-            switch (WindowState)
-            {
-                case WindowState.Maximized:
-                    MaximizeProgram.Content = "🗖";
-                    WindowState = WindowState.Normal;
-                    break;
-                case WindowState.Normal:
-                    MaximizeProgram.Content = "🗗";
-                    WindowState = WindowState.Maximized;
-                    break;
-            }
-        }
-
-        private void Maximize_Program(object sender, RoutedEventArgs e)
-        {
-            WindowNormalMaximize();
-        }
-
         private void Minimize_Program(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -80,33 +59,33 @@ namespace MyWorkoutRoutines
 
         private void Button_Login(object sender, RoutedEventArgs e)
         {
-            if (Username.Text != "" && Password.Text != "" && CheckPassword())
+            if (Username.Text != "" && PasswordBox.Text != "" && CheckPassword())
             {
 
                 using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
                 {
-                   mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
-
+                    mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
+                    //wip after Registration
                     mainWindow.Show();
                     this.Close();
                 }
-                    
+
             }
 
             else if (Username.Text == "")
             {
-                MessageBox.Show("You need to type in your username.");
+                MessageBox.Show("Geben Sie Ihren Nutzernamen ein.");
             }
 
-            else if (Password.Text == "")
+            else if (PasswordBox.Text == "")
             {
-                MessageBox.Show("You need to type in your password.");
+                MessageBox.Show("Geben Sie Ihr Passwort ein.");
             }
 
             else
             {
-                MessageBox.Show("Wrong password or username. \nPlease try again.");
-                Password.Text = "";
+                MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
+                PasswordBox.Text = "";
             }
         }
 
@@ -118,7 +97,7 @@ namespace MyWorkoutRoutines
             if (salt != "")
             {
                 byte[] saltBytes = Convert.FromBase64String(salt);
-                Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(Password.Text, saltBytes);
+                Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(PasswordBox.Text, saltBytes);
                 byte[] enteredHash = rfc2898DeriveBytes.GetBytes(20);
                 string str = Convert.ToBase64String(enteredHash);
                 string expectedHash = GetHashFromDB();
@@ -159,7 +138,7 @@ namespace MyWorkoutRoutines
         {
             if (e.Key == Key.Enter)
             {
-                Password.Focus();
+                PasswordBox.Focus();
             }
         }
 
@@ -171,15 +150,81 @@ namespace MyWorkoutRoutines
             }
         }
 
-        
+
 
         private void Register(object sender, RoutedEventArgs e)
         {
-            WindowRegister windowRegister = new WindowRegister();
+            WindowRegister windowRegister = new WindowRegister(mainWindow, this);
             windowRegister.Show();
             Login.Hide();
 
         }
 
+        private void Password_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            PasswordBox.Clear();
+        }
+
+        private void Username_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Username.Clear();
+        }
+
+        public void LoginShow()
+        {
+            Login.Show();
+        }
+
+        public void pwBox()
+        {
+
+        }
+
+        private void Username_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Username.Text = string.Empty;
+            Username.GotFocus -= Username_GotFocus;
+        }
+
+        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            PasswordBox.Text = string.Empty;
+            PasswordBox.GotFocus -= PasswordBox_GotFocus;
+        }
+
+        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (Username.Text != "" && PasswordBox.Text != "" && CheckPassword())
+                {
+
+                    using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+                    {
+                        mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
+                        //wip after Registration
+                        mainWindow.Show();
+                        this.Close();
+                    }
+
+                }
+
+                else if (Username.Text == "")
+                {
+                    MessageBox.Show("Geben Sie Ihren Nutzernamen ein.");
+                }
+
+                else if (PasswordBox.Text == "")
+                {
+                    MessageBox.Show("Geben Sie Ihr Passwort ein.");
+                }
+
+                else
+                {
+                    MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
+                    PasswordBox.Text = "";
+                }
+            }
+        }
     }
 }

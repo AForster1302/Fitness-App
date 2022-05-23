@@ -24,9 +24,12 @@ namespace MyWorkoutRoutines
     public partial class WindowRegister : Window
     {
         MainWindow mainWindow;
-        public WindowRegister(MainWindow _mainWindow)
+        WindowLogin windowLogin;
+        public WindowRegister(MainWindow _mainWindow, WindowLogin _windowLogin)
         {
+            
             InitializeComponent();
+            windowLogin = _windowLogin;
             mainWindow = _mainWindow;
             Username.Focus();
         }
@@ -43,12 +46,12 @@ namespace MyWorkoutRoutines
 
             if (!usernameCheck)
             {
-                MessageBox.Show("This username already exists.");
+                MessageBox.Show("Dieser Nutzername existiert bereits.");
             }
 
             else if (!passwordCheck)
             {
-                MessageBox.Show("Both passwords must be identical.");
+                MessageBox.Show("Die Passwörter müssen identisch sein.");
             }
 
 
@@ -69,9 +72,14 @@ namespace MyWorkoutRoutines
                     ctx.SaveChanges();
                 }
 
-                MessageBox.Show("Your user account was successfully created.");
-                Registration.Hide();
+                MessageBox.Show("Ihr Account wurde erfolgreich erstellt.");
                 
+               
+                Registration.Close();
+                windowLogin.Show();
+                
+
+
             }
         }
 
@@ -139,26 +147,6 @@ namespace MyWorkoutRoutines
             mainWindow.Close();
         }
 
-        private void WindowNormalMaximize()
-        {
-            switch (WindowState)
-            {
-                case WindowState.Maximized:
-                    MaximizeProgram.Content = "🗖";
-                    WindowState = WindowState.Normal;
-                    break;
-                case WindowState.Normal:
-                    MaximizeProgram.Content = "🗗";
-                    WindowState = WindowState.Maximized;
-                    break;
-            }
-        }
-
-        private void Maximize_Program(object sender, RoutedEventArgs e)
-        {
-            WindowNormalMaximize();
-        }
-
         private void Minimize_Program(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -174,6 +162,7 @@ namespace MyWorkoutRoutines
         private void Back(object sender, RoutedEventArgs e)
         {
             mainWindow.WindowLogin();
+            Registration.Close();
         }
     }
 }

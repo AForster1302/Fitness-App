@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         xmlns:local="clr-namespace:MyWorkoutRoutines"
         mc:Ignorable="d"
         Title="WindowLogin" Height="750" Width="425" WindowStartupLocation="CenterScreen" WindowStyle="None"
@@ -17,54 +17,52 @@
     <Grid x:Name="left">
 
         <UserControl Name="LoginUC"/>
+        <StackPanel>
 
-        <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button Width="25" FontSize="16"
+
+            <Grid Grid.Row="1" Width="210" Height="30"  VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Width="25" FontSize="16"
                         Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program"
                         Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}"  />
-            <Button x:Name="MaximizeProgram" FontSize="16"
-                        Width="25" Height="25" Margin="153,2,32,2" Content="🗖"
-                        Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}" Click="Maximize_Program" />
-            <Button Width="25" FontSize="16"
-                        Margin="128,2,57,2" Height="25" Content="🗕" Click="Minimize_Program"
+                <Button Width="25" FontSize="16"
+                        Margin="152,2,33,2" Height="25" Content="🗕" Click="Minimize_Program"
                         Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}"/>
 
-        </Grid>
+            </Grid>
 
+            <Label Grid.Row="1" Content="Login" Margin="40 29 0 55" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="30" />
 
-        <Label Content="Login" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" Margin="35,58,172,642" FontSize="30" />
+            <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 15" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="{StaticResource FontAwesome}"
+                 Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="PasswordBox" FontSize="16" Height="50" Margin="40 0 40 12" Padding="8 0 0 0" Text="&#xf007;  Passwort" FontFamily="Nirmala UI" 
+                 Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PasswordBox_GotFocus" KeyDown="PasswordBox_KeyDown" >
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
 
+            <CheckBox x:Name="CheckboxPW" VerticalContentAlignment="Center" FontSize="16" FontFamily="Nirmala UI" BorderBrush="#E0E0E0"
+                      Margin="230 0 35 70" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen" Grid.Row="4" />
 
+            <Button Content="Login" Click="Button_Login" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="Transparent" Background="#8B0000" Height="50" Margin="40 0 35 70">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
-        <TextBox x:Name="Username" FontSize="16" Margin="35,139,35,549" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="Nirmala UI" 
-                 Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000">
-            <TextBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <TextBox x:Name="Password" FontSize="16" Margin="35,206,35,482" Padding="8 0 0 0" Text="&#xf30d;  Password" FontFamily="Nirmala UI"
-                 Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000">
-            <TextBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter> 
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-
-        <CheckBox x:Name="CheckboxPW" VerticalContentAlignment="Center" FontSize="16" Margin="234,273,35,453" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen"/>
-
-        <Button Margin="35,385,35,293" Content="Login" Click="Button_Login" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" BorderBrush="Transparent" Background="#8B0000" >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
-                </Style>
-            </Button.Resources>
-        </Button>
-
-        <Label Content="Du hast noch keinen Account?" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" Margin="88,523,82,184" FontSize="16" />
-        <Label Content="_____________________________________________________________________________" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" Margin="80,531,76,177" FontSize="16" />
-        <Button Content="Erstelle hier einen Account" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" Margin="104,563,107,150" FontSize="16" Background="Transparent" BorderBrush="Transparent" Click="Register"/>
+            <Label Content="Du hast noch keinen Account?" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" FontSize="16" HorizontalAlignment="Center" />
+            <Separator FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" Width="250" FontSize="16"  />
+            <Button Content="Erstelle hier einen Account" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="16" Background="Transparent" BorderBrush="Transparent" Click="Register" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>

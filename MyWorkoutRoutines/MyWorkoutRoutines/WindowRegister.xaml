@@ -9,67 +9,63 @@
         ResizeMode="NoResize" Background="#F0F0F0" x:Name="Registration" MouseDown="Login_MouseDown">
 
     <Grid>
-
-        <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right">
-            <Button Width="25" FontSize="16"
+        <StackPanel>
+            <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Width="25" FontSize="16"
                         Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program"
                         Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}"  />
-            <Button x:Name="MaximizeProgram" FontSize="16"
-                        Width="25" Height="25" Margin="153,2,32,2" Content="🗖"
-                        Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}" Click="Maximize_Program" />
-            <Button Width="25" FontSize="16"
-                        Margin="128,2,57,2" Height="25" Content="🗕" Click="Minimize_Program"
+                <Button Width="25" FontSize="16"
+                        Margin="152,2,33,2" Height="25" Content="🗕" Click="Minimize_Program"
                         Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}"/>
 
-        </Grid>
+            </Grid>
 
-        <Button Margin="341,37,10,688" Content="&#xf30a;  Zurück" FontFamily="Nirmala UI" Foreground="#404040" FontWeight="Bold" Click="Back" BorderBrush="Transparent" Background="#15000000">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"></Setter>
-                </Style>
-            </Button.Resources>
-        </Button>
-        
-        <Label Content="Registrierung" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" Margin="35,61,98,391" FontSize="22" />
+            <Button Content="&#xf30a;  Zurück" FontFamily="Nirmala UI" Margin="320 25 20 5" Height="25" VerticalContentAlignment="Center" Foreground="#404040" FontWeight="Bold" Click="Back" BorderBrush="Transparent" Background="#15000000">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
 
-        <TextBox x:Name="Username" Margin="35,134,35,577" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="Nirmala UI" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000">
-            <TextBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
-                </Style>
-            </TextBox.Resources>
-        </TextBox>
-        <TextBox x:Name="Password" Margin="35,181,35,530" Padding="8 0 0 0" Text="&#xf30d;  Passwort" FontFamily="Nirmala UI" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" >
-            <TextBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
+            <Label Content="Registrierung" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="22" Margin="40 29 0 55"/>
 
-                </Style>
+            <TextBox x:Name="Username" Height="50" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="Nirmala UI" FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </TextBox.Resources>
+            </TextBox>
+            <TextBox x:Name="Password" Height="50" Padding="8 0 0 0" Text="&#xf30d;  Passwort" FontFamily="Nirmala UI" FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
 
-            </TextBox.Resources>
-        </TextBox>
+                    </Style>
 
-        <TextBox x:Name="RepeatPassword" Margin="35,228,35,481" Padding="8 0 0 0" Text="&#xf30d;  Passwort wiederholen" FontFamily="Nirmala UI" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000">
-            <TextBox.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </TextBox.Resources>
+            </TextBox>
 
-                </Style>
+            <TextBox x:Name="RepeatPassword" Height="50" Padding="8 0 0 0" Text="&#xf30d;  Passwort wiederholen" FontFamily="Nirmala UI" FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 12">
+                <TextBox.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
 
-            </TextBox.Resources>
-        </TextBox>
+                    </Style>
 
-        <CheckBox x:Name="CheckboxPW" Margin="235,274,35,448" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen">
+                </TextBox.Resources>
+            </TextBox>
 
-        </CheckBox>
+            <CheckBox x:Name="CheckboxPW" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" FontSize="16" VerticalContentAlignment="Center" Background="#E8E8E8" Content="Passwort anzeigen" Margin="230 0 35 70"/>
 
-        <Button Margin="35,347,35,303" Content="Registrieren" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" BorderBrush="Transparent" Background="#8B0000" Click="Register">
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="5"></Setter>
-                </Style>
-            </Button.Resources>
-        </Button>
+            <Button Content="Registrieren" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="Transparent" Background="#8B0000" Height="50" Click="Register" Margin="40 0 35 70">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="5"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
