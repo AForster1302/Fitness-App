@@ -26,12 +26,11 @@ namespace MyWorkoutRoutines
     {
         MainWindow mainWindow;
 
-        List<Exercises> listExercises = new List<Exercises>();
+        List<Exercise> listExercise = new List<Exercise>();
 
         ICollectionView CollectionView;
 
-        public MyWorkoutRoutines_Entities Context = new MyWorkoutRoutines_Entities();
-
+        public MyWorkoutRoutinesEntities2 Context = new MyWorkoutRoutinesEntities2();
         public PanelCreatingRoutine(MainWindow _mainWindow)
         {
             InitializeComponent();
@@ -45,45 +44,45 @@ namespace MyWorkoutRoutines
 
         private void btnCreatingRoutine(object sender, RoutedEventArgs e)
         {
-            Pagee.Content = new CreatingRoutine();
+            //Pagee.Content = new CreatingRoutine();
         }
 
         private void CreateRoutinePage_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.Exercises.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercises.Local);
+            Context.Exercise.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
             ParentGrid.DataContext = CollectionView;
         }
 
         private void tBtn_Stomach(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = x => ((Exercises)x).Category == "Bauch";
+            CollectionView.Filter = x => ((Exercise)x).Category == "Bauch";
         }
 
 
         private void tBtn_Back(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = x => ((Exercises)x).Category == "Rücken";
+            CollectionView.Filter = x => ((Exercise)x).Category == "Rücken";
         }
 
         private void tBtn_Chest(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = x => ((Exercises)x).Category == "Brust";
+            CollectionView.Filter = x => ((Exercise)x).Category == "Brust";
         }
 
         private void tBtn_Arm(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = x => ((Exercises)x).Category == "Arm";
+            CollectionView.Filter = x => ((Exercise)x).Category == "Arm";
         }
 
         private void tBtn_Shoulders(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = x => ((Exercises)x).Category == "Schultern";
+            CollectionView.Filter = x => ((Exercise)x).Category == "Schultern";
         }
 
         private void tBtn_Legs(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = x => ((Exercises)x).Category == "Beine";
+            CollectionView.Filter = x => ((Exercise)x).Category == "Beine";
         }
 
         private void tBtn_WarmUp(object sender, RoutedEventArgs e)
@@ -129,28 +128,37 @@ namespace MyWorkoutRoutines
 
         private void lbExercises_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            //Exercise ex = (Exercise)lwExercise.SelectedItem;
             lwRoutine.Items.Add(lwExercises.SelectedItem);
-            //listExercises.Add((Exercises)lwExercises.SelectedItem);
+            listExercise.Add((Exercise)lwExercises.SelectedItem);
 
         }
 
         //private void lbRoutine_Loaded(object sender, RoutedEventArgs e)
         //{
-        //    Context.Exercises.Load();
-        //    CollectionView = CollectionViewSource.GetDefaultView(Context.Exercises.Local);
+        //    Context.Exercise.Load();
+        //    CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
         //    ParentGrid.DataContext = CollectionView;
         //}
 
         private void btnCreateRoutine(object sender, RoutedEventArgs e)
         {
             Routine routine = new Routine();
+                       
             routine.RoutineName = RoutinenameBox.Text;
-            //routine.Exercises = listExercises;
-            routine.UserID = mainWindow.userid;
 
+            foreach (Exercise ex in listExercise)
+            {
+                RoutineExercises routineExercise = new RoutineExercises();
+                routineExercise.ExerciseID = ex.ExerciseID;
+                routineExercise.RoutineID = routine.RoutineID;
+                routine.RoutineExercises.Add(routineExercise);
+            }
+
+            routine.UserID = mainWindow.userid;
             Context.Routine.Add(routine);
             Context.SaveChanges();
-            lwRoutine.Items.Refresh();
+            lwRoutine.Items.Clear();
         }
 
         private void tba()
@@ -173,13 +181,13 @@ namespace MyWorkoutRoutines
             //string suchstr = Searchbox.Text.ToLower();
 
             //CollectionView.Filter = null;
-            //var list = CollectionView.Cast<Exercises>();
-            //Exercises exer = list.FirstOrDefault(x => x.ExerciseName.ToLower().Contains(suchstr) || x.ExerciseName.ToLower().Contains(suchstr));
+            //var list = CollectionView.Cast<Exercise>();
+            //Exercise exer = list.FirstOrDefault(x => x.ExerciseName.ToLower().Contains(suchstr) || x.ExerciseName.ToLower().Contains(suchstr));
             //CollectionView.MoveCurrentTo(exer);
 
-            string filter = Searchbox.Text.ToLower();
+            //string filter = Searchbox.Text.ToLower();
 
-            CollectionView.Filter = x => ((Exercises)x).ExerciseName.ToLower().Contains(filter);
+            //CollectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(filter);
         }
     }
 }

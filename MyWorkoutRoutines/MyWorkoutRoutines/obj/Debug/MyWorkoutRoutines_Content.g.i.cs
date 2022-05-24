@@ -8,8 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("myworkoutroutinesdb.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("myworkoutroutinesdb.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model1.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("model1.tt")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/fontawesome.otf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/fontawesome-webfont.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/fontawesome-webfont.eot")]

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyWorkoutRoutinesModelStoreContainer" CdmEntityContainer="MyWorkoutRoutinesEntities2">
+    <EntitySetMapping Name="Exercise">
+      <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Exercise">
+        <MappingFragment StoreEntitySet="Exercise">
+          <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="ExerciseName" ColumnName="ExerciseName" />
+          <ScalarProperty Name="Difficulty" ColumnName="Difficulty" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reminders">
+      <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Reminders">
+        <MappingFragment StoreEntitySet="Reminders">
+          <ScalarProperty Name="ReminderID" ColumnName="ReminderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routine">
+      <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Routine">
+        <MappingFragment StoreEntitySet="Routine">
+          <ScalarProperty Name="RoutineID" ColumnName="RoutineID" />
+          <ScalarProperty Name="RoutineName" ColumnName="RoutineName" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoutineExercises">
+      <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.RoutineExercises">
+        <MappingFragment StoreEntitySet="RoutineExercises">
+          <ScalarProperty Name="RoutineExercisesID" ColumnName="RoutineExercisesID" />
+          <ScalarProperty Name="Repetitions" ColumnName="Repetitions" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="BreakRoutine" ColumnName="BreakRoutine" />
+          <ScalarProperty Name="RoutineID" ColumnName="RoutineID" />
+          <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RoutineHistory">
+      <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.RoutineHistory">
+        <MappingFragment StoreEntitySet="RoutineHistory">
+          <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+          <ScalarProperty Name="DateHistory" ColumnName="DateHistory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Users">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="HashPassword" ColumnName="HashPassword" />
+          <ScalarProperty Name="Salt" ColumnName="Salt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

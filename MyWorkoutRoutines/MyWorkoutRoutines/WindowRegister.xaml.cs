@@ -57,7 +57,7 @@ namespace MyWorkoutRoutines
 
             else
             {
-                using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+                using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
                 {
                     Users newUser = new Users();
                     newUser.UserName = Username.Text;
@@ -103,7 +103,7 @@ namespace MyWorkoutRoutines
 
         private bool CheckUsername()
         {
-            using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+            using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
             {
                 if (ctx.Users.Where(x => x.UserName == Username.Text).Count() > 0)
                 {

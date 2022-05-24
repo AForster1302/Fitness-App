@@ -12,12 +12,12 @@ namespace MyWorkoutRoutines
     using System;
     using System.Collections.Generic;
     
-    public partial class Exercises
+    public partial class Exercise
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Exercises()
+        public Exercise()
         {
-            this.Routine = new HashSet<Routine>();
+            this.RoutineExercises = new HashSet<RoutineExercises>();
         }
     
         public int ExerciseID { get; set; }
@@ -27,6 +27,6 @@ namespace MyWorkoutRoutines
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Routine> Routine { get; set; }
+        public virtual ICollection<RoutineExercises> RoutineExercises { get; set; }
     }
 }

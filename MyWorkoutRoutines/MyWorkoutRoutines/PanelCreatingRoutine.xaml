@@ -9,7 +9,7 @@
 
 
     <Grid x:Name="ParentGrid" MinWidth="810" MinHeight="355">
-        <UserControl x:Name="Pagee"/>
+        <!--<UserControl x:Name="Pagee"/>-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="270"/>

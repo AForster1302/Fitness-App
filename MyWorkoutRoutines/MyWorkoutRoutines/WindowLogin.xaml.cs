@@ -62,7 +62,7 @@ namespace MyWorkoutRoutines
             if (Username.Text != "" && PasswordBox.Text != "" && CheckPassword())
             {
 
-                using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+                using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
                 {
                     mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
                     //wip after Registration
@@ -114,7 +114,7 @@ namespace MyWorkoutRoutines
 
         private string GetHashFromDB()
         {
-            using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+            using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
             {
                 return ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().HashPassword;
             }
@@ -122,7 +122,7 @@ namespace MyWorkoutRoutines
 
         private string GetSaltFromDB()
         {
-            using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+            using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
             {
                 if (ctx.Users.Where(x => x.UserName == Username.Text).Count() > 0)
                 {
@@ -199,7 +199,7 @@ namespace MyWorkoutRoutines
                 if (Username.Text != "" && PasswordBox.Text != "" && CheckPassword())
                 {
 
-                    using (MyWorkoutRoutines_Entities ctx = new MyWorkoutRoutines_Entities())
+                    using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
                     {
                         mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
                         //wip after Registration

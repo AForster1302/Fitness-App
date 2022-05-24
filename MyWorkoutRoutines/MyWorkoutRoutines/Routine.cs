@@ -14,13 +14,19 @@ namespace MyWorkoutRoutines
     
     public partial class Routine
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Routine()
+        {
+            this.RoutineExercises = new HashSet<RoutineExercises>();
+        }
+    
         public int RoutineID { get; set; }
         public string RoutineName { get; set; }
         public Nullable<System.DateTime> Datum { get; set; }
         public Nullable<int> UserID { get; set; }
-        public Nullable<int> ExerciseID { get; set; }
     
-        public virtual Exercises Exercises { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoutineExercises> RoutineExercises { get; set; }
         public virtual Users Users { get; set; }
     }
 }

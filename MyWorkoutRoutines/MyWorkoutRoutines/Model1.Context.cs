@@ -13,10 +13,10 @@ namespace MyWorkoutRoutines
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MyWorkoutRoutines_Entities : DbContext
+    public partial class MyWorkoutRoutinesEntities2 : DbContext
     {
-        public MyWorkoutRoutines_Entities()
-            : base("name=MyWorkoutRoutines_Entities")
+        public MyWorkoutRoutinesEntities2()
+            : base("name=MyWorkoutRoutinesEntities2")
         {
         }
     
@@ -25,7 +25,7 @@ namespace MyWorkoutRoutines
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Exercises> Exercises { get; set; }
+        public virtual DbSet<Exercise> Exercise { get; set; }
         public virtual DbSet<Reminders> Reminders { get; set; }
         public virtual DbSet<Routine> Routine { get; set; }
         public virtual DbSet<RoutineExercises> RoutineExercises { get; set; }

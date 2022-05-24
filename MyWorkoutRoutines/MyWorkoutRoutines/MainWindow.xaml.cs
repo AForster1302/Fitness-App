@@ -91,6 +91,11 @@ namespace MyWorkoutRoutines
             PanelCreatingRoutine();
         }
 
+        private void btnRoutines(object sender, RoutedEventArgs e)
+        {
+            PanelRoutines();
+        }
+
         public void CreatingRoutine()
         {
             CreatingRoutine creatingRoutine = new CreatingRoutine(this);
@@ -101,6 +106,12 @@ namespace MyWorkoutRoutines
         {
             PanelCreatingRoutine creatingRoutine = new PanelCreatingRoutine(this);
             Main.Content = creatingRoutine;
+        }
+
+        public void PanelRoutines()
+        {
+            //PanelRoutines creatingRoutine = new PanelRoutines(this);
+            //Main.Content = creatingRoutine;
         }
     }
 }
