@@ -12,11 +12,11 @@
         <StackPanel>
             <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Width="25" FontSize="16"
-                        Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program"
-                        Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}"  />
+                        Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program" Padding="0 -2 0 0"
+                        Style="{DynamicResource WindowButtonLogin}" Foreground="#8B0000" BorderBrush="{x:Null}"/>
                 <Button Width="25" FontSize="16"
-                        Margin="152,2,33,2" Height="25" Content="🗕" Click="Minimize_Program"
-                        Background="{x:Null}" Foreground="#8B0000" BorderBrush="{x:Null}"/>
+                        Margin="152,2,33,2" Height="25" Content="🗕" Click="Minimize_Program" Padding="0 -2 0 0"
+                        Style="{DynamicResource WindowButtonLogin}" Foreground="#8B0000" BorderBrush="{x:Null}"/>
 
             </Grid>
 

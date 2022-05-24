@@ -36,18 +36,18 @@
                 <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" FontSize="16" Style="{StaticResource MenuButton}"/>
             </Grid>
 
-            <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Text="  MyWorkoutRoutines"/>
+            <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="7 0 0 0" Text="MyWorkoutRoutines"/>
 
             <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-8,0,0">
-                <Button Width="25"
-                        Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program"
-                        Background="{x:Null}" Foreground="#EBEBEB" BorderBrush="{x:Null}"  />
-                <Button x:Name="MaximizeProgram"
-                        Width="25" Height="25" Margin="158,2,28,2" Content="🗖"
-                        Background="{x:Null}" Foreground="#EBEBEB" BorderBrush="{x:Null}" Click="Maximize_Program" />
-                <Button Width="25"
-                        Margin="138,2,47,2" Height="25" Content="🗕" Click="Minimize_Program"
-                        Background="{x:Null}" Foreground="#EBEBEB" BorderBrush="{x:Null}"/>
+                <Button Width="25" Padding="0 -2 0 0"
+                        Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program" 
+                        BorderBrush="{x:Null}"  Style="{DynamicResource WindowButton}"/>
+                <Button x:Name="MaximizeProgram" Padding="0 -2 0 0"
+                        Width="25" Height="25" Margin="156,2,29,2" Content="🗖" Style="{DynamicResource WindowButton}" 
+                        BorderBrush="{x:Null}" Click="Maximize_Program" />
+                <Button Width="25" Padding="0 -2 0 0"
+                        Margin="133,2,52,2" Height="25" Content="🗕" Click="Minimize_Program" Style="{DynamicResource WindowButton}"
+                        BorderBrush="{x:Null}"/>
             </Grid>
 
             <UserControl Grid.Row="2" x:Name="Main"/>

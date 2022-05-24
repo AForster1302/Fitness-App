@@ -10,11 +10,13 @@ C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWork
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\bin\Debug\FontAwesome.WPF.xml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\bin\Debug\de\EntityFramework.resources.dll
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\bin\Debug\de\EntityFramework.SqlServer.resources.dll
-C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.csproj.AssemblyReference.cache
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\FilterButtons.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\ListViewRoutine.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\ListViewRoutineBorder.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MenuButton.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MenuButtonTheme.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MiniMaximizeCloseButton.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\PlayButtonRoutine.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\CreatingRoutine.g.cs
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MainWindow.g.cs
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\PanelCreatingRoutine.g.cs
@@ -39,4 +41,5 @@ C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWork
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.csproj.CopyComplete
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.exe
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.pdb
-C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\ListViewRoutineBorder.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MiniMaximizeCloseButtonLogin.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\LoginRegistrationButton.baml
