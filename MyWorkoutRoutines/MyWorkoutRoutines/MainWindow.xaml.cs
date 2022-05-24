@@ -110,8 +110,8 @@ namespace MyWorkoutRoutines
 
         public void PanelRoutines()
         {
-            //PanelRoutines creatingRoutine = new PanelRoutines(this);
-            //Main.Content = creatingRoutine;
+            PanelRoutines creatingRoutine = new PanelRoutines(this);
+            Main.Content = creatingRoutine;
         }
     }
 }

@@ -30,10 +30,10 @@
                 <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
                 <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" Style="{StaticResource MenuButton}"/>
                 <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" Style="{StaticResource MenuButton}"/>-->
-                <RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold" BorderThickness="0"  Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" Click="btnRoutines" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold" BorderThickness="0" FontSize="16" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnRoutines" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" FontSize="16" Style="{StaticResource MenuButton}"/>
             </Grid>
 
             <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Text="  MyWorkoutRoutines"/>

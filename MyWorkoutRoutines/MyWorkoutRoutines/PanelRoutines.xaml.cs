@@ -22,8 +22,17 @@ namespace MyWorkoutRoutines
     /// </summary>
     public partial class PanelRoutines : UserControl
     {
+
+        MainWindow mainWindow;
         MyWorkoutRoutinesEntities2 Context = new MyWorkoutRoutinesEntities2();
         ICollectionView CollectionView;
+
+        public PanelRoutines(MainWindow _mainWindow)
+        {
+            InitializeComponent();
+            mainWindow = _mainWindow;
+
+        }
 
         public PanelRoutines()
         {
@@ -32,8 +41,8 @@ namespace MyWorkoutRoutines
 
         private void CreateRoutinePage_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.Exercise.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
+            Context.Routine.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(Context.Routine.Local);
             ParentGrid.DataContext = CollectionView;
         }
     }

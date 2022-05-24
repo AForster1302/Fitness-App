@@ -12,9 +12,9 @@
         <!--<UserControl x:Name="Pagee"/>-->
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="280"/>
                 <ColumnDefinition MinWidth="270"/>
-                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="90"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -61,7 +61,7 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <ListView Grid.Row="2" Grid.Column="0" MouseDoubleClick="lbExercises_MouseDoubleClick" x:Name="lwExercises" ItemsSource="{Binding}" FontSize="14" Foreground="Black" IsSynchronizedWithCurrentItem="True" BorderBrush="Transparent" Background="#F0F0F0">
+                <ListView Grid.Row="2" Grid.Column="0" MouseDoubleClick="lvExercises_MouseDoubleClick" x:Name="lvExercises" ItemsSource="{Binding}" FontSize="14" Foreground="Black" IsSynchronizedWithCurrentItem="True" BorderBrush="Transparent" Background="#F0F0F0">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding ExerciseName}"/>
@@ -77,7 +77,7 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" Text="Name"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus">
+                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" Text="Name"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus" MaxLength="25" MaxLines="1" MaxWidth="500">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -85,7 +85,7 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <ListView x:Name="lwRoutine" Grid.Row="1" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem="True">
+                <ListView x:Name="lvRoutine" Grid.Row="1" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem="True" MaxWidth="500">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding ExerciseName}"/>
@@ -116,7 +116,7 @@
             </Button.Resources>
         </Button>
 
-        <TextBlock x:Name="tb" Margin="780,201,-760,-186" Foreground="AliceBlue"/>
+
         <!--<ToggleButton x:Name="btnWarmUp" Grid.Row="0" Content="Aufwärmen" Height="20" Width="20" Margin="306,35,484,300" Checked="tBtn_WarmUp" Unchecked="tBtnWarmUp_Unchecked"/>-->
     </Grid>
 </UserControl>

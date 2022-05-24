@@ -8,6 +8,75 @@
              Background="#EBEBEB" x:Name="CreateRoutinePage" Loaded="CreateRoutinePage_Loaded" BorderThickness="0">
     
     <Grid x:Name="ParentGrid" MinWidth="810" MinHeight="355">
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition MaxWidth="120" Width="120"/>
+            <ColumnDefinition MinWidth="544" Width="*"/>
+            <ColumnDefinition MaxWidth="120" Width="120"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="workoutList" ListView.ItemContainerStyle="{StaticResource ListViewRoutineBorder}" ItemsSource="{Binding}" VerticalAlignment="Top" Grid.Column="1"
+                  Margin="0,10,0,0" MinWidth="544.5" Background="Transparent" ScrollViewer.CanContentScroll="False" BorderBrush="Transparent" HorizontalContentAlignment="Center">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="0 3 0 0" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="344.5"/>
+                            <ColumnDefinition Width="100"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border CornerRadius="45" 
+                                BorderBrush="Transparent" 
+                                BorderThickness="1" 
+                                HorizontalAlignment="Left" Height="85" 
+                                Margin="0,0,0,0" 
+                                Grid.ColumnSpan="3"
+                                VerticalAlignment="Top" 
+                                MinWidth="544.5">
+                            <Border.Style>
+                                <Style>
+                                    <Setter Property="Border.Background" Value="#333333" />
+                                    <!--<Style.Triggers>
+                                        <DataTrigger Binding="{Binding ElementName=Border}" Value="true">
+                                            <Setter Property="Border.Background" Value="#333333"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>-->
+                                </Style>
+                            </Border.Style>
+                        </Border>
+                        <!--<Border CornerRadius="30" 
+                                BorderBrush="Transparent" 
+                                Background="#5B9B8A" 
+                                BorderThickness="1" Height="60" 
+                                Width="60" HorizontalAlignment="Left" 
+                                VerticalAlignment="Top" 
+                                Margin="20,15"></Border>
+                        <TextBox Text="{Binding Length}" 
+                                 FontWeight="Bold" 
+                                 BorderBrush="Transparent" 
+                                 Background="Transparent" 
+                                 VerticalAlignment="Top" 
+                                 HorizontalAlignment="Left" 
+                                 TextAlignment="Center"  
+                                 Margin="15,10" Height="70" 
+                                 Width="70"  FontSize="38" 
+                                 FontFamily="Calibri" 
+                                 Foreground="#FFFFFF" 
+                                 VerticalContentAlignment="Center">
+
+                        </TextBox>-->
+                        <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3">
+                            
+                        </Border>
+                        <Border CornerRadius="27" BorderBrush="Transparent" Background="#8B0000" BorderThickness="1" Height="55" Width="55" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,15"></Border>
+                        <Button FontWeight="Bold" BorderBrush="Transparent" Background="Transparent" Grid.Column="0" Content=" ▶" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="12,8" Height="70" Width="70" FontSize="30" FontFamily="Calibri" Foreground="#FFFFFF" VerticalContentAlignment="Center"></Button>
+                        <!--<Label Content="" FontWeight="Bold" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,10" FontFamily="Calibri" Height="70" FontSize="38" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>-->
+                        <Label Content="{Binding RoutineName}" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
+                        <Button FontWeight="Bold" BorderBrush="Transparent" Background="Transparent" Grid.Column="2" Content="..." VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="12,10" Height="70" Width="70"  FontSize="38" Foreground="#333333" VerticalContentAlignment="Top"></Button>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </UserControl>

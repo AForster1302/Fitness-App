@@ -37,6 +37,7 @@ namespace MyWorkoutRoutines
             mainWindow = _mainWindow;
 
         }
+
         public PanelCreatingRoutine()
         {
             InitializeComponent();
@@ -126,11 +127,11 @@ namespace MyWorkoutRoutines
             CollectionView.Filter = null;
         }
 
-        private void lbExercises_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void lvExercises_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //Exercise ex = (Exercise)lwExercise.SelectedItem;
-            lwRoutine.Items.Add(lwExercises.SelectedItem);
-            listExercise.Add((Exercise)lwExercises.SelectedItem);
+            lvRoutine.Items.Add(lvExercises.SelectedItem);
+            listExercise.Add((Exercise)lvExercises.SelectedItem);
 
         }
 
@@ -158,12 +159,7 @@ namespace MyWorkoutRoutines
             routine.UserID = mainWindow.userid;
             Context.Routine.Add(routine);
             Context.SaveChanges();
-            lwRoutine.Items.Clear();
-        }
-
-        private void tba()
-        {
-            tb.Text = mainWindow.userid.ToString();
+            lvRoutine.Items.Clear();
         }
 
         private void RoutinenameBox_GotFocus(object sender, RoutedEventArgs e)
