@@ -17,6 +17,7 @@ namespace MyWorkoutRoutines
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Users()
         {
+            this.Reminders = new HashSet<Reminders>();
             this.Routine = new HashSet<Routine>();
         }
     
@@ -25,6 +26,8 @@ namespace MyWorkoutRoutines
         public string HashPassword { get; set; }
         public string Salt { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reminders> Reminders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Routine> Routine { get; set; }
     }

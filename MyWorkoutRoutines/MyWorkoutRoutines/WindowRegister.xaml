@@ -20,7 +20,7 @@
 
             </Grid>
 
-            <Button Content="&#xf30a;  Zurück" FontFamily="Nirmala UI" Margin="320 25 20 5" Height="25" VerticalContentAlignment="Center" Foreground="#404040" FontWeight="Bold" Click="Back" BorderBrush="Transparent" Background="#15000000">
+            <Button Content="&#xf30a;  Zurück" FontFamily="Nirmala UI" Margin="320 25 20 5" Height="25" VerticalContentAlignment="Center" Foreground="#404040" FontWeight="Bold" Click="Back" BorderBrush="Transparent" Background="#15000000" Style="{DynamicResource BackButton}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="10"></Setter>
@@ -30,14 +30,16 @@
 
             <Label Content="Registrierung" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="22" Margin="40 29 0 55"/>
 
-            <TextBox x:Name="Username" Height="50" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="Nirmala UI" FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
+            <TextBox x:Name="Username" Height="50" Padding="8 0 0 0" Text="&#xf007;  Nutzername" GotFocus="Username_GotFocus" FontFamily="Nirmala UI" FontSize="16" 
+                     Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <TextBox x:Name="Password" Height="50" Padding="8 0 0 0" Text="&#xf30d;  Passwort" FontFamily="Nirmala UI" FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
+            <TextBox x:Name="Password" Height="50" Padding="8 0 0 0" Text="&#xf30d;  Passwort" GotFocus="Password_GotFocus" FontFamily="Nirmala UI" 
+                     FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -47,7 +49,8 @@
                 </TextBox.Resources>
             </TextBox>
 
-            <TextBox x:Name="RepeatPassword" Height="50" Padding="8 0 0 0" Text="&#xf30d;  Passwort wiederholen" FontFamily="Nirmala UI" FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 12">
+            <TextBox x:Name="RepeatPassword" Height="50" Padding="8 0 0 0" Text="&#xf30d;  Passwort wiederholen" GotFocus="RepeatPassword_GotFocus" FontFamily="Nirmala UI" FontSize="16"
+                     Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 12">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -59,7 +62,7 @@
 
             <CheckBox x:Name="CheckboxPW" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" FontSize="16" VerticalContentAlignment="Center" Background="#E8E8E8" Content="Passwort anzeigen" Margin="230 0 35 70"/>
 
-            <Button Content="Registrieren" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="Transparent" Background="#8B0000" Height="50" Click="Register" Margin="40 0 35 70">
+            <Button Content="Registrieren" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="Transparent" Background="#8B0000" Height="50" Click="Register" Margin="40 0 35 70" Style="{DynamicResource RedButtonLogin}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>

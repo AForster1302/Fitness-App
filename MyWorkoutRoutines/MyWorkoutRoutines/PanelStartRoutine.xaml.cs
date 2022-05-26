@@ -36,10 +36,11 @@ namespace MyWorkoutRoutines
             RoutineID = routineID;
 
             RoutineName.Content = context.Routine.Where(r => r.RoutineID == RoutineID).FirstOrDefault().RoutineName;
-            ExerciseName.Content = "Übung: " + context.Exercise.Where(re => re.ExerciseID == RoutineID ).FirstOrDefault().ExerciseName;
+            //ExerciseName.Content = "Übung: " + context.Exercise.Where(re => re.ExerciseID == RoutineID ).FirstOrDefault().ExerciseName;
+            
             //ExerciseName.Content = context.Exercise.Where(r => r.RoutineID == RoutineID).FirstOrDefault().RoutineName;
-            ExerciseDescription.Text = context.Exercise.Where(e => e.ExerciseID == RoutineID).FirstOrDefault().Description;
-
+            //ExerciseDescription.Text = context.Exercise.Where(e => e.ExerciseID == RoutineID).FirstOrDefault().Description;
+            
             //exid = context.RoutineExercises.Where(re => re.RoutineID == RoutineID).FirstOrDefault().ExerciseID;
             //context.Routine.Where(r => r.RoutineID == RoutineID).
             var query =
@@ -49,6 +50,9 @@ namespace MyWorkoutRoutines
                 where routine.RoutineID == routineID
                 select exercise;
             exercises = query.ToList();
+
+            ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
+            ExerciseDescription.Text = exercises[ExerciseIndex].Description;
 
             List<RoutineExercises> routineExercises = context.RoutineExercises.Where(routineExercise => routineExercise.ExerciseID == exid).ToList();
             //List<Exercise> exercises = context.Exercise.SelectMany(x => x.RoutineExercises.Where(y => y.RoutineID == routineID))

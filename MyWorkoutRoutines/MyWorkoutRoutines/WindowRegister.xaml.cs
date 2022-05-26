@@ -26,12 +26,11 @@ namespace MyWorkoutRoutines
         MainWindow mainWindow;
         WindowLogin windowLogin;
         public WindowRegister(MainWindow _mainWindow, WindowLogin _windowLogin)
-        {
-            
+        {     
             InitializeComponent();
             windowLogin = _windowLogin;
             mainWindow = _mainWindow;
-            Username.Focus();
+
         }
 
         public WindowRegister()
@@ -144,6 +143,7 @@ namespace MyWorkoutRoutines
         private void Close_Program(object sender, RoutedEventArgs e)
         {
             Close();
+            windowLogin.Close();
             mainWindow.Close();
         }
 
@@ -164,5 +164,24 @@ namespace MyWorkoutRoutines
             mainWindow.WindowLogin();
             Registration.Close();
         }
+
+        private void Username_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Username.Text = string.Empty;
+            Username.GotFocus -= Username_GotFocus;
+        }
+
+        private void Password_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Password.Text = string.Empty;
+            Password.GotFocus -= Password_GotFocus;
+        }
+
+        private void RepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            RepeatPassword.Text = string.Empty;
+            RepeatPassword.GotFocus -= RepeatPassword_GotFocus;
+        }
+
     }
 }

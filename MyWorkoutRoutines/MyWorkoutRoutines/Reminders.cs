@@ -15,5 +15,9 @@ namespace MyWorkoutRoutines
     public partial class Reminders
     {
         public int ReminderID { get; set; }
+        public Nullable<System.DateTime> CalendarDate { get; set; }
+        public Nullable<int> UserID { get; set; }
+    
+        public virtual Users Users { get; set; }
     }
 }

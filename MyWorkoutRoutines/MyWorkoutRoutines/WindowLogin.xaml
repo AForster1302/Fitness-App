@@ -33,7 +33,7 @@
             <Label Grid.Row="1" Content="Login" Margin="40 29 0 55" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="30" />
 
             <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 15" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="{StaticResource FontAwesome}"
-                 Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
+                 Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -41,7 +41,7 @@
                 </TextBox.Resources>
             </TextBox>
             <TextBox x:Name="PasswordBox" FontSize="16" Height="50" Margin="40 0 40 12" Padding="8 0 0 0" Text="&#xf007;  Passwort" FontFamily="Nirmala UI" 
-                 Foreground="White" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PasswordBox_GotFocus" KeyDown="PasswordBox_KeyDown" >
+                 Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PasswordBox_GotFocus" KeyDown="PasswordBox_KeyDown" >
                 <TextBox.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -53,7 +53,7 @@
                       Margin="230 0 35 70" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen" Grid.Row="4" />
 
             <Button Content="Login" Click="Button_Login" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16"
-                    BorderBrush="Transparent" Background="#8B0000" Height="50" Margin="40 0 35 70">
+                    BorderBrush="Transparent" Background="#8B0000" Height="50" Margin="40 0 35 70" Style="{DynamicResource RedButtonLogin}">
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
@@ -74,7 +74,7 @@
 
             <Label Content="Du hast noch keinen Account?" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" FontSize="16" HorizontalAlignment="Center" />
             <Separator FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" Width="250" FontSize="16"  />
-            <Button Content="Erstelle hier einen Account" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="16" Background="Transparent" BorderBrush="Transparent" Click="Register" HorizontalAlignment="Center"/>
+            <Button Content="Erstelle hier einen Account" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="16" Background="Transparent" BorderBrush="Transparent" Click="Register" HorizontalAlignment="Center" Style="{DynamicResource AccountCreation}"/>
         </StackPanel>
     </Grid>
 </Window>

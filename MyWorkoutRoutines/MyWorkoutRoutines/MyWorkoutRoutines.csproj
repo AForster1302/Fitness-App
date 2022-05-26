@@ -92,6 +92,9 @@
     <Compile Include="PanelCreatingRoutine.xaml.cs">
       <DependentUpon>PanelCreatingRoutine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PanelHomeScreen.xaml.cs">
+      <DependentUpon>PanelHomeScreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PanelRoutineHistory.xaml.cs">
       <DependentUpon>PanelRoutineHistory.xaml</DependentUpon>
     </Compile>
@@ -138,6 +141,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="PanelHomeScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PanelRoutineHistory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PanelStartRoutine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\CreateRoutineButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

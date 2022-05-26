@@ -17,6 +17,12 @@ GO
 DROP TABLE IF EXISTS RoutineExercises;
 DROP TABLE IF EXISTS Routine;
 DROP TABLE IF EXISTS Users;
+DROP TABLE IF EXISTS RoutineHistory;
+
+DROP TABLE IF EXISTS Exercise;
+
+
+DROP TABLE IF EXISTS Reminders;
 
 CREATE TABLE Users(
 	UserID INT Not Null Primary Key Identity(1,1),
@@ -32,7 +38,7 @@ CREATE TABLE Users(
 --    DROP TABLE Exercise;
 --GO
 
-DROP TABLE IF EXISTS Exercise;
+
 
 CREATE TABLE Exercise(
 	ExerciseID INT Not Null Primary Key Identity(1,1),
@@ -90,10 +96,13 @@ CREATE TABLE RoutineExercises(
 --    DROP TABLE Reminders;
 --GO
 
-DROP TABLE IF EXISTS Reminders;
+
 
 CREATE TABLE Reminders(
   ReminderID INT Not Null Primary Key Identity(1,1), 
+  CalendarDate DATETIME,
+	UserID INT,
+		Constraint fk_User Foreign Key (UserID) References Users(UserID),
 
 );
 
@@ -103,7 +112,7 @@ CREATE TABLE Reminders(
 --    DROP TABLE RoutineHistory;
 --GO
 
-DROP TABLE IF EXISTS RoutineHistory;
+
 
 CREATE TABLE RoutineHistory(
 	HistoryID INT Not Null Primary Key Identity(1,1),

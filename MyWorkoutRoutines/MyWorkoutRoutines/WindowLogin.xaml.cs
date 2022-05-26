@@ -67,6 +67,7 @@ namespace MyWorkoutRoutines
                     mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
                     //wip after Registration
                     mainWindow.Show();
+                    mainWindow.PanelHomeScreen();
                     this.Close();
                 }
 
@@ -150,8 +151,6 @@ namespace MyWorkoutRoutines
             }
         }
 
-
-
         private void Register(object sender, RoutedEventArgs e)
         {
             WindowRegister windowRegister = new WindowRegister(mainWindow, this);
@@ -175,10 +174,6 @@ namespace MyWorkoutRoutines
             Login.Show();
         }
 
-        public void pwBox()
-        {
-
-        }
 
         private void Username_GotFocus(object sender, RoutedEventArgs e)
         {
@@ -204,6 +199,7 @@ namespace MyWorkoutRoutines
                         mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
                         //wip after Registration
                         mainWindow.Show();
+                        mainWindow.PanelHomeScreen(); 
                         this.Close();
                     }
 
@@ -226,5 +222,6 @@ namespace MyWorkoutRoutines
                 }
             }
         }
+
     }
 }

@@ -24,7 +24,7 @@ namespace MyWorkoutRoutines
     {
 
         MainWindow mainWindow;
-        MyWorkoutRoutinesEntities2 Context = new MyWorkoutRoutinesEntities2();
+        MyWorkoutRoutinesEntities2 context = new MyWorkoutRoutinesEntities2();
         ICollectionView CollectionView;
 
         public PanelRoutines(MainWindow _mainWindow)
@@ -32,18 +32,24 @@ namespace MyWorkoutRoutines
             InitializeComponent();
             mainWindow = _mainWindow;
 
+            if (context.Routine == null)
+            {
+                Platzhalter.Content = "Sie haben noch keine Routine angelegt";
+            }
+
         }
 
         private void CreateRoutinePage_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.Routine.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.Routine.Local);
+            context.Routine.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(context.Routine.Local);
             ParentGrid.DataContext = CollectionView;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Routine routine = (Routine)workoutList.SelectedItem;
+            //Routine routine = new Routine();
             mainWindow.PanelStartRoutines(routine.RoutineID);
         }
     }

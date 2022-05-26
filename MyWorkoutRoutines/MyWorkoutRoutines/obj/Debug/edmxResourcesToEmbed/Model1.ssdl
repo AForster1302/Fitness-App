@@ -15,6 +15,8 @@
       <PropertyRef Name="ReminderID" />
     </Key>
     <Property Name="ReminderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CalendarDate" Type="datetime" />
+    <Property Name="UserID" Type="int" />
   </EntityType>
   <EntityType Name="Routine">
     <Key>
@@ -52,7 +54,7 @@
     <Property Name="HashPassword" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Salt" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="FK__RoutineHi__Routi__693CA210">
+  <Association Name="FK__RoutineHi__Routi__625A9A57">
     <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
     <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -88,6 +90,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="fk_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Reminders" Type="Self.Reminders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Reminders">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="Routine_Users">
     <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
     <End Role="Routine" Type="Self.Routine" Multiplicity="*" />
@@ -107,7 +121,7 @@
     <EntitySet Name="RoutineExercises" EntityType="Self.RoutineExercises" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoutineHistory" EntityType="Self.RoutineHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__RoutineHi__Routi__693CA210" Association="Self.FK__RoutineHi__Routi__693CA210">
+    <AssociationSet Name="FK__RoutineHi__Routi__625A9A57" Association="Self.FK__RoutineHi__Routi__625A9A57">
       <End Role="Routine" EntitySet="Routine" />
       <End Role="RoutineHistory" EntitySet="RoutineHistory" />
     </AssociationSet>
@@ -118,6 +132,10 @@
     <AssociationSet Name="fk_routine" Association="Self.fk_routine">
       <End Role="Routine" EntitySet="Routine" />
       <End Role="RoutineExercises" EntitySet="RoutineExercises" />
+    </AssociationSet>
+    <AssociationSet Name="fk_User" Association="Self.fk_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Reminders" EntitySet="Reminders" />
     </AssociationSet>
     <AssociationSet Name="Routine_Users" Association="Self.Routine_Users">
       <End Role="Users" EntitySet="Users" />

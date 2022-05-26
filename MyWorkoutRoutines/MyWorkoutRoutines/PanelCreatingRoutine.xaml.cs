@@ -135,31 +135,39 @@ namespace MyWorkoutRoutines
 
         }
 
-        //private void lbRoutine_Loaded(object sender, RoutedEventArgs e)
-        //{
-        //    Context.Exercise.Load();
-        //    CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
-        //    ParentGrid.DataContext = CollectionView;
-        //}
+        private void lbRoutine_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.Exercise.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
+            ParentGrid.DataContext = CollectionView;
+        }
 
         private void btnCreateRoutine(object sender, RoutedEventArgs e)
         {
-            Routine routine = new Routine();
-                       
-            routine.RoutineName = RoutinenameBox.Text;
-
-            foreach (Exercise ex in listExercise)
+            if (listExercise != null && listExercise.Count == 0)
             {
-                RoutineExercises routineExercise = new RoutineExercises();
-                routineExercise.ExerciseID = ex.ExerciseID;
-                routineExercise.RoutineID = routine.RoutineID;
-                routine.RoutineExercises.Add(routineExercise);
+                MessageBox.Show("Bitte fügen Sie Übungen hinzu.");
+            }
+            else
+            {
+                Routine routine = new Routine();
+
+                routine.RoutineName = RoutinenameBox.Text;
+
+                foreach (Exercise ex in listExercise)
+                {
+                    RoutineExercises routineExercise = new RoutineExercises();
+                    routineExercise.ExerciseID = ex.ExerciseID;
+                    routineExercise.RoutineID = routine.RoutineID;
+                    routine.RoutineExercises.Add(routineExercise);
+                }
+
+                routine.UserID = mainWindow.userid;
+                Context.Routine.Add(routine);
+                Context.SaveChanges();
+                lvRoutine.Items.Clear();
             }
 
-            routine.UserID = mainWindow.userid;
-            Context.Routine.Add(routine);
-            Context.SaveChanges();
-            lvRoutine.Items.Clear();
         }
 
         private void RoutinenameBox_GotFocus(object sender, RoutedEventArgs e)
@@ -174,16 +182,9 @@ namespace MyWorkoutRoutines
 
         private void Searchbox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //string suchstr = Searchbox.Text.ToLower();
+            string suchstr = Searchbox.Text.ToLower();
 
-            //CollectionView.Filter = null;
-            //var list = CollectionView.Cast<Exercise>();
-            //Exercise exer = list.FirstOrDefault(x => x.ExerciseName.ToLower().Contains(suchstr) || x.ExerciseName.ToLower().Contains(suchstr));
-            //CollectionView.MoveCurrentTo(exer);
-
-            //string filter = Searchbox.Text.ToLower();
-
-            //CollectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(filter);
+            CollectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(suchstr);
         }
     }
 }

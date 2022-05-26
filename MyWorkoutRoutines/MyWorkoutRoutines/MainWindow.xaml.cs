@@ -22,7 +22,6 @@ namespace MyWorkoutRoutines
 
     public partial class MainWindow : Window
     {
-        MyWorkoutRoutinesEntities2 context = new MyWorkoutRoutinesEntities2();
         public int userid;
 
         public MainWindow()
@@ -103,6 +102,10 @@ namespace MyWorkoutRoutines
             PanelRoutineHistory();
         }
 
+        private void btnHomeScreen(object sender, RoutedEventArgs e)
+        {
+            PanelHomeScreen();
+        }
 
         public void PanelCreatingRoutine()
         {
@@ -118,14 +121,20 @@ namespace MyWorkoutRoutines
 
         public void PanelStartRoutines(int routineID)
         {
-            PanelStartRoutine psr = new PanelStartRoutine(this, routineID);
-            Main.Content = psr;
+            PanelStartRoutine startingRoutine = new PanelStartRoutine(this, routineID);
+            Main.Content = startingRoutine;
         }
 
         public void PanelRoutineHistory()
         {
             PanelRoutineHistory PSH = new PanelRoutineHistory(this);
             Main.Content = PSH;
+        }
+
+        public void PanelHomeScreen()
+        {
+            PanelHomeScreen homeScreen = new PanelHomeScreen(this);
+            Main.Content = homeScreen;
         }
     }
 }

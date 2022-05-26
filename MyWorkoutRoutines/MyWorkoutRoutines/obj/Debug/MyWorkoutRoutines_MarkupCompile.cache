@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\App.xaml
-17226804606
+191244430281
 101750298324
-20-825250961
+21-291032274
 21350314626
-MainWindow.xaml;PanelCreatingRoutine.xaml;PanelRoutineHistory.xaml;PanelRoutines.xaml;PanelStartRoutine.xaml;Theme\FilterButtons.xaml;Theme\ListViewRoutine.xaml;Theme\ListViewRoutineBorder.xaml;Theme\MenuButton.xaml;Theme\MenuButtonTheme.xaml;Theme\LoginRegistrationButton.xaml;Theme\MiniMaximizeCloseButtonLogin.xaml;Theme\MiniMaximizeCloseButton.xaml;Theme\NavigationButton.xaml;Theme\PlayButtonRoutine.xaml;WindowLogin.xaml;WindowRegister.xaml;
+MainWindow.xaml;PanelCreatingRoutine.xaml;PanelHomeScreen.xaml;PanelRoutineHistory.xaml;PanelRoutines.xaml;PanelStartRoutine.xaml;Theme\CreateRoutineButton.xaml;Theme\FilterButtons.xaml;Theme\ListViewRoutine.xaml;Theme\ListViewRoutineBorder.xaml;Theme\MenuButton.xaml;Theme\MenuButtonTheme.xaml;Theme\LoginRegistrationButton.xaml;Theme\MiniMaximizeCloseButtonLogin.xaml;Theme\MiniMaximizeCloseButton.xaml;Theme\NavigationButton.xaml;Theme\PlayButtonRoutine.xaml;WindowLogin.xaml;WindowRegister.xaml;
 
 False
 

@@ -16,6 +16,8 @@
       <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Reminders">
         <MappingFragment StoreEntitySet="Reminders">
           <ScalarProperty Name="ReminderID" ColumnName="ReminderID" />
+          <ScalarProperty Name="CalendarDate" ColumnName="CalendarDate" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

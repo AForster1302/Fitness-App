@@ -92,13 +92,7 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Grid.Column="1" Grid.Row="2" Content="Routine erstellen" FontFamily="Nirmala UI"  Height="28" Width="120" VerticalContentAlignment="Center" Foreground="#EBEBEB" FontWeight="Bold" Click="btnCreateRoutine" BorderBrush="Transparent" Background="#8B0000">
-                    <Button.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="10"></Setter>
-                        </Style>
-                    </Button.Resources>
-                </Button>
+                <Button Grid.Column="1" Grid.Row="2" Content="Routine erstellen" FontFamily="Nirmala UI"  Height="28" Width="120" VerticalContentAlignment="Center" Foreground="#EBEBEB" FontWeight="Bold" Click="btnCreateRoutine" BorderBrush="Transparent" Background="#8B0000" Style="{DynamicResource RedButtonCreate}"/>
             </Grid>
 
 
