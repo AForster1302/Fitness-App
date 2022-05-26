@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da51b79cdf684fe080180c278a3e2ee0" Name="Diagram1">
-        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Exercise" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Reminders" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Routine" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.RoutineExercises" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.RoutineHistory" Width="1.5" PointX="5.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Users" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="MyWorkoutRoutinesModel.FK__RoutineEx__Exerc__4BAC3F29" ManuallyRouted="false" />
-        <AssociationConnector Association="MyWorkoutRoutinesModel.FK__RoutineEx__Routi__4CA06362" ManuallyRouted="false" />
+      <Diagram DiagramId="95aced9709ac43e8b789055bbe36bfea" Name="Diagram1">
+        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Exercise" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Reminders" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Routine" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.RoutineExercises" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.RoutineHistory" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyWorkoutRoutinesModel.Users" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <AssociationConnector Association="MyWorkoutRoutinesModel.fk_exercises" ManuallyRouted="false" />
+        <AssociationConnector Association="MyWorkoutRoutinesModel.FK__RoutineHi__Routi__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="MyWorkoutRoutinesModel.fk_routine" ManuallyRouted="false" />
         <AssociationConnector Association="MyWorkoutRoutinesModel.Routine_Users" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

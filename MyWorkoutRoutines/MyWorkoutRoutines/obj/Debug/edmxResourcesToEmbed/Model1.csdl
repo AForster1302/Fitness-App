@@ -9,7 +9,7 @@
     <Property Name="ExerciseName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Difficulty" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="RoutineExercises" Relationship="Self.FK__RoutineEx__Exerc__4BAC3F29" FromRole="Exercise" ToRole="RoutineExercises" />
+    <NavigationProperty Name="RoutineExercises" Relationship="Self.fk_exercises" FromRole="Exercise" ToRole="RoutineExercises" />
   </EntityType>
   <EntityType Name="Reminders">
     <Key>
@@ -23,9 +23,9 @@
     </Key>
     <Property Name="RoutineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoutineName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="Datum" Type="DateTime" Precision="3" />
     <Property Name="UserID" Type="Int32" />
-    <NavigationProperty Name="RoutineExercises" Relationship="Self.FK__RoutineEx__Routi__4CA06362" FromRole="Routine" ToRole="RoutineExercises" />
+    <NavigationProperty Name="RoutineHistory" Relationship="Self.FK__RoutineHi__Routi__693CA210" FromRole="Routine" ToRole="RoutineHistory" />
+    <NavigationProperty Name="RoutineExercises" Relationship="Self.fk_routine" FromRole="Routine" ToRole="RoutineExercises" />
     <NavigationProperty Name="Users" Relationship="Self.Routine_Users" FromRole="Routine" ToRole="Users" />
   </EntityType>
   <EntityType Name="RoutineExercises">
@@ -35,18 +35,20 @@
     <Property Name="RoutineExercisesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Repetitions" Type="Int32" />
     <Property Name="Duration" Type="Int32" />
-    <Property Name="BreakRoutine" Type="Time" Precision="7" />
+    <Property Name="BreakRoutine" Type="Time" />
     <Property Name="RoutineID" Type="Int32" Nullable="false" />
     <Property Name="ExerciseID" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Exercise" Relationship="Self.FK__RoutineEx__Exerc__4BAC3F29" FromRole="RoutineExercises" ToRole="Exercise" />
-    <NavigationProperty Name="Routine" Relationship="Self.FK__RoutineEx__Routi__4CA06362" FromRole="RoutineExercises" ToRole="Routine" />
+    <NavigationProperty Name="Exercise" Relationship="Self.fk_exercises" FromRole="RoutineExercises" ToRole="Exercise" />
+    <NavigationProperty Name="Routine" Relationship="Self.fk_routine" FromRole="RoutineExercises" ToRole="Routine" />
   </EntityType>
   <EntityType Name="RoutineHistory">
     <Key>
-      <PropertyRef Name="ExerciseID" />
+      <PropertyRef Name="HistoryID" />
     </Key>
-    <Property Name="ExerciseID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DateHistory" Type="DateTime" Precision="3" />
+    <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoutineID" Type="Int32" Nullable="false" />
+    <Property Name="DateHistory" Type="DateTime" />
+    <NavigationProperty Name="Routine" Relationship="Self.FK__RoutineHi__Routi__693CA210" FromRole="RoutineHistory" ToRole="Routine" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -58,7 +60,7 @@
     <Property Name="Salt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Routine" Relationship="Self.Routine_Users" FromRole="Users" ToRole="Routine" />
   </EntityType>
-  <Association Name="FK__RoutineEx__Exerc__4BAC3F29">
+  <Association Name="fk_exercises">
     <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
     <End Role="RoutineExercises" Type="Self.RoutineExercises" Multiplicity="*" />
     <ReferentialConstraint>
@@ -70,7 +72,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoutineEx__Routi__4CA06362">
+  <Association Name="FK__RoutineHi__Routi__693CA210">
+    <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
+    <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routine">
+        <PropertyRef Name="RoutineID" />
+      </Principal>
+      <Dependent Role="RoutineHistory">
+        <PropertyRef Name="RoutineID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_routine">
     <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
     <End Role="RoutineExercises" Type="Self.RoutineExercises" Multiplicity="*" />
     <ReferentialConstraint>
@@ -101,11 +115,15 @@
     <EntitySet Name="RoutineExercises" EntityType="Self.RoutineExercises" />
     <EntitySet Name="RoutineHistory" EntityType="Self.RoutineHistory" />
     <EntitySet Name="Users" EntityType="Self.Users" />
-    <AssociationSet Name="FK__RoutineEx__Exerc__4BAC3F29" Association="Self.FK__RoutineEx__Exerc__4BAC3F29">
+    <AssociationSet Name="fk_exercises" Association="Self.fk_exercises">
       <End Role="Exercise" EntitySet="Exercise" />
       <End Role="RoutineExercises" EntitySet="RoutineExercises" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoutineEx__Routi__4CA06362" Association="Self.FK__RoutineEx__Routi__4CA06362">
+    <AssociationSet Name="FK__RoutineHi__Routi__693CA210" Association="Self.FK__RoutineHi__Routi__693CA210">
+      <End Role="Routine" EntitySet="Routine" />
+      <End Role="RoutineHistory" EntitySet="RoutineHistory" />
+    </AssociationSet>
+    <AssociationSet Name="fk_routine" Association="Self.fk_routine">
       <End Role="Routine" EntitySet="Routine" />
       <End Role="RoutineExercises" EntitySet="RoutineExercises" />
     </AssociationSet>

@@ -14,7 +14,10 @@ namespace MyWorkoutRoutines
     
     public partial class RoutineHistory
     {
-        public int ExerciseID { get; set; }
+        public int HistoryID { get; set; }
+        public int RoutineID { get; set; }
         public Nullable<System.DateTime> DateHistory { get; set; }
+    
+        public virtual Routine Routine { get; set; }
     }
 }

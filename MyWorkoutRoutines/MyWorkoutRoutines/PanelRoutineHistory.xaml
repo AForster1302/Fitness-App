@@ -1,12 +1,13 @@
-﻿<UserControl x:Class="MyWorkoutRoutines.PanelRoutines"
+﻿<UserControl x:Class="MyWorkoutRoutines.PanelRoutineHistory"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MyWorkoutRoutines"
              mc:Ignorable="d" 
-             Background="#EBEBEB" x:Name="CreateRoutinePage" Loaded="CreateRoutinePage_Loaded" BorderThickness="0">
-    
+             Background="#EBEBEB" x:Name="RoutineHistoryPage" Loaded="RoutineHistoryPage_Loaded" BorderThickness="0">
+
+
     <Grid x:Name="ParentGrid" MinWidth="810" MinHeight="355">
         <Grid.ColumnDefinitions>
             <ColumnDefinition MaxWidth="120" Width="120"/>
@@ -45,15 +46,10 @@
                             </Border.Style>
                         </Border>
                         <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3">
-                            
+
                         </Border>
-                        <Border CornerRadius="27" BorderBrush="Transparent" Background="#8B0000" Grid.Column="0" BorderThickness="1" Height="55" Width="55" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,15"></Border>
-                        <Button Click="Button_Click" FontWeight="Bold" BorderBrush="Transparent" Background="Transparent" Grid.Column="0" Content="▶" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="55" Width="55" FontSize="30" Foreground="#FFFFFF" VerticalContentAlignment="Center" Style="{DynamicResource PlayButtonRoutine}"/>
                         <!--<Label Content="" FontWeight="Bold" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,10" FontFamily="Calibri" Height="70" FontSize="38" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>-->
-                        <Label Content="{Binding RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
-                        <Button FontWeight="DemiBold" BorderBrush="Transparent" Background="Transparent" Grid.Column="2" Content="..." VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="12,10" Height="70" Width="70" FontSize="38" Foreground="#333333" VerticalContentAlignment="Top">
-                            
-                        </Button>
+                        <Label Content="{Binding RoutineID}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
@@ -61,3 +57,4 @@
 
     </Grid>
 </UserControl>
+

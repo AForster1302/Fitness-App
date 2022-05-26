@@ -54,7 +54,6 @@ CREATE TABLE Exercise(
 CREATE TABLE Routine(
 	RoutineID INT Not Null Primary Key Identity(1,1) ,
 	RoutineName NVARCHAR(100),
-	Datum Datetime,
 	UserID INT
 		Constraint Routine_Users Foreign Key (UserID) References Users(UserID),
 );
@@ -77,8 +76,8 @@ CREATE TABLE RoutineExercises(
 	
 	RoutineID INT not null,
     ExerciseID INT not null,
-	FOREIGN KEY (ExerciseID) REFERENCES Exercise(ExerciseID),
-	FOREIGN KEY (RoutineID) REFERENCES Routine(RoutineID)
+	CONSTRAINT fk_exercises FOREIGN KEY (ExerciseID) REFERENCES Exercise(ExerciseID),
+	CONSTRAINT fk_routine FOREIGN KEY (RoutineID) REFERENCES Routine(RoutineID)
     --CONSTRAINT routine_exercises_routine foreign key (RoutineID) references Routine(RoutineID),
     --CONSTRAINT routine_exercises_exercises foreign key (ExerciseID) references Exercise(ExerciseID),
     --CONSTRAINT routine_exercise_routine UNIQUE (RoutineID, ExerciseID)
@@ -107,7 +106,9 @@ CREATE TABLE Reminders(
 DROP TABLE IF EXISTS RoutineHistory;
 
 CREATE TABLE RoutineHistory(
-	ExerciseID INT Not Null Primary Key Identity(1,1),
+	HistoryID INT Not Null Primary Key Identity(1,1),
+	RoutineID INT not null,
+	FOREIGN KEY (RoutineID) REFERENCES Routine(RoutineID),
 	DateHistory Datetime,
 	
 
@@ -115,6 +116,10 @@ CREATE TABLE RoutineHistory(
 
 -------------------------------------
 
+
+-- Pause:
+
+INSERT INTO Exercise VALUES ('Pause', 'Pause', '','Machen Sie eine Pause.');
 
 --Bauch:
 
@@ -332,12 +337,4 @@ INSERT INTO Exercise VALUES ('Beine', 'Hüftheben mit Beinstrecken', 'Fortgeschri
 dann die Hüfte anheben, bis Oberschenkel, Becken und Oberkörper eine gerade Linie bilden. Den rechten Fuß vom Boden lösen und das Bein nach vorn parallel zum linken Oberschenkel ausstrecken.
 Das gestreckte Bein so weit es geht weiter nach oben in Richtung Oberkörper bewegen. Dort halten und wieder zurück zu Position B. Seitenwechsel im nächsten Satz.');
 
--- Aufwärmen:
 
-INSERT INTO Exercise VALUES ('Aufwärmen', 'Hampelmann', 'Anfänger','Aufrecht mit geschlossenen Füßen hinstellen. Die Hände seitlich an die Oberschenkel legen.
-Explosiv die gestreckten Arme seitlich über den Kopf reißen. Gleichzeitig mit den Beinen abspringen und in breiter Grätschposition wieder aufkommen.
-Sofort in die Ausgangsposition zurückspringen und fortfahren mit dem Ziel, möglichst viele saubere Wiederholungen in der vorgegebenen Zeit zu schaffen.');
-
--- Pause:
-
-INSERT INTO Exercise VALUES ('Pause', 'Pause', '','Machen Sie eine Pause.');

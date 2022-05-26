@@ -24,7 +24,6 @@
         <MappingFragment StoreEntitySet="Routine">
           <ScalarProperty Name="RoutineID" ColumnName="RoutineID" />
           <ScalarProperty Name="RoutineName" ColumnName="RoutineName" />
-          <ScalarProperty Name="Datum" ColumnName="Datum" />
           <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -44,7 +43,8 @@
     <EntitySetMapping Name="RoutineHistory">
       <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.RoutineHistory">
         <MappingFragment StoreEntitySet="RoutineHistory">
-          <ScalarProperty Name="ExerciseID" ColumnName="ExerciseID" />
+          <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
+          <ScalarProperty Name="RoutineID" ColumnName="RoutineID" />
           <ScalarProperty Name="DateHistory" ColumnName="DateHistory" />
         </MappingFragment>
       </EntityTypeMapping>

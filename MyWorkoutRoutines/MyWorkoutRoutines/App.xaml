@@ -16,6 +16,7 @@
                 <ResourceDictionary Source="Theme/MiniMaximizeCloseButton.xaml"/>
                 <ResourceDictionary Source="Theme/MiniMaximizeCloseButtonLogin.xaml"/>
                 <ResourceDictionary Source="Theme/LoginRegistrationButton.xaml"/>
+                <ResourceDictionary Source="Theme/NavigationButton.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
