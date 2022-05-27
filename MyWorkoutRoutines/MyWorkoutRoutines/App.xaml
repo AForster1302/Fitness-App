@@ -19,6 +19,8 @@
                 <ResourceDictionary Source="Theme/LoginRegistrationButton.xaml"/>
                 <ResourceDictionary Source="Theme/NavigationButton.xaml"/>
                 <ResourceDictionary Source="Theme/CreateRoutineButton.xaml"/>
+                <ResourceDictionary Source="Theme/Scrollbar.xaml"/>
+                <ResourceDictionary Source="Theme/MenuItem.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -55,7 +55,7 @@ namespace MyWorkoutRoutines
 
         private void delRoutine_Click(object sender, RoutedEventArgs e)
         {
-            
+
             context.Routine.Remove((Routine)workoutList.SelectedItem);
             context.SaveChanges();
         }

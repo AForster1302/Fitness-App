@@ -163,6 +163,7 @@ namespace MyWorkoutRoutines
         {
             mainWindow.WindowLogin();
             Registration.Close();
+            windowLogin.Close();
         }
 
         private void Username_GotFocus(object sender, RoutedEventArgs e)

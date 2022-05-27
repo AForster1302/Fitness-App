@@ -35,7 +35,7 @@ namespace MyWorkoutRoutines
 
         private void RoutineHistoryPage_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.Routine.Load();
+            Context.RoutineHistory.Load();
             CollectionView = CollectionViewSource.GetDefaultView(Context.RoutineHistory.Local);
             ParentGrid.DataContext = CollectionView;
         }

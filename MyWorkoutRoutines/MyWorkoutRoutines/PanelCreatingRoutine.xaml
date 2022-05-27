@@ -12,9 +12,9 @@
         <!--<UserControl x:Name="Pagee"/>-->
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="285"/>
                 <ColumnDefinition MinWidth="270"/>
-                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="85"/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -33,14 +33,13 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    
                     <RadioButton x:Name="btnStomach" Grid.Row="0" Grid.Column="0" Margin="0 0 55 0"  Content="Bauch"  Height="25" Width="25" Checked="tBtn_Stomach" Unchecked="tBtnStomach_Unchecked"/>
                     <RadioButton x:Name="btnBack"  Grid.Row="1" Grid.Column="0" Margin="0 0 30 0" Content="Rücken" Height="25" Width="25" Checked="tBtn_Back" Unchecked="tBtnBack_Unchecked"/>
                     <RadioButton x:Name="btnChest" Grid.Row="0" Grid.Column="1" Margin="0 0 55 0" Content="Brust" Height="25" Width="25" Checked="tBtn_Chest" Unchecked="tBtnChest_Unchecked"/>
                     <RadioButton x:Name="btnArm" Grid.Row="1" Grid.Column="1" Margin="0 0 30 0" Content="Arm" Height="25" Width="25" Checked="tBtn_Arm" Unchecked="tBtnArm_Unchecked"/>
                     <RadioButton x:Name="btnShoulders" Grid.Row="0" Grid.Column="2" Margin="0 0 55 0" Content="Schultern" Height="25" Width="25" Checked="tBtn_Shoulders" Unchecked="tBtnShoulders_Unchecked"/>
                     <RadioButton x:Name="btnLegs" Grid.Row="1" Grid.Column="2" Margin="0 0 30 0" Content="Beine" Height="25" Width="25" Checked="tBtn_Legs" Unchecked="tBtnLegs_Unchecked"/>
-                    
+
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Bauch" VerticalAlignment="Center" Margin="35 0 0 0"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Rücken" VerticalAlignment="Center" Margin="47 0 0 0"/>
                     <TextBlock Grid.Row="0" Grid.Column="1" Text="Brust" VerticalAlignment="Center" Margin="35 0 0 0"/>
@@ -49,20 +48,59 @@
                     <TextBlock Grid.Row="1" Grid.Column="2" Text="Beine" VerticalAlignment="Center" Margin="47 0 0 0"/>
                 </Grid>
 
-                <TextBox Grid.Column="0" Grid.Row="1" Margin="5" FontWeight="Bold" FontSize="16" Padding="5 0 0 0" Foreground="#50000000"  VerticalContentAlignment="Center" x:Name="Searchbox" GotFocus="Searchbox_GotFocus" TextChanged="Searchbox_TextChanged">
+                <TextBox Grid.Column="0" Grid.Row="1" Margin="5" FontWeight="Bold" FontSize="16" Padding="5 0 0 0" Foreground="#50000000" VerticalContentAlignment="Center" x:Name="Searchbox" GotFocus="Searchbox_GotFocus" LostFocus="Searchbox_LostFocus" TextChanged="Searchbox_TextChanged">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
+                <Label IsHitTestVisible="False" Content="Suche" Margin="5 0 0 0" Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Name="lSuche" FontWeight="Bold" FontSize="16" Foreground="#50000000" />
 
-                <ListView Grid.Row="2" Grid.Column="0" MouseDoubleClick="lvExercises_MouseDoubleClick" x:Name="lvExercises" ItemsSource="{Binding}" FontSize="14" Foreground="Black" IsSynchronizedWithCurrentItem="True" BorderBrush="Transparent" Background="#F0F0F0" Loaded="lvExercises_Loaded">
+                <ListView Grid.Row="2" Grid.Column="0" MouseDoubleClick="lvExercises_MouseDoubleClick" x:Name="lvExercises" ItemsSource="{Binding }" FontSize="14" Foreground="Black" IsSynchronizedWithCurrentItem="True" BorderBrush="Transparent" Background="#F0F0F0" Loaded="lvExercises_Loaded">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding ExerciseName}"/>
+                            <TextBlock FontWeight="DemiBold" Text="{Binding ExerciseName}" Margin="0 2 0 2"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ScrollBar}">
+                            <Setter Property="Background" Value="#DEDEDE"/>
+                            <Setter Property="BorderBrush" Value="#DEDEDE"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                        <Grid x:Name="Bg" SnapsToDevicePixels="true" Width="15">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition MaxHeight="0"/>
+                                                <RowDefinition Height="0.00001*"/>
+                                                <RowDefinition MaxHeight="0"/>
+                                            </Grid.RowDefinitions>
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Row="1" CornerRadius="10"/>
+                                            <!--<RepeatButton x:Name="PART_LineUpButton" Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Margin="0,0,0,-20">    
+                                <Path x:Name="ArrowTop" Data="M 0,4 C0,4 0,6 0,6 0,6 3.5,2.5 3.5,2.5 3.5,2.5 7,6 7,6 7,6 7,4 7,4 7,4 3.5,0.5 3.5,0.5 3.5,0.5 0,4 0,4 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
+                            </RepeatButton>-->
+                                            <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+                                                <Track.DecreaseRepeatButton>
+                                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource RepeatButtonTransparent}" HorizontalAlignment="Left" Width="17"/>
+                                                </Track.DecreaseRepeatButton>
+                                                <Track.IncreaseRepeatButton>
+                                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource RepeatButtonTransparent}"/>
+                                                </Track.IncreaseRepeatButton>
+                                                <Track.Thumb>
+                                                    <Thumb Style="{StaticResource ScrollBarThumbVertical}" Margin="2"/>
+                                                </Track.Thumb>
+                                            </Track>
+                                            <!--<RepeatButton x:Name="PART_LineDownButton" Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}"  Margin="0,-20,0,0">    
+                                <Path x:Name="ArrowBottom" Data="M 0,2.5 C0,2.5 0,0.5 0,0.5 0,0.5 3.5,4 3.5,4 3.5,4 7,0.5 7,0.5 7,0.5 7,2.5 7,2.5 7,2.5 3.5,6 3.5,6 3.5,6 0,2.5 0,2.5 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
+                            </RepeatButton>-->
+                                        </Grid>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.Resources>
                 </ListView>
 
             </Grid>
@@ -73,7 +111,7 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" Text="Name"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus" MaxLength="25" MaxLines="1" MaxWidth="500">
+                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" Text="Name"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus" LostFocus="RoutinenameBox_LostFocus" MaxLength="25" MaxLines="1" MaxWidth="500">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
@@ -81,12 +119,50 @@
                     </TextBox.Resources>
                 </TextBox>
 
-                <ListView x:Name="lvRoutine" Grid.Row="1" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem="True" MaxWidth="500">
+                <ListView x:Name="lvRoutine" MouseDoubleClick="lvRoutine_MouseDoubleClick"  Grid.Row="1" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem="True" MaxWidth="500">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding ExerciseName}"/>
+                            <TextBlock FontWeight="DemiBold" Text="{Binding ExerciseName}" Margin="0 2 0 2"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
+                    <ListView.Resources>
+                        <Style TargetType="{x:Type ScrollBar}">
+                            <Setter Property="Background" Value="#DEDEDE"/>
+                            <Setter Property="BorderBrush" Value="#DEDEDE"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type ScrollBar}">
+                                        <Grid x:Name="Bg" SnapsToDevicePixels="true" Width="15">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition MaxHeight="0"/>
+                                                <RowDefinition Height="0.00001*"/>
+                                                <RowDefinition MaxHeight="0"/>
+                                            </Grid.RowDefinitions>
+                                            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Row="1" CornerRadius="10"/>
+                                            <!--<RepeatButton x:Name="PART_LineUpButton" Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Margin="0,0,0,-20">    
+                                <Path x:Name="ArrowTop" Data="M 0,4 C0,4 0,6 0,6 0,6 3.5,2.5 3.5,2.5 3.5,2.5 7,6 7,6 7,6 7,4 7,4 7,4 3.5,0.5 3.5,0.5 3.5,0.5 0,4 0,4 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
+                            </RepeatButton>-->
+                                            <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
+                                                <Track.DecreaseRepeatButton>
+                                                    <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource RepeatButtonTransparent}" HorizontalAlignment="Left" Width="17"/>
+                                                </Track.DecreaseRepeatButton>
+                                                <Track.IncreaseRepeatButton>
+                                                    <RepeatButton Command="{x:Static ScrollBar.PageDownCommand}" Style="{StaticResource RepeatButtonTransparent}"/>
+                                                </Track.IncreaseRepeatButton>
+                                                <Track.Thumb>
+                                                    <Thumb Style="{StaticResource ScrollBarThumbVertical}" Margin="2"/>
+                                                </Track.Thumb>
+                                            </Track>
+                                            <!--<RepeatButton x:Name="PART_LineDownButton" Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}"  Margin="0,-20,0,0">    
+                                <Path x:Name="ArrowBottom" Data="M 0,2.5 C0,2.5 0,0.5 0,0.5 0,0.5 3.5,4 3.5,4 3.5,4 7,0.5 7,0.5 7,0.5 7,2.5 7,2.5 7,2.5 3.5,6 3.5,6 3.5,6 0,2.5 0,2.5 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
+                            </RepeatButton>-->
+                                        </Grid>
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.Resources>
                 </ListView>
                 <Button Grid.Column="1" Grid.Row="2" Content="Routine erstellen" FontFamily="Nirmala UI"  Height="28" Width="120" VerticalContentAlignment="Center" Foreground="#EBEBEB" FontWeight="Bold" Click="btnCreateRoutine" BorderBrush="Transparent" Background="#8B0000" Style="{DynamicResource RedButtonCreate}"/>
             </Grid>

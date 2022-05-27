@@ -82,13 +82,14 @@ namespace MyWorkoutRoutines
             ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
             ExerciseDescription.Text = exercises[ExerciseIndex].Description;
 
-            if (exercises.Count() > ExerciseIndex)
-            {
-                RoutineFinish.Content = "                     Glückwunsch!\nSie haben Ihr Training abegeschlossen.";
-                ExerciseName.Content = "";
-                ExerciseDescription.Text = "";
-                btnFinish.Visibility = Visibility.Visible;
-            }
+            //if (ExerciseIndex == exercises.())
+            //{
+            //    RoutineFinish.Content = "                     Glückwunsch!\nSie haben Ihr Training abegeschlossen.";
+            //    ExerciseName.Content = "";
+            //    ExerciseDescription.Text = "";
+            //    btnFinish.Visibility = Visibility.Visible;
+            //}
+            //ExerciseIndex = exercises.Count();
         }
 
         private void btnPreviousClick(object sender, RoutedEventArgs e)
@@ -98,9 +99,10 @@ namespace MyWorkoutRoutines
             {
                 return;
             }
-
+            ExerciseIndex = 0;
             ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
             ExerciseDescription.Text = exercises[ExerciseIndex].Description;
+            
         }
 
         private void btnFinishClick(object sender, RoutedEventArgs e)

@@ -134,10 +134,11 @@ namespace MyWorkoutRoutines
             listExercise.Add((Exercise)lvExercises.SelectedItem);
 
         }
-
-
-            
-
+        private void lvRoutine_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            lvRoutine.Items.Remove(lvRoutine.SelectedItem);
+            listExercise.Remove((Exercise)lvRoutine.SelectedItem);
+        }
 
         private void btnCreateRoutine(object sender, RoutedEventArgs e)
         {
@@ -174,7 +175,12 @@ namespace MyWorkoutRoutines
 
         private void Searchbox_GotFocus(object sender, RoutedEventArgs e)
         {
-            Searchbox.Text = "";
+            lSuche.Visibility = Visibility.Hidden;
+        }
+
+        private void Searchbox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            lSuche.Visibility = Visibility.Visible;
         }
 
         private void lvExercises_Loaded(object sender, RoutedEventArgs e)
@@ -189,10 +195,14 @@ namespace MyWorkoutRoutines
             //Searchbox.Text = "";
             string suchstr = Searchbox.Text.ToLower();
             CollectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(suchstr);
-
-
         }
 
-        
+        private void RoutinenameBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(RoutinenameBox.Text))
+            {
+                RoutinenameBox.Text = "Name";
+            }
+        }
     }
 }

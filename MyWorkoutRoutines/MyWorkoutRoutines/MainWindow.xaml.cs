@@ -42,6 +42,16 @@ namespace MyWorkoutRoutines
             {
                 this.DragMove();
             }
+            if (this.Top == 0)
+            {
+                WindowState = WindowState.Maximized;
+            }
+            if (e.LeftButton == MouseButtonState.Pressed && this.Top == 0)
+            {
+                WindowState = WindowState.Normal;
+                this.DragMove();
+            }
+
         }
 
         private void Close_Program(object sender, RoutedEventArgs e)

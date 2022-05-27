@@ -10,8 +10,8 @@
         AllowDrop="True" ResizeMode="NoResize" AllowsTransparency="True" x:Name="MainScreen" WindowStartupLocation="CenterScreen"
         Title="MyWorkoutRoutines" Height="450" Width="810" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded">
 
-    <Border x:Name="ParentBorder" Background="#8B0000" CornerRadius="15,15,15,15" Padding="8" BorderThickness=".65" MouseLeftButtonDown="DrawWindow_MouseLeftButtonDown">
-
+    <Border x:Name="ParentBorder" Background="#8B0000" CornerRadius="15,15,15,15" Padding="8" BorderThickness=".65">
+        
         <Grid x:Name="ParentGrid" Margin="-8,0,-8,8">
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"></RowDefinition>
@@ -27,6 +27,8 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                
+
                 <!--<RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold" BorderThickness="0"  Style="{StaticResource MenuButton}"/>
                 <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
                 <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" Style="{StaticResource MenuButton}"/>
@@ -37,7 +39,9 @@
                 <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnHistory" Style="{StaticResource MenuButton}"/>
             </Grid>
 
-            <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="7 0 0 0" Text="MyWorkoutRoutines" Grid.Column="1"/>
+            <Border  Grid.Row="0" Background="Transparent" Margin="0,-8,0,0" MouseLeftButtonDown="DrawWindow_MouseLeftButtonDown"/>
+
+            <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="7 0 0 0" Text="MyWorkoutRoutines" Grid.Column="1" IsHitTestVisible="False"/>
             <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-8,0,0">
                 <Button Width="25" Padding="0 -2 0 0"
                         Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program" 
@@ -83,5 +87,6 @@
             </TabControl>-->
 
         </Grid>
+        
     </Border>
 </Window>

@@ -44,7 +44,7 @@
             </TextBox>
 
             <CheckBox x:Name="CheckboxPW" VerticalContentAlignment="Center" FontSize="16" FontFamily="Nirmala UI" BorderBrush="#E0E0E0"
-                      Margin="230 0 35 70" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen" Grid.Row="4" />
+                      Margin="230 0 35 70" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen" Grid.Row="4"/>
 
             <Button Content="Login" Click="Button_Login" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16"
                     BorderBrush="Transparent" Background="#8B0000" Height="50" Margin="40 0 35 70" Style="{DynamicResource RedButtonLogin}">
