@@ -135,12 +135,9 @@ namespace MyWorkoutRoutines
 
         }
 
-        private void lbRoutine_Loaded(object sender, RoutedEventArgs e)
-        {
-            Context.Exercise.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
-            ParentGrid.DataContext = CollectionView;
-        }
+
+            
+
 
         private void btnCreateRoutine(object sender, RoutedEventArgs e)
         {
@@ -180,11 +177,22 @@ namespace MyWorkoutRoutines
             Searchbox.Text = "";
         }
 
+        private void lvExercises_Loaded(object sender, RoutedEventArgs e)
+        {
+            Context.Exercise.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
+            ParentGrid.DataContext = CollectionView;
+        }
+
         private void Searchbox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //Searchbox.Text = "";
             string suchstr = Searchbox.Text.ToLower();
-
             CollectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(suchstr);
+
+
         }
+
+        
     }
 }

@@ -3,23 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:local="clr-namespace:MyWorkoutRoutines"
         mc:Ignorable="d"
         Title="WindowLogin" Height="750" Width="425" WindowStartupLocation="CenterScreen" WindowStyle="None"
         ResizeMode="NoResize" Background="#F0F0F0" x:Name="Login" MouseDown="Login_MouseDown">
-
-    <Window.Resources>
-        <FontFamily x:Key="FontAwesome">pack://application:,,,/Resources/#fontawesome</FontFamily>
-    </Window.Resources>
 
 
     <Grid x:Name="left">
 
         <UserControl Name="LoginUC"/>
         <StackPanel>
-
-
             <Grid Grid.Row="1" Width="210" Height="30"  VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Width="25" FontSize="16" Style="{DynamicResource WindowButtonLogin}"
                         Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program"
@@ -32,7 +26,7 @@
 
             <Label Grid.Row="1" Content="Login" Margin="40 29 0 55" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="30" />
 
-            <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 15" Padding="8 0 0 0" Text="&#xf007;  Nutzername" FontFamily="{StaticResource FontAwesome}"
+            <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 15" Padding="8 0 0 0" Text="👤 Nutzername"
                  Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
                 <TextBox.Resources>
                     <Style TargetType="Border">
@@ -40,7 +34,7 @@
                     </Style>
                 </TextBox.Resources>
             </TextBox>
-            <TextBox x:Name="PasswordBox" FontSize="16" Height="50" Margin="40 0 40 12" Padding="8 0 0 0" Text="&#xf007;  Passwort" FontFamily="Nirmala UI" 
+            <TextBox x:Name="PasswordBox" FontSize="16" Height="50" Margin="40 0 40 12" Padding="8 0 0 0" Text="🔒 Passwort" 
                  Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PasswordBox_GotFocus" KeyDown="PasswordBox_KeyDown" >
                 <TextBox.Resources>
                     <Style TargetType="Border">

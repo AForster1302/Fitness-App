@@ -52,5 +52,12 @@ namespace MyWorkoutRoutines
             //Routine routine = new Routine();
             mainWindow.PanelStartRoutines(routine.RoutineID);
         }
+
+        private void delRoutine_Click(object sender, RoutedEventArgs e)
+        {
+            
+            context.Routine.Remove((Routine)workoutList.SelectedItem);
+            context.SaveChanges();
+        }
     }
 }

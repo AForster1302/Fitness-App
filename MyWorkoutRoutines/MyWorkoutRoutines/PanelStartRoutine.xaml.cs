@@ -59,6 +59,7 @@ namespace MyWorkoutRoutines
             //RoutineName.Content = "Routine: " + listRoutineExercise[ExerciseIndex];
 
             //loadContent();
+            
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -70,7 +71,7 @@ namespace MyWorkoutRoutines
             ParentGrid.DataContext = CollectionView;
         }
 
-        private void btnNext(object sender, RoutedEventArgs e)
+        private void btnNextClick(object sender, RoutedEventArgs e)
         {
 
             ExerciseIndex++;
@@ -80,9 +81,17 @@ namespace MyWorkoutRoutines
             }
             ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
             ExerciseDescription.Text = exercises[ExerciseIndex].Description;
+
+            if (exercises.Count() > ExerciseIndex)
+            {
+                RoutineFinish.Content = "                     Glückwunsch!\nSie haben Ihr Training abegeschlossen.";
+                ExerciseName.Content = "";
+                ExerciseDescription.Text = "";
+                btnFinish.Visibility = Visibility.Visible;
+            }
         }
 
-        private void btnPrevious(object sender, RoutedEventArgs e)
+        private void btnPreviousClick(object sender, RoutedEventArgs e)
         {
             ExerciseIndex--;
             if (ExerciseIndex >= exercises.Count())
@@ -94,7 +103,7 @@ namespace MyWorkoutRoutines
             ExerciseDescription.Text = exercises[ExerciseIndex].Description;
         }
 
-        private void btnFinish(object sender, RoutedEventArgs e)
+        private void btnFinishClick(object sender, RoutedEventArgs e)
         {
             RoutineHistory rH = new RoutineHistory();
             rH.DateHistory = DateTime.Now;
