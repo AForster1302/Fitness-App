@@ -33,12 +33,12 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <RadioButton x:Name="btnStomach" Grid.Row="0" Grid.Column="0" Margin="0 0 55 0"  Content="Bauch"  Height="25" Width="25" Checked="tBtn_Stomach" Unchecked="tBtnStomach_Unchecked"/>
-                    <RadioButton x:Name="btnBack"  Grid.Row="1" Grid.Column="0" Margin="0 0 30 0" Content="Rücken" Height="25" Width="25" Checked="tBtn_Back" Unchecked="tBtnBack_Unchecked"/>
-                    <RadioButton x:Name="btnChest" Grid.Row="0" Grid.Column="1" Margin="0 0 55 0" Content="Brust" Height="25" Width="25" Checked="tBtn_Chest" Unchecked="tBtnChest_Unchecked"/>
-                    <RadioButton x:Name="btnArm" Grid.Row="1" Grid.Column="1" Margin="0 0 30 0" Content="Arm" Height="25" Width="25" Checked="tBtn_Arm" Unchecked="tBtnArm_Unchecked"/>
-                    <RadioButton x:Name="btnShoulders" Grid.Row="0" Grid.Column="2" Margin="0 0 55 0" Content="Schultern" Height="25" Width="25" Checked="tBtn_Shoulders" Unchecked="tBtnShoulders_Unchecked"/>
-                    <RadioButton x:Name="btnLegs" Grid.Row="1" Grid.Column="2" Margin="0 0 30 0" Content="Beine" Height="25" Width="25" Checked="tBtn_Legs" Unchecked="tBtnLegs_Unchecked"/>
+                    <ToggleButton x:Name="btnStomach" Grid.Row="0" Grid.Column="0" Margin="0 0 55 0"  Content="Bauch"  Height="25" Width="25" Checked="tBtn_Stomach" Unchecked="tBtnStomach_Unchecked" Style="{StaticResource {x:Type ToggleButton}}"/>
+                    <ToggleButton x:Name="btnBack"  Grid.Row="1" Grid.Column="0" Margin="0 0 30 0" Content="Rücken" Height="25" Width="25" Checked="tBtn_Back" Unchecked="tBtnBack_Unchecked" Style="{StaticResource {x:Type ToggleButton}}"/>
+                    <ToggleButton x:Name="btnChest" Grid.Row="0" Grid.Column="1" Margin="0 0 55 0" Content="Brust" Height="25" Width="25" Checked="tBtn_Chest" Unchecked="tBtnChest_Unchecked" Style="{StaticResource {x:Type ToggleButton}}"/>
+                    <ToggleButton x:Name="btnArm" Grid.Row="1" Grid.Column="1" Margin="0 0 30 0" Content="Arm" Height="25" Width="25" Checked="tBtn_Arm" Unchecked="tBtnArm_Unchecked" Style="{StaticResource {x:Type ToggleButton}}"/>
+                    <ToggleButton x:Name="btnShoulders" Grid.Row="0" Grid.Column="2" Margin="0 0 55 0" Content="Schultern" Height="25" Width="25" Checked="tBtn_Shoulders" Unchecked="tBtnShoulders_Unchecked" Style="{StaticResource {x:Type ToggleButton}}"/>
+                    <RadioButton x:Name="btnLegs" Grid.Row="1" Grid.Column="2" Margin="0 0 30 0" Content="Beine" Height="25" Width="25" Checked="tBtn_Legs" Unchecked="tBtnLegs_Unchecked" Style="{StaticResource {x:Type ToggleButton}}"/>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Bauch" VerticalAlignment="Center" Margin="35 0 0 0"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Rücken" VerticalAlignment="Center" Margin="47 0 0 0"/>
@@ -111,13 +111,14 @@
                     <RowDefinition Height="40"/>
                 </Grid.RowDefinitions>
 
-                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" Text="Name"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus" LostFocus="RoutinenameBox_LostFocus" MaxLength="25" MaxLines="1" MaxWidth="500">
+                <TextBox Grid.Column="1" Margin="5" x:Name="RoutinenameBox" FontWeight="Bold" Foreground="#50000000" FontSize="16" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" GotFocus="RoutinenameBox_GotFocus" LostFocus="RoutinenameBox_LostFocus" MaxLength="25" MaxLines="1" MaxWidth="500">
                     <TextBox.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8"/>
                         </Style>
                     </TextBox.Resources>
                 </TextBox>
+                <Label IsHitTestVisible="False" Content="Name" Margin="5 0 0 0" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Name="lRoutineName" FontWeight="Bold" FontSize="16" Foreground="#50000000" />
 
                 <ListView x:Name="lvRoutine" MouseDoubleClick="lvRoutine_MouseDoubleClick"  Grid.Row="1" Grid.Column="1" Margin="5" IsSynchronizedWithCurrentItem="True" MaxWidth="500">
                     <ListView.ItemTemplate>

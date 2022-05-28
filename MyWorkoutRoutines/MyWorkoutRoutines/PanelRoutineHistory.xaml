@@ -21,9 +21,8 @@
                 <DataTemplate>
                     <Grid Margin="0 3 0 0" >
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="100"/>
+                            <ColumnDefinition Width="200"/>
                             <ColumnDefinition Width="344.5"/>
-                            <ColumnDefinition Width="100"/>
                         </Grid.ColumnDefinitions>
 
                         <Border CornerRadius="45" 
@@ -45,11 +44,11 @@
                                 </Style>
                             </Border.Style>
                         </Border>
-                        <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3">
-
-                        </Border>
+                        <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3"/>
+                        <Border CornerRadius="20" BorderBrush="Transparent" Background="#8B0000" BorderThickness="1" HorizontalAlignment="Left" Height="35" Margin="35,-1,-1,1" VerticalAlignment="Center" MinWidth="120" Grid.ColumnSpan="3" Grid.Column="0"/>
+                        <Label Content="{Binding DateHistory}" ContentStringFormat="dd.MM.yyyy" FontWeight="DemiBold" Grid.Column="0" Foreground="#F7F7F7" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="41 5,-1,1" Height="70" FontSize="20" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"/>
                         <!--<Label Content="" FontWeight="Bold" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,10" FontFamily="Calibri" Height="70" FontSize="38" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>-->
-                        <Label Content="{Binding Routine.RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
+                        <Label Content="{Binding Routine.RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-25 6 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -31,37 +31,46 @@
 
             <Label Content="Registrierung" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="22" Margin="40 29 0 55"/>
 
-            <TextBox x:Name="Username" Height="50" Padding="8 0 0 0" Text="👤  Nutzername" GotFocus="Username_GotFocus" FontSize="16" 
-                     Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"></Setter>
-                    </Style>
-                </TextBox.Resources>
-            </TextBox>
-            <TextBox x:Name="Password" Height="50" Padding="8 0 0 0" Text="🔒  Passwort" GotFocus="Password_GotFocus"  
-                     FontSize="16" Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 15">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"></Setter>
+            <Grid Margin="0 0 0 15">
+                <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="Username_LostFocus"
+                 Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
+                    <TextBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <Label x:Name="lUsername" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" Content="👤 Nutzername" IsHitTestVisible="False"/>
+            </Grid>
+            
+            <Grid Margin="0 0 0 15">
+                <PasswordBox x:Name="PWBox" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="PWBox_LostFocus" Style="{DynamicResource PWBox}"
+                 Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PWBox_GotFocus" KeyDown="PWBox_KeyDown" >
+                    <PasswordBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </PasswordBox.Resources>
+                </PasswordBox>
+                <Label x:Name="lPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" Content="🔒 Passwort" IsHitTestVisible="False"/>
+                <Label x:Name="lshowPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" IsHitTestVisible="False"/>
+            </Grid>
 
-                    </Style>
+            <Grid Margin="0 0 0 12">
+                <PasswordBox x:Name="PWBoxRepeat" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="PWBoxRepeat_LostFocus" Style="{DynamicResource PWBox}"
+                 Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PWBoxRepeat_GotFocus" KeyDown="PWBoxRepeat_KeyDown" >
+                    <PasswordBox.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"></Setter>
+                        </Style>
+                    </PasswordBox.Resources>
+                </PasswordBox>
+                <Label x:Name="lPasswordRepeat" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" Content="🔒 Passwort wiederholen" IsHitTestVisible="False"/>
+                <Label x:Name="lshowPasswordRepeat" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" IsHitTestVisible="False"/>
+            </Grid>
 
-                </TextBox.Resources>
-            </TextBox>
-
-            <TextBox x:Name="RepeatPassword" Height="50" Padding="8 0 0 0" Text="🔒  Passwort wiederholen" GotFocus="RepeatPassword_GotFocus" FontSize="16"
-                     Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" Margin="40 0 40 12">
-                <TextBox.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="5"></Setter>
-
-                    </Style>
-
-                </TextBox.Resources>
-            </TextBox>
-
-            <CheckBox x:Name="CheckboxPW" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" FontSize="16" VerticalContentAlignment="Center" Background="#E8E8E8" Content="Passwort anzeigen" Margin="230 0 35 70"/>
+            <CheckBox x:Name="CheckboxPW" FontFamily="Nirmala UI" BorderBrush="#E0E0E0" Foreground="#8B0000" FontSize="16" VerticalContentAlignment="Center"
+                      Background="#E8E8E8" Content="Passwort anzeigen" Margin="230 0 35 70" Checked="CheckboxPW_Checked" Unchecked="CheckboxPW_Unchecked"/>
 
             <Button Content="Registrieren" FontFamily="Nirmala UI" Foreground="White" FontWeight="Bold" FontSize="16" BorderBrush="Transparent" Background="#8B0000" Height="50" Click="Register" Margin="40 0 35 70" Style="{DynamicResource RedButtonLogin}">
                 <Button.Resources>
@@ -70,6 +79,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            
         </StackPanel>
     </Grid>
 </Window>

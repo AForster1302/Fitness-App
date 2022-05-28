@@ -16,7 +16,7 @@
 
         <Label x:Name="Platzhalter" Grid.Column="1" FontStyle="Italic" FontWeight="DemiBold" FontSize="16" Foreground="#30000000"/>
 
-        <ListView x:Name="workoutList" ListView.ItemContainerStyle="{StaticResource ListViewRoutineBorder}" ItemsSource="{Binding}" VerticalAlignment="Top" Grid.Column="1"
+        <ListView x:Name="routineList" ListView.ItemContainerStyle="{StaticResource ListViewRoutineBorder}" ItemsSource="{Binding}" VerticalAlignment="Top" Grid.Column="1"
                   Margin="0,10,0,0" MinWidth="544.5" Background="Transparent" ScrollViewer.CanContentScroll="False" BorderBrush="Transparent" HorizontalContentAlignment="Center">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -54,14 +54,14 @@
                         <Label Content="{Binding RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
                         <Menu FontWeight="DemiBold" BorderThickness="0" Background="Transparent" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="12,10" Height="70" Width="70" FontSize="38"  VerticalContentAlignment="Top" Style="{DynamicResource MenuItem}">
                             <MenuItem Header="...">
-                                <MenuItem Icon="" Header=" löschen "  FontSize="20" Name="löschen">
-                                    <MenuItem.Template>
+                                <MenuItem Icon="" Header=" löschen " FontSize="20" Name="löschen" Click="delRoutine_Click">
+                                    <!--<MenuItem.Template>
                                         <ControlTemplate>
                                             <Border Background="#EBEBEB">
                                                 <Button Background="#EBEBEB" x:Name="delRoutine" BorderThickness="0" Click="delRoutine_Click">löschen</Button>
                                             </Border>
                                         </ControlTemplate>
-                                    </MenuItem.Template>
+                                    </MenuItem.Template>-->
                                 </MenuItem>
                             </MenuItem>
                         </Menu>

@@ -21,6 +21,7 @@
                 <ResourceDictionary Source="Theme/CreateRoutineButton.xaml"/>
                 <ResourceDictionary Source="Theme/Scrollbar.xaml"/>
                 <ResourceDictionary Source="Theme/MenuItem.xaml"/>
+                <ResourceDictionary Source="Theme/PWBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

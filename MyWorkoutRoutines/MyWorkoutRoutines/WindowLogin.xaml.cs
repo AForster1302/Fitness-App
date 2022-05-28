@@ -21,11 +21,12 @@ namespace MyWorkoutRoutines
     public partial class WindowLogin : Window
     {
         MainWindow mainWindow;
+        
         public WindowLogin(MainWindow _mainWindow)
         {
             InitializeComponent();
             mainWindow = _mainWindow;
-
+            
         }
 
         public WindowLogin()
@@ -59,7 +60,7 @@ namespace MyWorkoutRoutines
 
         private void Button_Login(object sender, RoutedEventArgs e)
         {
-            if (Username.Text != "" && PasswordBox.Text != "" && CheckPassword())
+            if (Username.Text != "" && PWBox.Password != "" && CheckPassword())
             {
 
                 using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
@@ -78,16 +79,16 @@ namespace MyWorkoutRoutines
                 MessageBox.Show("Geben Sie Ihren Nutzernamen ein.");
             }
 
-            else if (PasswordBox.Text == "")
-            {
-                MessageBox.Show("Geben Sie Ihr Passwort ein.");
-            }
+            //else if (PasswordBox.Text == "")
+            //{
+            //    MessageBox.Show("Geben Sie Ihr Passwort ein.");
+            //}
 
-            else
-            {
-                MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
-                PasswordBox.Text = "";
-            }
+            //else
+            //{
+            //    MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
+            //    PasswordBox.Text = "";
+            //}
         }
 
         public bool CheckPassword()
@@ -98,7 +99,7 @@ namespace MyWorkoutRoutines
             if (salt != "")
             {
                 byte[] saltBytes = Convert.FromBase64String(salt);
-                Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(PasswordBox.Text, saltBytes);
+                Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(PWBox.Password, saltBytes);
                 byte[] enteredHash = rfc2898DeriveBytes.GetBytes(20);
                 string str = Convert.ToBase64String(enteredHash);
                 string expectedHash = GetHashFromDB();
@@ -139,7 +140,7 @@ namespace MyWorkoutRoutines
         {
             if (e.Key == Key.Enter)
             {
-                PasswordBox.Focus();
+                PWBox.Focus();
             }
         }
 
@@ -161,7 +162,7 @@ namespace MyWorkoutRoutines
 
         private void Password_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            PasswordBox.Clear();
+            PWBox.Clear();
         }
 
         private void Username_MouseDown(object sender, MouseButtonEventArgs e)
@@ -174,24 +175,11 @@ namespace MyWorkoutRoutines
             Login.Show();
         }
 
-
-        private void Username_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Username.Text = string.Empty;
-            Username.GotFocus -= Username_GotFocus;
-        }
-
-        private void PasswordBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            PasswordBox.Text = string.Empty;
-            PasswordBox.GotFocus -= PasswordBox_GotFocus;
-        }
-
-        private void PasswordBox_KeyDown(object sender, KeyEventArgs e)
+        private void PWBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                if (Username.Text != "" && PasswordBox.Text != "" && CheckPassword())
+                if (Username.Text != "" && PWBox.Password != "" && CheckPassword())
                 {
 
                     using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
@@ -210,7 +198,7 @@ namespace MyWorkoutRoutines
                     MessageBox.Show("Geben Sie Ihren Nutzernamen ein.");
                 }
 
-                else if (PasswordBox.Text == "")
+                else if (PWBox.Password == "")
                 {
                     MessageBox.Show("Geben Sie Ihr Passwort ein.");
                 }
@@ -218,10 +206,65 @@ namespace MyWorkoutRoutines
                 else
                 {
                     MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
-                    PasswordBox.Text = "";
+                    PWBox.Password = "";
                 }
             }
         }
 
+        private void Username_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(Username.Text))
+            {
+                lUsername.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void PWBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(PWBox.Password))
+            {
+                lPassword.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Username_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(Username.Text))
+            {
+                lUsername.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PWBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(PWBox.Password))
+            {
+                lPassword.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void CheckboxPW_Checked(object sender, RoutedEventArgs e)
+        {
+            string passWord = PWBox.Password;
+            showPassword.Content = passWord;
+            lPassword.Visibility = Visibility.Hidden;
+            PWBox.Foreground = Brushes.Transparent;
+            showPassword.Visibility = Visibility.Visible;
+            PWBox.IsHitTestVisible = false;
+        }
+
+        private void CheckboxPW_Unchecked(object sender, RoutedEventArgs e)
+        {
+            //string passWord = PWBox.Password;
+            //showPassword.Content = passWord;
+            showPassword.Visibility = Visibility.Hidden;
+            lPassword.Visibility = Visibility.Hidden;
+            PWBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#404040"));
+            PWBox.IsHitTestVisible = true;
+            if (String.IsNullOrEmpty(PWBox.Password))
+            {
+                lPassword.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

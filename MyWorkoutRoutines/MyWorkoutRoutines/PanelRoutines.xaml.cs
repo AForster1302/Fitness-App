@@ -48,15 +48,15 @@ namespace MyWorkoutRoutines
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Routine routine = (Routine)workoutList.SelectedItem;
+            Routine routine = (Routine)routineList.SelectedItem;
             //Routine routine = new Routine();
             mainWindow.PanelStartRoutines(routine.RoutineID);
         }
 
         private void delRoutine_Click(object sender, RoutedEventArgs e)
         {
-
-            context.Routine.Remove((Routine)workoutList.SelectedItem);
+            routineList.Items.Remove(routineList.SelectedItem);
+            context.Routine.Remove((Routine)routineList.SelectedItem);
             context.SaveChanges();
         }
     }

@@ -17,10 +17,12 @@ C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWork
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MenuButton.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MenuButtonTheme.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\LoginRegistrationButton.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MenuItem.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MiniMaximizeCloseButtonLogin.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MiniMaximizeCloseButton.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\NavigationButton.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\PlayButtonRoutine.baml
+C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\PWBox.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\Scrollbar.baml
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MainWindow.g.cs
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\PanelCreatingRoutine.g.cs
@@ -50,5 +52,3 @@ C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWork
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.csproj.CopyComplete
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.exe
 C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.pdb
-C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\Theme\MenuItem.baml
-C:\Users\Adrian\Desktop\Hausarbeit Programm\Fitness-App\MyWorkoutRoutines\MyWorkoutRoutines\obj\Debug\MyWorkoutRoutines.csproj.AssemblyReference.cache

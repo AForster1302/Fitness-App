@@ -61,7 +61,7 @@ namespace MyWorkoutRoutines
                     Users newUser = new Users();
                     newUser.UserName = Username.Text;
 
-                    Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(Password.Text, 32);
+                    Rfc2898DeriveBytes rfc2898DeriveBytes = new Rfc2898DeriveBytes(PWBox.Password, 32);
                     byte[] hash = rfc2898DeriveBytes.GetBytes(20);
                     byte[] salt = rfc2898DeriveBytes.Salt;
 
@@ -84,12 +84,12 @@ namespace MyWorkoutRoutines
 
         private bool CheckPassword()
         {
-            if (Password.Text != RepeatPassword.Text)
+            if (PWBox.Password != PWBoxRepeat.Password)
             {
                 return false;
             }
 
-            else if (Password.Text.Length == 0)
+            else if (PWBox.Password.Length == 0)
             {
                 return false;
             }
@@ -120,19 +120,19 @@ namespace MyWorkoutRoutines
         {
             if (e.Key == Key.Enter)
             {
-                Password.Focus();
+                PWBox.Focus();
             }
         }
 
-        private void Password_KeyDown(object sender, KeyEventArgs e)
+        private void PWBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                RepeatPassword.Focus();
+                PWBoxRepeat.Focus();
             }
         }
 
-        private void RepeatPassword_KeyDown(object sender, KeyEventArgs e)
+        private void PWBoxRepeat_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -168,21 +168,88 @@ namespace MyWorkoutRoutines
 
         private void Username_GotFocus(object sender, RoutedEventArgs e)
         {
-            Username.Text = string.Empty;
-            Username.GotFocus -= Username_GotFocus;
+            if (String.IsNullOrEmpty(Username.Text))
+            {
+                lUsername.Visibility = Visibility.Hidden;
+            }
         }
 
-        private void Password_GotFocus(object sender, RoutedEventArgs e)
+        private void PWBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            Password.Text = string.Empty;
-            Password.GotFocus -= Password_GotFocus;
+            if (String.IsNullOrEmpty(PWBox.Password))
+            {
+                lPassword.Visibility = Visibility.Hidden;
+            }
         }
 
-        private void RepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        private void PWBoxRepeat_GotFocus(object sender, RoutedEventArgs e)
         {
-            RepeatPassword.Text = string.Empty;
-            RepeatPassword.GotFocus -= RepeatPassword_GotFocus;
+            if (String.IsNullOrEmpty(PWBoxRepeat.Password))
+            {
+                lPasswordRepeat.Visibility = Visibility.Hidden;
+            }
         }
 
+        private void Username_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(Username.Text))
+            {
+                lUsername.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PWBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(PWBox.Password))
+            {
+                lPassword.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void PWBoxRepeat_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (String.IsNullOrEmpty(PWBoxRepeat.Password))
+            {
+                lPasswordRepeat.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void CheckboxPW_Checked(object sender, RoutedEventArgs e)
+        {
+            string passWord = PWBox.Password;
+            string passWordRepeat = PWBoxRepeat.Password;
+            lshowPassword.Content = passWord;
+            lshowPasswordRepeat.Content = passWordRepeat;
+            lPassword.Visibility = Visibility.Hidden;
+            lPasswordRepeat.Visibility = Visibility.Hidden;
+            PWBox.Foreground = Brushes.Transparent;
+            PWBoxRepeat.Foreground = Brushes.Transparent;
+            lshowPassword.Visibility = Visibility.Visible;
+            lshowPasswordRepeat.Visibility = Visibility.Visible;
+            PWBox.IsHitTestVisible = false;
+            PWBoxRepeat.IsHitTestVisible = false;
+        }
+
+        private void CheckboxPW_Unchecked(object sender, RoutedEventArgs e)
+        {
+            //string passWord = PWBox.Password;
+            //showPassword.Content = passWord;
+            lshowPassword.Visibility = Visibility.Hidden;
+            lshowPasswordRepeat.Visibility = Visibility.Hidden;
+            lPassword.Visibility = Visibility.Hidden;
+            lPasswordRepeat.Visibility = Visibility.Hidden;
+            PWBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#404040"));
+            PWBoxRepeat.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#404040"));
+            PWBox.IsHitTestVisible = true;
+            PWBoxRepeat.IsHitTestVisible = true;
+            if (String.IsNullOrEmpty(PWBox.Password))
+            {
+                lPassword.Visibility = Visibility.Visible;
+            }
+            if (String.IsNullOrEmpty(PWBoxRepeat.Password))
+            {
+                lPasswordRepeat.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

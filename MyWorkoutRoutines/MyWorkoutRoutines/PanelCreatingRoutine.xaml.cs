@@ -170,7 +170,8 @@ namespace MyWorkoutRoutines
 
         private void RoutinenameBox_GotFocus(object sender, RoutedEventArgs e)
         {
-            RoutinenameBox.Text = "";
+
+            lRoutineName.Visibility = Visibility.Hidden;
         }
 
         private void Searchbox_GotFocus(object sender, RoutedEventArgs e)
@@ -180,7 +181,10 @@ namespace MyWorkoutRoutines
 
         private void Searchbox_LostFocus(object sender, RoutedEventArgs e)
         {
-            lSuche.Visibility = Visibility.Visible;
+            if (String.IsNullOrEmpty(Searchbox.Text))
+            {
+                lSuche.Visibility = Visibility.Visible;
+            }
         }
 
         private void lvExercises_Loaded(object sender, RoutedEventArgs e)
@@ -201,7 +205,7 @@ namespace MyWorkoutRoutines
         {
             if (String.IsNullOrEmpty(RoutinenameBox.Text))
             {
-                RoutinenameBox.Text = "Name";
+                lRoutineName.Visibility = Visibility.Visible;
             }
         }
     }
