@@ -31,6 +31,8 @@ namespace MyWorkoutRoutines
         {
             InitializeComponent();
             mainWindow = _mainWindow;
+
+            lwRoutineHistory.Items.Refresh();
         }
 
         private void RoutineHistoryPage_Loaded(object sender, RoutedEventArgs e)

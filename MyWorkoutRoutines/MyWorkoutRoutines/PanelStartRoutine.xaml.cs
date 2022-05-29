@@ -59,13 +59,9 @@ namespace MyWorkoutRoutines
 
         private void btnNextClick(object sender, RoutedEventArgs e)
         {
-            if (ExerciseIndex != exercises.Count() - 1)
+            if (ExerciseIndex < exercises.Count() - 1)
             {
                 ExerciseIndex++;
-                if (ExerciseIndex >= exercises.Count())
-                {
-                    return;
-                }
                 ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
                 ExerciseDescription.Text = exercises[ExerciseIndex].Description;
 
@@ -106,7 +102,6 @@ namespace MyWorkoutRoutines
         private void btnBack(object sender, RoutedEventArgs e)
         {
             mainWindow.PanelRoutines();
-            ExerciseIndex = 0;
         }
     }
 }

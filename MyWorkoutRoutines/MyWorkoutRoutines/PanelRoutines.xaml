@@ -47,18 +47,18 @@
                             </Border.Style>
                         </Border>
                         <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3"></Border>
-                        <Button Click="Button_Click" BorderThickness="0" Margin="0 -7 0 0" FontWeight="Bold" Grid.Column="0" Content="▶" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="55" Width="55" FontSize="30" Foreground="#FFFFFF" VerticalContentAlignment="Center" Style="{DynamicResource PlayButtonRoutine}"/>
+                        <Button Click="btnPlayRoutine" BorderThickness="0" Margin="0 -7 0 0" FontWeight="Bold" Grid.Column="0" Content="▶" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="55" Width="55" FontSize="30" Foreground="#FFFFFF" VerticalContentAlignment="Center" Style="{DynamicResource PlayButtonRoutine}"/>
                         <Label Content="{Binding RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
                         <Menu FontWeight="DemiBold" BorderThickness="0" Background="Transparent" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="12,10" Height="70" Width="70" FontSize="38"  VerticalContentAlignment="Top" Style="{DynamicResource MenuItem}">
                             <MenuItem Header="...">
-                                <MenuItem Icon="" Header=" löschen " FontSize="20" Name="löschen" Click="delRoutine_Click">
-                                    <!--<MenuItem.Template>
+                                <MenuItem Icon="" Header=" löschen " FontSize="20" Name="löschen">
+                                    <MenuItem.Template>
                                         <ControlTemplate>
                                             <Border Background="#EBEBEB">
-                                                <Button Background="#EBEBEB" x:Name="delRoutine" BorderThickness="0" Click="delRoutine_Click">löschen</Button>
+                                                <Button Background="#EBEBEB" x:Name="delRoutine" Click="delRoutine_Click" BorderThickness="0" >löschen</Button>
                                             </Border>
                                         </ControlTemplate>
-                                    </MenuItem.Template>-->
+                                    </MenuItem.Template>
                                 </MenuItem>
                             </MenuItem>
                         </Menu>

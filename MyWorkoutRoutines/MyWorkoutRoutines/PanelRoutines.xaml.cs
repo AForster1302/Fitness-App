@@ -50,24 +50,41 @@ namespace MyWorkoutRoutines
         {
             Button button = sender as Button;
             Routine r = button.DataContext as Routine;
-            int id = r.RoutineID;
-            Routine routine = (Routine)DataContext;
             mainWindow.PanelStartRoutines(r.RoutineID);
         }
         
         private void delRoutine_Click(object sender, RoutedEventArgs e)
         {
-            //Button button = sender as Button;
-            //Routine ra = button.DataContext as Routine;
+            Button button = sender as Button;
+            Routine ra = button.DataContext as Routine;
             //var del = context.Routine.Where(r => r.RoutineID == ra.RoutineID);
             //List<Routine> removeFromRoutine = (from routine in context.Routine
-            //                                  where routine.RoutineID == r.RoutineID
-            //                                  select routine);
+            //                                   where routine.RoutineID == r.RoutineID
+            //                                   select routine);
 
-            //routineList.Items.Remove(routineList.SelectedItem);
+            //context.Routine.()
             //context.Routine.Remove(routineList.del);
 
-            //context.SaveChanges();
+            //routineList.Items.Remove(ra);
+
+            var routineExerciseQuery =
+                from routineExercise in context.RoutineExercises
+                where routineExercise.RoutineID == ra.RoutineID
+                select routineExercise;
+
+            var routineHistoryQuery=
+                from routineHistory in context.RoutineHistory
+                where routineHistory.RoutineID == ra.RoutineID
+                select routineHistory;
+
+            context.RoutineExercises.RemoveRange(routineExerciseQuery.ToList());
+            context.RoutineHistory.RemoveRange(routineHistoryQuery.ToList());
+            context.Routine.Remove(ra);
+            context.SaveChanges();
+            routineList.Items.Refresh();
+
+
+
         }
     }
 }
