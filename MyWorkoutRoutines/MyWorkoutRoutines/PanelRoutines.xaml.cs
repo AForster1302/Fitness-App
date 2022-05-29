@@ -52,27 +52,18 @@ namespace MyWorkoutRoutines
             Routine r = button.DataContext as Routine;
             mainWindow.PanelStartRoutines(r.RoutineID);
         }
-        
+
         private void delRoutine_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             Routine ra = button.DataContext as Routine;
-            //var del = context.Routine.Where(r => r.RoutineID == ra.RoutineID);
-            //List<Routine> removeFromRoutine = (from routine in context.Routine
-            //                                   where routine.RoutineID == r.RoutineID
-            //                                   select routine);
-
-            //context.Routine.()
-            //context.Routine.Remove(routineList.del);
-
-            //routineList.Items.Remove(ra);
 
             var routineExerciseQuery =
                 from routineExercise in context.RoutineExercises
                 where routineExercise.RoutineID == ra.RoutineID
                 select routineExercise;
 
-            var routineHistoryQuery=
+            var routineHistoryQuery =
                 from routineHistory in context.RoutineHistory
                 where routineHistory.RoutineID == ra.RoutineID
                 select routineHistory;
@@ -82,8 +73,6 @@ namespace MyWorkoutRoutines
             context.Routine.Remove(ra);
             context.SaveChanges();
             routineList.Items.Refresh();
-
-
 
         }
     }
