@@ -13,6 +13,7 @@
     <Grid x:Name="left">
 
         <UserControl Name="LoginUC"/>
+        
         <StackPanel>
             <Grid Grid.Row="1" Width="210" Height="30"  VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Width="25" FontSize="16" Style="{DynamicResource WindowButtonLogin}"
@@ -21,7 +22,6 @@
                 <Button Width="25" FontSize="16" Style="{DynamicResource WindowButtonLogin}" Padding="0 -2 0 0"
                         Margin="152,2,33,2" Height="25" Content="🗕" Click="Minimize_Program"
                         Foreground="#8B0000" BorderBrush="{x:Null}"/>
-
             </Grid>
 
             <Label Grid.Row="1" Content="Login" Margin="40 29 0 55" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="30" />
@@ -50,7 +50,6 @@
                 <Label x:Name="showPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" IsHitTestVisible="False"/>
             </Grid>
             
-
             <CheckBox x:Name="CheckboxPW" VerticalContentAlignment="Center" FontSize="16" FontFamily="Nirmala UI" BorderBrush="#E0E0E0"
                       Margin="230 0 35 70" Foreground="#8B0000" Background="#E8E8E8" Content="Passwort anzeigen" Grid.Row="4" Checked="CheckboxPW_Checked" Unchecked="CheckboxPW_Unchecked"/>
 
@@ -59,24 +58,14 @@
                 <Button.Resources>
                     <Style TargetType="Border">
                         <Setter Property="CornerRadius" Value="5"></Setter>
-                        <!--<Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#10000000"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>-->
                     </Style>
                 </Button.Resources>
             </Button>
 
             <Label Content="Du hast noch keinen Account?" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" FontSize="16" HorizontalAlignment="Center" />
             <Separator FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#40000000" Width="250" FontSize="16"  />
-            <Button Content="Erstelle hier einen Account" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="16" Background="Transparent" BorderBrush="Transparent" Click="Register" HorizontalAlignment="Center" Style="{DynamicResource AccountCreation}"/>
+            <Button Content="Erstelle hier einen Account" FontFamily="Nirmala UI" FontWeight="Bold" FontSize="16" Background="Transparent" BorderBrush="Transparent" Click="Register" HorizontalAlignment="Center" Style="{DynamicResource AccountCreation}"/>
         </StackPanel>
+        
     </Grid>
 </Window>

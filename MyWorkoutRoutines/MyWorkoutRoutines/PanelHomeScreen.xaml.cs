@@ -25,7 +25,9 @@ namespace MyWorkoutRoutines
         MainWindow mainWindow;
         ICollectionView collectionView;
         DateTime dtSelectedDate;
+
         public MyWorkoutRoutinesEntities2 context = new MyWorkoutRoutinesEntities2();
+
         public PanelHomeScreen(MainWindow _mainWindow)
         {
             InitializeComponent();
@@ -43,14 +45,10 @@ namespace MyWorkoutRoutines
 
         private void Calendar_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //Calendar.BlackoutDates.Add(
-            //    new CalendarDateRange(
-            //        Calendar.SelectedDate.Value));
             if (Calendar.SelectedDate == null) return;
             dtSelectedDate = (DateTime)Calendar.SelectedDate;
             Calendar.SelectedDate = null;
             Calendar.BlackoutDates.Add(new CalendarDateRange(dtSelectedDate));
-
         }
 
         private void Calendar_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -59,9 +57,7 @@ namespace MyWorkoutRoutines
             dtSelectedDate = (DateTime)Calendar.SelectedDate;
             Calendar.SelectedDate = null;
             Calendar.BlackoutDates.Remove(new CalendarDateRange(dtSelectedDate));
-
         }
-
 
         private void btnSafeDays_Click(object sender, RoutedEventArgs e)
         {
@@ -69,6 +65,6 @@ namespace MyWorkoutRoutines
             reminders.CalendarDate = dtSelectedDate;
             context.SaveChanges();
         }
-    }
 
+    }
 }

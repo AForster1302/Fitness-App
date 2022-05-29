@@ -26,7 +26,6 @@ namespace MyWorkoutRoutines
         ICollectionView CollectionView;
         int RoutineID;
         int ExerciseIndex = 0;
-        int exid;
         List<Exercise> exercises;
 
         public PanelStartRoutine(MainWindow _mainWindow, int routineID)
@@ -36,13 +35,7 @@ namespace MyWorkoutRoutines
             RoutineID = routineID;
 
             RoutineName.Content = context.Routine.Where(r => r.RoutineID == RoutineID).FirstOrDefault().RoutineName;
-            //ExerciseName.Content = "Übung: " + context.Exercise.Where(re => re.ExerciseID == RoutineID ).FirstOrDefault().ExerciseName;
-            
-            //ExerciseName.Content = context.Exercise.Where(r => r.RoutineID == RoutineID).FirstOrDefault().RoutineName;
-            //ExerciseDescription.Text = context.Exercise.Where(e => e.ExerciseID == RoutineID).FirstOrDefault().Description;
-            
-            //exid = context.RoutineExercises.Where(re => re.RoutineID == RoutineID).FirstOrDefault().ExerciseID;
-            //context.Routine.Where(r => r.RoutineID == RoutineID).
+
             var query =
                 from routineExercise in context.RoutineExercises
                 join exercise in context.Exercise on routineExercise.ExerciseID equals exercise.ExerciseID
@@ -51,15 +44,8 @@ namespace MyWorkoutRoutines
                 select exercise;
             exercises = query.ToList();
 
-            ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
-            ExerciseDescription.Text = exercises[ExerciseIndex].Description;
-
-            List<RoutineExercises> routineExercises = context.RoutineExercises.Where(routineExercise => routineExercise.ExerciseID == exid).ToList();
-            //List<Exercise> exercises = context.Exercise.SelectMany(x => x.RoutineExercises.Where(y => y.RoutineID == routineID))
-            //RoutineName.Content = "Routine: " + listRoutineExercise[ExerciseIndex];
-
-            //loadContent();
-            
+            ExerciseName.Content = exercises[0].ExerciseName;
+            ExerciseDescription.Text = exercises[0].Description;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -73,36 +59,37 @@ namespace MyWorkoutRoutines
 
         private void btnNextClick(object sender, RoutedEventArgs e)
         {
-
-            ExerciseIndex++;
-            if (ExerciseIndex >= exercises.Count())
+            if (ExerciseIndex != exercises.Count() - 1)
             {
-                return;
-            }
-            ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
-            ExerciseDescription.Text = exercises[ExerciseIndex].Description;
+                ExerciseIndex++;
+                if (ExerciseIndex >= exercises.Count())
+                {
+                    return;
+                }
+                ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
+                ExerciseDescription.Text = exercises[ExerciseIndex].Description;
 
-            //if (ExerciseIndex == exercises.())
-            //{
-            //    RoutineFinish.Content = "                     Glückwunsch!\nSie haben Ihr Training abegeschlossen.";
-            //    ExerciseName.Content = "";
-            //    ExerciseDescription.Text = "";
-            //    btnFinish.Visibility = Visibility.Visible;
-            //}
-            //ExerciseIndex = exercises.Count();
+                if (ExerciseIndex == exercises.Count() - 1)
+                {
+                    ExerciseIndex = exercises.Count() - 1;
+                    btnFinish.Visibility = Visibility.Visible;
+                }
+            }
         }
 
         private void btnPreviousClick(object sender, RoutedEventArgs e)
         {
-            ExerciseIndex--;
-            if (ExerciseIndex >= exercises.Count())
+            if (ExerciseIndex != 0)
             {
-                return;
+                ExerciseIndex--;
+                if (ExerciseIndex >= exercises.Count())
+                {
+                    return;
+                }
+                ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
+                ExerciseDescription.Text = exercises[ExerciseIndex].Description;
+                btnFinish.Visibility = Visibility.Hidden;
             }
-            ExerciseIndex = 0;
-            ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
-            ExerciseDescription.Text = exercises[ExerciseIndex].Description;
-            
         }
 
         private void btnFinishClick(object sender, RoutedEventArgs e)
@@ -113,16 +100,13 @@ namespace MyWorkoutRoutines
             context.RoutineHistory.Add(rH);
             context.SaveChanges();
             mainWindow.PanelRoutines();
+            ExerciseIndex = 0;
         }
 
         private void btnBack(object sender, RoutedEventArgs e)
         {
             mainWindow.PanelRoutines();
+            ExerciseIndex = 0;
         }
-
-        //private void loadContent()
-        //{
-        //    ExerciseName.Content = "Übung: " + context.Exercise.Where(e => e.ExerciseID == listRoutineExercise[ExerciseIndex].ExerciseID).FirstOrDefault().ExerciseName;
-        //}
     }
 }

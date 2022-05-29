@@ -9,8 +9,9 @@
         </Style.Resources>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="Foreground" Value="#50000000"/>
             </Trigger>
         </Style.Triggers>
     </Style>
+
 </ResourceDictionary>

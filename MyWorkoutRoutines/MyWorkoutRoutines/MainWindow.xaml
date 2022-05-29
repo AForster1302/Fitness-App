@@ -8,7 +8,7 @@
         xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         AllowDrop="True" ResizeMode="NoResize" AllowsTransparency="True" x:Name="MainScreen" WindowStartupLocation="CenterScreen"
-        Title="MyWorkoutRoutines" Height="450" Width="810" Background="Transparent" WindowStyle="None" Loaded="Window_Loaded">
+        Title="MyWorkoutRoutines" Height="450" Width="810" Background="Transparent" WindowStyle="None">
 
     <Border x:Name="ParentBorder" Background="#8B0000" CornerRadius="15,15,15,15" Padding="8" BorderThickness=".65">
         
@@ -27,12 +27,6 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                
-
-                <!--<RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold" BorderThickness="0"  Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" Style="{StaticResource MenuButton}"/>-->
                 <RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnHomeScreen" Style="{StaticResource MenuButton}"/>
                 <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
                 <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnRoutines" Style="{StaticResource MenuButton}"/>
@@ -55,37 +49,6 @@
             </Grid>
 
             <UserControl Grid.Row="2" x:Name="Main"/>
-
-            <!--<TabControl Grid.Row="1" Margin="-8,0,-8,0" BorderThickness="0" Height="397" VerticalAlignment="Top" Background="#EBEBEB">
-                <TabItem x:Name="Hauptbildschirm" Header="Hauptbildschirm" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" Height="30" FontWeight="Bold" Foreground="#8B0000">
-
-                </TabItem>
-
-
-                <TabItem Header="Routinen erstellen" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
-                    <Button x:Name="btnUpload" Background="#8B0000" Foreground="#EBEBEB" BorderThickness="0" FontWeight="Light" FontFamily="Arial" Grid.Row="2" Height="48" Width="48"
-                            VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,20,15" FontSize="32" VerticalContentAlignment="Center" BorderBrush="#8B0000" Content="+"
-                            Click="btnCreateRoutine">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="21"></Setter>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-
-
-
-                </TabItem>
-                <UserControl Name="Main"/>
-                <TabItem Header="Meine Routinen" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
-
-                </TabItem>
-                <TabItem Header="Trainingsverlauf" BorderThickness="0" Width="200" Background="#8B0000" BorderBrush="#8B0000" FontWeight="Bold" Foreground="#EBEBEB">
-
-                </TabItem>
-                    
-            </TabControl>-->
-
         </Grid>
         
     </Border>

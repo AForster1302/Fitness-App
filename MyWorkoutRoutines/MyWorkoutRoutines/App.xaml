@@ -10,7 +10,6 @@
             <FontFamily x:Key="FontAwesome">/Fonts/fontawesome-webfont.ttf#FontAwesome</FontFamily>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/MenuButton.xaml"/>
-                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
                 <ResourceDictionary Source="Theme/ListViewRoutine.xaml"/>
                 <ResourceDictionary Source="Theme/ListViewRoutineBorder.xaml"/>
                 <ResourceDictionary Source="Theme/PlayButtonRoutine.xaml"/>
@@ -22,6 +21,7 @@
                 <ResourceDictionary Source="Theme/Scrollbar.xaml"/>
                 <ResourceDictionary Source="Theme/MenuItem.xaml"/>
                 <ResourceDictionary Source="Theme/PWBox.xaml"/>
+                <ResourceDictionary Source="Theme/FilterToggleButtonCreateRoutine.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

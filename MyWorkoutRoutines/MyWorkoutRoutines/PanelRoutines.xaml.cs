@@ -46,18 +46,28 @@ namespace MyWorkoutRoutines
             ParentGrid.DataContext = CollectionView;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnPlayRoutine(object sender, RoutedEventArgs e)
         {
-            Routine routine = (Routine)routineList.SelectedItem;
-            //Routine routine = new Routine();
-            mainWindow.PanelStartRoutines(routine.RoutineID);
+            Button button = sender as Button;
+            Routine r = button.DataContext as Routine;
+            int id = r.RoutineID;
+            Routine routine = (Routine)DataContext;
+            mainWindow.PanelStartRoutines(r.RoutineID);
         }
-
+        
         private void delRoutine_Click(object sender, RoutedEventArgs e)
         {
-            routineList.Items.Remove(routineList.SelectedItem);
-            context.Routine.Remove((Routine)routineList.SelectedItem);
-            context.SaveChanges();
+            //Button button = sender as Button;
+            //Routine ra = button.DataContext as Routine;
+            //var del = context.Routine.Where(r => r.RoutineID == ra.RoutineID);
+            //List<Routine> removeFromRoutine = (from routine in context.Routine
+            //                                  where routine.RoutineID == r.RoutineID
+            //                                  select routine);
+
+            //routineList.Items.Remove(routineList.SelectedItem);
+            //context.Routine.Remove(routineList.del);
+
+            //context.SaveChanges();
         }
     }
 }

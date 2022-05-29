@@ -25,17 +25,13 @@ namespace MyWorkoutRoutines
     {
         MainWindow mainWindow;
         WindowLogin windowLogin;
+
         public WindowRegister(MainWindow _mainWindow, WindowLogin _windowLogin)
-        {     
+        { 
             InitializeComponent();
             windowLogin = _windowLogin;
             mainWindow = _mainWindow;
 
-        }
-
-        public WindowRegister()
-        {
-            InitializeComponent();
         }
 
         private void Register(object sender, RoutedEventArgs e)
@@ -52,7 +48,6 @@ namespace MyWorkoutRoutines
             {
                 MessageBox.Show("Die Passwörter müssen identisch sein.");
             }
-
 
             else
             {
@@ -73,12 +68,8 @@ namespace MyWorkoutRoutines
 
                 MessageBox.Show("Ihr Account wurde erfolgreich erstellt.");
                 
-               
                 Registration.Close();
                 windowLogin.Show();
-                
-
-
             }
         }
 
@@ -232,8 +223,6 @@ namespace MyWorkoutRoutines
 
         private void CheckboxPW_Unchecked(object sender, RoutedEventArgs e)
         {
-            //string passWord = PWBox.Password;
-            //showPassword.Content = passWord;
             lshowPassword.Visibility = Visibility.Hidden;
             lshowPasswordRepeat.Visibility = Visibility.Hidden;
             lPassword.Visibility = Visibility.Hidden;

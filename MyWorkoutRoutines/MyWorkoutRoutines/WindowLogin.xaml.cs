@@ -29,17 +29,6 @@ namespace MyWorkoutRoutines
             
         }
 
-        public WindowLogin()
-        {
-            InitializeComponent();
-        }
-
-        //public void WindowRegister()
-        //{
-        //    WindowRegister windowRegister = new WindowRegister();
-        //    mainWindow.Content = windowRegister;
-        //}
-
         private void Close_Program(object sender, RoutedEventArgs e)
         {
             Close();
@@ -66,7 +55,6 @@ namespace MyWorkoutRoutines
                 using (MyWorkoutRoutinesEntities2 ctx = new MyWorkoutRoutinesEntities2())
                 {
                     mainWindow.userid = ctx.Users.Where(x => x.UserName == Username.Text).FirstOrDefault().UserID;
-                    //wip after Registration
                     mainWindow.Show();
                     mainWindow.PanelHomeScreen();
                     this.Close();
@@ -79,16 +67,16 @@ namespace MyWorkoutRoutines
                 MessageBox.Show("Geben Sie Ihren Nutzernamen ein.");
             }
 
-            //else if (PasswordBox.Text == "")
-            //{
-            //    MessageBox.Show("Geben Sie Ihr Passwort ein.");
-            //}
+            else if (PWBox.Password == "")
+            {
+                MessageBox.Show("Geben Sie Ihr Passwort ein.");
+            }
 
-            //else
-            //{
-            //    MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
-            //    PasswordBox.Text = "";
-            //}
+            else
+            {
+                MessageBox.Show("Falscher Nutzername oder Passwort. \nVersuchen Sie es erneut.");
+                PWBox.Password = "";
+            }
         }
 
         public bool CheckPassword()
@@ -255,8 +243,6 @@ namespace MyWorkoutRoutines
 
         private void CheckboxPW_Unchecked(object sender, RoutedEventArgs e)
         {
-            //string passWord = PWBox.Password;
-            //showPassword.Content = passWord;
             showPassword.Visibility = Visibility.Hidden;
             lPassword.Visibility = Visibility.Hidden;
             PWBox.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#404040"));

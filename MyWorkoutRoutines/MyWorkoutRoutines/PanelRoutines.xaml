@@ -46,11 +46,8 @@
                                 </Style>
                             </Border.Style>
                         </Border>
-                        <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3">
-
-                        </Border>
-                        <Button Click="Button_Click" BorderThickness="0" Margin="0 -7 0 0" FontWeight="Bold" Grid.Column="0" Content="▶" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="55" Width="55" FontSize="30" Foreground="#FFFFFF" VerticalContentAlignment="Center" Style="{DynamicResource PlayButtonRoutine}" />
-                        <!--<Label Content="" FontWeight="Bold" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,10" FontFamily="Calibri" Height="70" FontSize="38" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>-->
+                        <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3"></Border>
+                        <Button Click="Button_Click" BorderThickness="0" Margin="0 -7 0 0" FontWeight="Bold" Grid.Column="0" Content="▶" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Height="55" Width="55" FontSize="30" Foreground="#FFFFFF" VerticalContentAlignment="Center" Style="{DynamicResource PlayButtonRoutine}"/>
                         <Label Content="{Binding RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 7 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>
                         <Menu FontWeight="DemiBold" BorderThickness="0" Background="Transparent" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Margin="12,10" Height="70" Width="70" FontSize="38"  VerticalContentAlignment="Top" Style="{DynamicResource MenuItem}">
                             <MenuItem Header="...">
@@ -82,9 +79,6 @@
                                         <RowDefinition MaxHeight="0"/>
                                     </Grid.RowDefinitions>
                                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Row="1" CornerRadius="10"/>
-                                    <!--<RepeatButton x:Name="PART_LineUpButton" Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Margin="0,0,0,-20">    
-                                <Path x:Name="ArrowTop" Data="M 0,4 C0,4 0,6 0,6 0,6 3.5,2.5 3.5,2.5 3.5,2.5 7,6 7,6 7,6 7,4 7,4 7,4 3.5,0.5 3.5,0.5 3.5,0.5 0,4 0,4 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
-                            </RepeatButton>-->
                                     <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
                                         <Track.DecreaseRepeatButton>
                                             <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource RepeatButtonTransparent}" HorizontalAlignment="Left" Width="17"/>
@@ -96,17 +90,12 @@
                                             <Thumb Style="{StaticResource ScrollBarThumbVertical}" Margin="2"/>
                                         </Track.Thumb>
                                     </Track>
-                                    <!--<RepeatButton x:Name="PART_LineDownButton" Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}"  Margin="0,-20,0,0">    
-                                <Path x:Name="ArrowBottom" Data="M 0,2.5 C0,2.5 0,0.5 0,0.5 0,0.5 3.5,4 3.5,4 3.5,4 7,0.5 7,0.5 7,0.5 7,2.5 7,2.5 7,2.5 3.5,6 3.5,6 3.5,6 0,2.5 0,2.5 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
-                            </RepeatButton>-->
                                 </Grid>
-
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
                 </Style>
             </ListView.Resources>
         </ListView>
-
     </Grid>
 </UserControl>

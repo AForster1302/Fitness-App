@@ -47,7 +47,6 @@
                         <Border CornerRadius="45" BorderBrush="Transparent" Background="#F7F7F7" BorderThickness="1" HorizontalAlignment="Left" Height="85" Margin="0.5,-1,-1,1" VerticalAlignment="Top" MinWidth="545" Grid.ColumnSpan="3"/>
                         <Border CornerRadius="20" BorderBrush="Transparent" Background="#8B0000" BorderThickness="1" HorizontalAlignment="Left" Height="35" Margin="35,-1,-1,1" VerticalAlignment="Center" MinWidth="120" Grid.ColumnSpan="3" Grid.Column="0"/>
                         <Label Content="{Binding DateHistory}" ContentStringFormat="dd.MM.yyyy" FontWeight="DemiBold" Grid.Column="0" Foreground="#F7F7F7" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="41 5,-1,1" Height="70" FontSize="20" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"/>
-                        <!--<Label Content="" FontWeight="Bold" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="77,10" FontFamily="Calibri" Height="70" FontSize="38" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"></Label>-->
                         <Label Content="{Binding Routine.RoutineName}" FontWeight="DemiBold" Grid.Column="1" Foreground="#333333" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="-25 6 0 0" Height="70" FontSize="28" Background="Transparent" BorderBrush="Transparent" VerticalContentAlignment="Center"/>
                     </Grid>
                 </DataTemplate>
@@ -66,9 +65,6 @@
                                         <RowDefinition MaxHeight="0"/>
                                     </Grid.RowDefinitions>
                                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.Row="1" CornerRadius="10"/>
-                                    <!--<RepeatButton x:Name="PART_LineUpButton" Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" Margin="0,0,0,-20">    
-                                <Path x:Name="ArrowTop" Data="M 0,4 C0,4 0,6 0,6 0,6 3.5,2.5 3.5,2.5 3.5,2.5 7,6 7,6 7,6 7,4 7,4 7,4 3.5,0.5 3.5,0.5 3.5,0.5 0,4 0,4 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
-                            </RepeatButton>-->
                                     <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
                                         <Track.DecreaseRepeatButton>
                                             <RepeatButton Command="{x:Static ScrollBar.PageUpCommand}" Style="{StaticResource RepeatButtonTransparent}" HorizontalAlignment="Left" Width="17"/>
@@ -80,11 +76,7 @@
                                             <Thumb Style="{StaticResource ScrollBarThumbVertical}" Margin="2"/>
                                         </Track.Thumb>
                                     </Track>
-                                    <!--<RepeatButton x:Name="PART_LineDownButton" Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}"  Margin="0,-20,0,0">    
-                                <Path x:Name="ArrowBottom" Data="M 0,2.5 C0,2.5 0,0.5 0,0.5 0,0.5 3.5,4 3.5,4 3.5,4 7,0.5 7,0.5 7,0.5 7,2.5 7,2.5 7,2.5 3.5,6 3.5,6 3.5,6 0,2.5 0,2.5 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform"/>    
-                            </RepeatButton>-->
                                 </Grid>
-
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>

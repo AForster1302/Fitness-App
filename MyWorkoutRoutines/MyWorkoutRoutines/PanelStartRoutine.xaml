@@ -40,9 +40,7 @@
                 <Button Click="btnNextClick" Content=" ▶︎" Grid.Row="4" FontSize="24" Foreground="#95000000" FontWeight="Black" Style="{DynamicResource NavigationButton}" Height="45" Width="45" Grid.Column="1" HorizontalAlignment="Left" Margin="1 0 0 0"/>
                 <Button Click="btnFinishClick" x:Name="btnFinish" Visibility="Hidden" FontSize="24" Content="🎌" Grid.Row="4" Style="{DynamicResource NavigationButton}" Height="45" Width="45" Grid.Column="1" HorizontalAlignment="Right" Margin="0 0 2 0"/>
             </Grid>
-            
 
-            
         </Grid>
 
         <Grid Grid.Column="2">
@@ -59,6 +57,6 @@
                 </Button.Resources>
             </Button>
         </Grid>
-
+        
     </Grid>
 </UserControl>
