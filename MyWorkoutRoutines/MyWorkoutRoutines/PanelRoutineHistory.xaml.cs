@@ -23,10 +23,10 @@ namespace MyWorkoutRoutines
     public partial class PanelRoutineHistory : UserControl
     {
 
-        MainWindow mainWindow;
+        
         MyWorkoutRoutinesEntities2 Context = new MyWorkoutRoutinesEntities2();
         ICollectionView CollectionView;
-
+        MainWindow mainWindow;
         public PanelRoutineHistory(MainWindow _mainWindow)
         {
             InitializeComponent();
