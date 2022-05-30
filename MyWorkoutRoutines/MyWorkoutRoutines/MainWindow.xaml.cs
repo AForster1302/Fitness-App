@@ -83,12 +83,6 @@ namespace MyWorkoutRoutines
             WindowState = WindowState.Minimized;
         }
 
-        public void WindowLogin()
-        {
-            WindowLogin windowLogin = new WindowLogin(this);
-            windowLogin.Show();
-        }
-
         private void btnCreateRoutine(object sender, RoutedEventArgs e)
         {
             PanelCreatingRoutine();
@@ -107,6 +101,12 @@ namespace MyWorkoutRoutines
         private void btnHomeScreen(object sender, RoutedEventArgs e)
         {
             PanelHomeScreen();
+        }
+
+        public void WindowLogin()
+        {
+            WindowLogin windowLogin = new WindowLogin(this);
+            windowLogin.Show();
         }
 
         public void PanelCreatingRoutine()

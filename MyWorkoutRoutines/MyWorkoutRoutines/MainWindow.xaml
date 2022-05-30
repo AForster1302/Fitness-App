@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:MyWorkoutRoutines"
-        xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
         mc:Ignorable="d"
         AllowDrop="True" ResizeMode="NoResize" AllowsTransparency="True" x:Name="MainScreen" WindowStartupLocation="CenterScreen"
         Title="MyWorkoutRoutines" Height="450" Width="810" Background="Transparent" WindowStyle="None">
@@ -27,15 +26,20 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnHomeScreen" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnRoutines" Style="{StaticResource MenuButton}"/>
-                <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold" BorderThickness="0" FontSize="16" Click="btnHistory" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="0" Content="Hauptbildschirm" FontWeight="Bold"
+                             BorderThickness="0" FontSize="16" Click="btnHomeScreen" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="1" Content="Routinen erstellen" FontWeight="Bold"
+                             BorderThickness="0" FontSize="16" Click="btnCreateRoutine" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="2" Content="Meine Routinen" FontWeight="Bold"
+                             BorderThickness="0" FontSize="16" Click="btnRoutines" Style="{StaticResource MenuButton}"/>
+                <RadioButton Grid.Row="1" Grid.Column="3" Content="Trainingsverlauf" FontWeight="Bold"
+                             BorderThickness="0" FontSize="16" Click="btnHistory" Style="{StaticResource MenuButton}"/>
             </Grid>
 
             <Border  Grid.Row="0" Background="Transparent" Margin="0,-8,0,0" MouseLeftButtonDown="DrawWindow_MouseLeftButtonDown"/>
 
-            <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="7 0 0 0" Text="MyWorkoutRoutines" Grid.Column="1" IsHitTestVisible="False"/>
+            <TextBlock Foreground="#EBEBEB" FontSize="15" FontWeight="Light" Margin="7 0 0 0" 
+                       Text="MyWorkoutRoutines" Grid.Column="1" IsHitTestVisible="False"/>
             <Grid Grid.Row="0" Width="210" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,-8,0,0">
                 <Button Width="25" Padding="0 -2 0 0"
                         Margin="178,0,6,0" Height="25" Content="🗙" Click="Close_Program" 

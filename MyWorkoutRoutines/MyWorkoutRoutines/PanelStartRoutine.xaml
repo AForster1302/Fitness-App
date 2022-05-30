@@ -19,17 +19,17 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition MinHeight="50"/>
-                <RowDefinition MinHeight="110"/>
+                <RowDefinition MinHeight="60"/>
                 <RowDefinition MinHeight="20"/>
-                <RowDefinition MinHeight="110"/>
+                <RowDefinition MinHeight="160"/>
                 <RowDefinition MinHeight="50"/>
             </Grid.RowDefinitions>
             <Border Grid.Column="1" Grid.RowSpan="5" Background="#EBEBEB"></Border>
 
             <Label Name="RoutineName" Content="rName" Grid.Column="1" Grid.Row="0" FontSize="28" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-            <Label Name="RoutineFinish" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="1" FontWeight="DemiBold" Foreground="#8B0000" VerticalAlignment="Bottom" Height="70" FontSize="14"  Margin="3"/>
+            <Label Name="RoutineFinish" Visibility="Hidden" HorizontalAlignment="Center" VerticalContentAlignment="Center" Grid.Column="1" Grid.Row="1" FontWeight="DemiBold" Foreground="#8B0000" VerticalAlignment="Bottom" Height="70" FontSize="14"  Margin="3">Glückwunsch! Sie haben Ihr Training abgeschlossen.</Label>
             <Label Name="ExerciseName"  HorizontalAlignment="Center" Grid.Column="1" Grid.Row="2" FontWeight="DemiBold" FontSize="18" Margin="3"/>
-            <TextBlock Name="ExerciseDescription" Text="Description" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" FontSize="14" TextWrapping="WrapWithOverflow" Width="350" />
+            <TextBlock Name="ExerciseDescription" Text="Description" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" FontSize="12" TextWrapping="WrapWithOverflow" Width="450" />
 
             <Grid Grid.Row="4">
                 <Grid.ColumnDefinitions>

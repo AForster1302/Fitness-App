@@ -26,7 +26,7 @@
 
             <Label Grid.Row="1" Content="Login" Margin="40 29 0 55" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="30" />
             <Grid Margin="0 0 0 15">
-                <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="Username_LostFocus"
+                <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="Username_LostFocus" KeyDown="Username_KeyDown"
                  Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
                     <TextBox.Resources>
                         <Style TargetType="Border">
@@ -38,16 +38,20 @@
             </Grid>
             
             <Grid Margin="0 0 0 12">
-                <PasswordBox x:Name="PWBox" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="PWBox_LostFocus" Style="{DynamicResource PWBox}"
-                 Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="PWBox_GotFocus" KeyDown="PWBox_KeyDown" >
+                <PasswordBox x:Name="PWBox" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" 
+                             LostFocus="PWBox_LostFocus" Style="{DynamicResource PWBox}" KeyDown="PWBox_KeyDown" 
+                             Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" 
+                             BorderBrush="Transparent" Background="#15000000" GotFocus="PWBox_GotFocus">
                     <PasswordBox.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="5"></Setter>
                         </Style>
                     </PasswordBox.Resources>
                 </PasswordBox>
-                <Label x:Name="lPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" Content="🔒 Passwort" IsHitTestVisible="False"/>
-                <Label x:Name="showPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center" Margin="48 0 40 0" FontWeight="Bold" IsHitTestVisible="False"/>
+                <Label x:Name="lPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center"
+                       Margin="48 0 40 0" FontWeight="Bold" Content="🔒 Passwort" IsHitTestVisible="False"/>
+                <Label x:Name="showPassword" Foreground="#404040" FontSize="16" VerticalAlignment="Center"
+                       Margin="48 0 40 0" FontWeight="Bold" IsHitTestVisible="False"/>
             </Grid>
             
             <CheckBox x:Name="CheckboxPW" VerticalContentAlignment="Center" FontSize="16" FontFamily="Nirmala UI" BorderBrush="#E0E0E0"

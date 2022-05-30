@@ -25,15 +25,15 @@ namespace MyWorkoutRoutines
     public partial class PanelRoutines : UserControl
     {
 
-        MainWindow mainWindow;
+        
         MyWorkoutRoutinesCtx context = new MyWorkoutRoutinesCtx();
         ICollectionView CollectionView;
 
+        MainWindow mainWindow;
         public PanelRoutines(MainWindow _mainWindow)
         {
             InitializeComponent();
             mainWindow = _mainWindow;
-
         }
 
 

@@ -65,15 +65,11 @@ namespace MyWorkoutRoutines
                 ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
                 ExerciseDescription.Text = exercises[ExerciseIndex].Description;
 
-                if (ExerciseIndex == exercises.Count() - 1)
-                {
-                    ExerciseIndex = exercises.Count() - 1;
-                    btnFinish.Visibility = Visibility.Visible;
-                }
             }
-            if (exercises.Count() == 1)
-            {
+            if (ExerciseIndex == exercises.Count() - 1)
+            { 
                 btnFinish.Visibility = Visibility.Visible;
+                RoutineFinish.Visibility = Visibility.Visible;
             }
         }
 
@@ -89,6 +85,7 @@ namespace MyWorkoutRoutines
                 ExerciseName.Content = exercises[ExerciseIndex].ExerciseName;
                 ExerciseDescription.Text = exercises[ExerciseIndex].Description;
                 btnFinish.Visibility = Visibility.Hidden;
+                RoutineFinish.Visibility = Visibility.Hidden;
             }
         }
 

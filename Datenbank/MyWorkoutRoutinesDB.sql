@@ -73,8 +73,10 @@ CREATE TABLE Reminders(
 CREATE TABLE RoutineHistory(
 	HistoryID INT Not Null Primary Key Identity(1,1),
 	RoutineID INT not null,
+	UserID INT,
 	FOREIGN KEY (RoutineID) REFERENCES Routine(RoutineID),
 	DateHistory Datetime,
+	Constraint RoutineHistory_Users Foreign Key (UserID) References Users(UserID),
 );
 
 -------------------------------------
@@ -299,5 +301,3 @@ Beide Füße mit dem Spann ablegen und Rumpfspannung aufbauen. Rumpf und Oberschen
 INSERT INTO Exercise VALUES ('Beine', 'Hüftheben mit Beinstrecken', 'Fortgeschritten','In Rückenlage die Füße hüftbreit und dicht vor dem Gesäß aufstellen. Die Arme nah am Körper mit den Handflächen nach unten ablegen,
 dann die Hüfte anheben, bis Oberschenkel, Becken und Oberkörper eine gerade Linie bilden. Den rechten Fuß vom Boden lösen und das Bein nach vorn parallel zum linken Oberschenkel ausstrecken.
 Das gestreckte Bein so weit es geht weiter nach oben in Richtung Oberkörper bewegen. Dort halten und wieder zurück zu Position B. Seitenwechsel im nächsten Satz.');
-
-

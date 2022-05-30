@@ -20,13 +20,11 @@ namespace MyWorkoutRoutines
     /// </summary>
     public partial class WindowLogin : Window
     {
-        MainWindow mainWindow;
-        
+        MainWindow mainWindow;      
         public WindowLogin(MainWindow _mainWindow)
         {
             InitializeComponent();
-            mainWindow = _mainWindow;
-            
+            mainWindow = _mainWindow;      
         }
 
         private void Close_Program(object sender, RoutedEventArgs e)
@@ -129,14 +127,6 @@ namespace MyWorkoutRoutines
             if (e.Key == Key.Enter)
             {
                 PWBox.Focus();
-            }
-        }
-
-        private void Password_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                Button_Login(sender, e);
             }
         }
 
@@ -251,5 +241,6 @@ namespace MyWorkoutRoutines
                 lPassword.Visibility = Visibility.Visible;
             }
         }
+
     }
 }

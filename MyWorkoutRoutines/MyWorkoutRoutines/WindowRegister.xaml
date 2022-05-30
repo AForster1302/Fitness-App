@@ -31,7 +31,7 @@
             <Label Content="Registrierung" FontFamily="Nirmala UI" FontWeight="Bold" Foreground="#8B0000" FontSize="22" Margin="40 29 0 55"/>
 
             <Grid Margin="0 0 0 15">
-                <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="Username_LostFocus"
+                <TextBox x:Name="Username" FontSize="16" Height="50" Margin="40 0 40 0" Padding="8 0 0 0" LostFocus="Username_LostFocus" KeyDown="Username_KeyDown"
                  Foreground="#404040" FontWeight="Bold" VerticalContentAlignment="Center" BorderBrush="Transparent" Background="#15000000" GotFocus="Username_GotFocus">
                     <TextBox.Resources>
                         <Style TargetType="Border">

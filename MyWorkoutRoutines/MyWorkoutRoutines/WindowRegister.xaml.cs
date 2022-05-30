@@ -62,6 +62,7 @@ namespace MyWorkoutRoutines
 
                     newUser.Salt = Convert.ToBase64String(salt);
                     newUser.HashPassword = Convert.ToBase64String(hash);
+
                     ctx.Users.Add(newUser);
                     ctx.SaveChanges();
                 }
@@ -93,6 +94,11 @@ namespace MyWorkoutRoutines
 
         private bool CheckUsername()
         {
+            if (Username.Text.Length == 0)
+            {
+                return false;
+            }
+
             using (MyWorkoutRoutinesCtx ctx = new MyWorkoutRoutinesCtx())
             {
                 if (ctx.Users.Where(x => x.UserName == Username.Text).Count() > 0)
@@ -240,5 +246,6 @@ namespace MyWorkoutRoutines
                 lPasswordRepeat.Visibility = Visibility.Visible;
             }
         }
+
     }
 }
