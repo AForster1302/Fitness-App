@@ -48,6 +48,7 @@
           </Key>
           <Property Name="HistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="RoutineID" Type="int" Nullable="false" />
+          <Property Name="UserID" Type="int" />
           <Property Name="DateHistory" Type="datetime" />
         </EntityType>
         <EntityType Name="Users">
@@ -59,7 +60,7 @@
           <Property Name="HashPassword" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Salt" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
-        <Association Name="FK__RoutineHi__Routi__625A9A57">
+        <Association Name="FK__RoutineHi__Routi__5441852A">
           <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
           <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -119,6 +120,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="RoutineHistory_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="RoutineHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="MyWorkoutRoutinesModelStoreContainer">
           <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Reminders" EntityType="Self.Reminders" Schema="dbo" store:Type="Tables" />
@@ -126,7 +139,7 @@
           <EntitySet Name="RoutineExercises" EntityType="Self.RoutineExercises" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoutineHistory" EntityType="Self.RoutineHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__RoutineHi__Routi__625A9A57" Association="Self.FK__RoutineHi__Routi__625A9A57">
+          <AssociationSet Name="FK__RoutineHi__Routi__5441852A" Association="Self.FK__RoutineHi__Routi__5441852A">
             <End Role="Routine" EntitySet="Routine" />
             <End Role="RoutineHistory" EntitySet="RoutineHistory" />
           </AssociationSet>
@@ -145,6 +158,10 @@
           <AssociationSet Name="Routine_Users" Association="Self.Routine_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Routine" EntitySet="Routine" />
+          </AssociationSet>
+          <AssociationSet Name="RoutineHistory_Users" Association="Self.RoutineHistory_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RoutineHistory" EntitySet="RoutineHistory" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -179,7 +196,7 @@
           <Property Name="RoutineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoutineName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UserID" Type="Int32" />
-          <NavigationProperty Name="RoutineHistory" Relationship="Self.FK__RoutineHi__Routi__625A9A57" FromRole="Routine" ToRole="RoutineHistory" />
+          <NavigationProperty Name="RoutineHistory" Relationship="Self.FK__RoutineHi__Routi__5441852A" FromRole="Routine" ToRole="RoutineHistory" />
           <NavigationProperty Name="RoutineExercises" Relationship="Self.fk_routine" FromRole="Routine" ToRole="RoutineExercises" />
           <NavigationProperty Name="Users" Relationship="Self.Routine_Users" FromRole="Routine" ToRole="Users" />
         </EntityType>
@@ -202,8 +219,10 @@
           </Key>
           <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="RoutineID" Type="Int32" Nullable="false" />
+          <Property Name="UserID" Type="Int32" />
           <Property Name="DateHistory" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Routine" Relationship="Self.FK__RoutineHi__Routi__625A9A57" FromRole="RoutineHistory" ToRole="Routine" />
+          <NavigationProperty Name="Routine" Relationship="Self.FK__RoutineHi__Routi__5441852A" FromRole="RoutineHistory" ToRole="Routine" />
+          <NavigationProperty Name="Users" Relationship="Self.RoutineHistory_Users" FromRole="RoutineHistory" ToRole="Users" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -215,6 +234,7 @@
           <Property Name="Salt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Reminders" Relationship="Self.fk_User" FromRole="Users" ToRole="Reminders" />
           <NavigationProperty Name="Routine" Relationship="Self.Routine_Users" FromRole="Users" ToRole="Routine" />
+          <NavigationProperty Name="RoutineHistory" Relationship="Self.RoutineHistory_Users" FromRole="Users" ToRole="RoutineHistory" />
         </EntityType>
         <Association Name="fk_exercises">
           <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
@@ -240,7 +260,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RoutineHi__Routi__625A9A57">
+        <Association Name="FK__RoutineHi__Routi__5441852A">
           <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
           <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
           <ReferentialConstraint>
@@ -276,7 +296,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MyWorkoutRoutinesEntities2" annotation:LazyLoadingEnabled="true">
+        <Association Name="RoutineHistory_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+          <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="RoutineHistory">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MyWorkoutRoutinesCtx" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Exercise" EntityType="Self.Exercise" />
           <EntitySet Name="Reminders" EntityType="Self.Reminders" />
           <EntitySet Name="Routine" EntityType="Self.Routine" />
@@ -291,7 +323,7 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Reminders" EntitySet="Reminders" />
           </AssociationSet>
-          <AssociationSet Name="FK__RoutineHi__Routi__625A9A57" Association="Self.FK__RoutineHi__Routi__625A9A57">
+          <AssociationSet Name="FK__RoutineHi__Routi__5441852A" Association="Self.FK__RoutineHi__Routi__5441852A">
             <End Role="Routine" EntitySet="Routine" />
             <End Role="RoutineHistory" EntitySet="RoutineHistory" />
           </AssociationSet>
@@ -303,13 +335,17 @@
             <End Role="Users" EntitySet="Users" />
             <End Role="Routine" EntitySet="Routine" />
           </AssociationSet>
+          <AssociationSet Name="RoutineHistory_Users" Association="Self.RoutineHistory_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="RoutineHistory" EntitySet="RoutineHistory" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MyWorkoutRoutinesModelStoreContainer" CdmEntityContainer="MyWorkoutRoutinesEntities2">
+        <EntityContainerMapping StorageEntityContainer="MyWorkoutRoutinesModelStoreContainer" CdmEntityContainer="MyWorkoutRoutinesCtx">
           <EntitySetMapping Name="Exercise">
             <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Exercise">
               <MappingFragment StoreEntitySet="Exercise">
@@ -356,6 +392,7 @@
               <MappingFragment StoreEntitySet="RoutineHistory">
                 <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
                 <ScalarProperty Name="RoutineID" ColumnName="RoutineID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="DateHistory" ColumnName="DateHistory" />
               </MappingFragment>
             </EntityTypeMapping>

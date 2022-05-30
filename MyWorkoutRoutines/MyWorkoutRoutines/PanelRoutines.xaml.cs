@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -24,7 +26,7 @@ namespace MyWorkoutRoutines
     {
 
         MainWindow mainWindow;
-        MyWorkoutRoutinesEntities2 context = new MyWorkoutRoutinesEntities2();
+        MyWorkoutRoutinesCtx context = new MyWorkoutRoutinesCtx();
         ICollectionView CollectionView;
 
         public PanelRoutines(MainWindow _mainWindow)
@@ -32,17 +34,13 @@ namespace MyWorkoutRoutines
             InitializeComponent();
             mainWindow = _mainWindow;
 
-            if (context.Routine == null)
-            {
-                Platzhalter.Content = "Sie haben noch keine Routine angelegt";
-            }
-
         }
+
 
         private void CreateRoutinePage_Loaded(object sender, RoutedEventArgs e)
         {
             context.Routine.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(context.Routine.Local);
+            CollectionView = CollectionViewSource.GetDefaultView(context.Routine.Where(r => r.UserID == mainWindow.userid).ToList());
             ParentGrid.DataContext = CollectionView;
         }
 
@@ -72,8 +70,12 @@ namespace MyWorkoutRoutines
             context.RoutineHistory.RemoveRange(routineHistoryQuery.ToList());
             context.Routine.Remove(ra);
             context.SaveChanges();
-            routineList.Items.Refresh();
+            routineList.ItemsSource = null;
+            context.Routine.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(context.Routine.Where(r => r.UserID == mainWindow.userid).ToList());
+            routineList.ItemsSource = CollectionView;
 
         }
+
     }
 }

@@ -43,6 +43,7 @@
     </Key>
     <Property Name="HistoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="RoutineID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" />
     <Property Name="DateHistory" Type="datetime" />
   </EntityType>
   <EntityType Name="Users">
@@ -54,7 +55,7 @@
     <Property Name="HashPassword" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Salt" Type="varchar" MaxLength="100" Nullable="false" />
   </EntityType>
-  <Association Name="FK__RoutineHi__Routi__31EC6D26">
+  <Association Name="FK__RoutineHi__Routi__5441852A">
     <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
     <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -114,6 +115,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="RoutineHistory_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RoutineHistory">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="MyWorkoutRoutinesModelStoreContainer">
     <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Reminders" EntityType="Self.Reminders" Schema="dbo" store:Type="Tables" />
@@ -121,7 +134,7 @@
     <EntitySet Name="RoutineExercises" EntityType="Self.RoutineExercises" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RoutineHistory" EntityType="Self.RoutineHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__RoutineHi__Routi__31EC6D26" Association="Self.FK__RoutineHi__Routi__31EC6D26">
+    <AssociationSet Name="FK__RoutineHi__Routi__5441852A" Association="Self.FK__RoutineHi__Routi__5441852A">
       <End Role="Routine" EntitySet="Routine" />
       <End Role="RoutineHistory" EntitySet="RoutineHistory" />
     </AssociationSet>
@@ -140,6 +153,10 @@
     <AssociationSet Name="Routine_Users" Association="Self.Routine_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="Routine" EntitySet="Routine" />
+    </AssociationSet>
+    <AssociationSet Name="RoutineHistory_Users" Association="Self.RoutineHistory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RoutineHistory" EntitySet="RoutineHistory" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

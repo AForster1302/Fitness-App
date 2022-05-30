@@ -19,6 +19,7 @@ namespace MyWorkoutRoutines
         {
             this.Reminders = new HashSet<Reminders>();
             this.Routine = new HashSet<Routine>();
+            this.RoutineHistory = new HashSet<RoutineHistory>();
         }
     
         public int UserID { get; set; }
@@ -30,5 +31,7 @@ namespace MyWorkoutRoutines
         public virtual ICollection<Reminders> Reminders { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Routine> Routine { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RoutineHistory> RoutineHistory { get; set; }
     }
 }

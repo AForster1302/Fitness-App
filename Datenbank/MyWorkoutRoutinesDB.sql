@@ -11,17 +11,11 @@ GO
 
 -------------------------------------
 
---IF OBJECT_ID('Users') IS NOT NULL
---	DROP TABLE dbo.Users;
---GO
 DROP TABLE IF EXISTS RoutineExercises;
 DROP TABLE IF EXISTS Routine;
 DROP TABLE IF EXISTS Users;
 DROP TABLE IF EXISTS RoutineHistory;
-
 DROP TABLE IF EXISTS Exercise;
-
-
 DROP TABLE IF EXISTS Reminders;
 
 CREATE TABLE Users(
@@ -34,12 +28,6 @@ CREATE TABLE Users(
 
 -------------------------------------
 
---IF OBJECT_ID('Exercise') IS NOT NULL
---    DROP TABLE Exercise;
---GO
-
-
-
 CREATE TABLE Exercise(
 	ExerciseID INT Not Null Primary Key Identity(1,1),
 	Category NVARCHAR(10),
@@ -51,12 +39,6 @@ CREATE TABLE Exercise(
 
 -------------------------------------
 
---IF OBJECT_ID('Routine') IS NOT NULL
---    DROP TABLE Routine;
---GO
-
-
-
 CREATE TABLE Routine(
 	RoutineID INT Not Null Primary Key Identity(1,1) ,
 	RoutineName NVARCHAR(100),
@@ -66,61 +48,33 @@ CREATE TABLE Routine(
 
 -------------------------------------
 
---IF OBJECT_ID('RoutineExercises') IS NOT NULL
---    DROP TABLE RoutineExercises;
---GO
-
-
-
 CREATE TABLE RoutineExercises(
 	RoutineExercisesID INT NOT NULL Primary Key Identity(1,1),
 	Repetitions INT,
 	Duration INT,
 	BreakRoutine TIME,
-	--RoutineID INT, 
-	--ExerciseID INT,
-	
 	RoutineID INT not null,
     ExerciseID INT not null,
 	CONSTRAINT fk_exercises FOREIGN KEY (ExerciseID) REFERENCES Exercise(ExerciseID),
 	CONSTRAINT fk_routine FOREIGN KEY (RoutineID) REFERENCES Routine(RoutineID)
-    --CONSTRAINT routine_exercises_routine foreign key (RoutineID) references Routine(RoutineID),
-    --CONSTRAINT routine_exercises_exercises foreign key (ExerciseID) references Exercise(ExerciseID),
-    --CONSTRAINT routine_exercise_routine UNIQUE (RoutineID, ExerciseID)
-
 );
 
 -------------------------------------
-
---IF OBJECT_ID('Reminders') IS NOT NULL
---    DROP TABLE Reminders;
---GO
-
-
 
 CREATE TABLE Reminders(
   ReminderID INT Not Null Primary Key Identity(1,1), 
   CalendarDate DATETIME,
 	UserID INT,
 		Constraint fk_User Foreign Key (UserID) References Users(UserID),
-
 );
 
 -------------------------------------
-
---IF OBJECT_ID('RoutineHistory') IS NOT NULL
---    DROP TABLE RoutineHistory;
---GO
-
-
 
 CREATE TABLE RoutineHistory(
 	HistoryID INT Not Null Primary Key Identity(1,1),
 	RoutineID INT not null,
 	FOREIGN KEY (RoutineID) REFERENCES Routine(RoutineID),
 	DateHistory Datetime,
-	
-
 );
 
 -------------------------------------

@@ -16,8 +16,10 @@ namespace MyWorkoutRoutines
     {
         public int HistoryID { get; set; }
         public int RoutineID { get; set; }
+        public Nullable<int> UserID { get; set; }
         public Nullable<System.DateTime> DateHistory { get; set; }
     
         public virtual Routine Routine { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

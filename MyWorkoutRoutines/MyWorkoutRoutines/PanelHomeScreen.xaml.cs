@@ -26,7 +26,7 @@ namespace MyWorkoutRoutines
         ICollectionView collectionView;
         DateTime dtSelectedDate;
 
-        public MyWorkoutRoutinesEntities2 context = new MyWorkoutRoutinesEntities2();
+        public MyWorkoutRoutinesCtx context = new MyWorkoutRoutinesCtx();
 
         public PanelHomeScreen(MainWindow _mainWindow)
         {
@@ -65,6 +65,5 @@ namespace MyWorkoutRoutines
             reminders.CalendarDate = dtSelectedDate;
             context.SaveChanges();
         }
-
     }
 }

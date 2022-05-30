@@ -22,7 +22,7 @@ namespace MyWorkoutRoutines
     public partial class PanelStartRoutine : UserControl
     {
         MainWindow mainWindow;
-        MyWorkoutRoutinesEntities2 context = new MyWorkoutRoutinesEntities2();
+        MyWorkoutRoutinesCtx context = new MyWorkoutRoutinesCtx();
         ICollectionView CollectionView;
         int RoutineID;
         int ExerciseIndex = 0;
@@ -71,6 +71,10 @@ namespace MyWorkoutRoutines
                     btnFinish.Visibility = Visibility.Visible;
                 }
             }
+            if (exercises.Count() == 1)
+            {
+                btnFinish.Visibility = Visibility.Visible;
+            }
         }
 
         private void btnPreviousClick(object sender, RoutedEventArgs e)
@@ -93,6 +97,7 @@ namespace MyWorkoutRoutines
             RoutineHistory rH = new RoutineHistory();
             rH.DateHistory = DateTime.Now;
             rH.RoutineID = RoutineID;
+            rH.UserID = mainWindow.userid;
             context.RoutineHistory.Add(rH);
             context.SaveChanges();
             mainWindow.PanelRoutines();

@@ -19,7 +19,7 @@
                 <RowDefinition MinHeight="90" Height="*"/>
                 <RowDefinition MinHeight="55"/>
             </Grid.RowDefinitions>
-            
+
             <Calendar x:Name="Calendar" Margin="0 20 0 20" Grid.Row="0" HorizontalAlignment="Left" MouseDoubleClick="Calendar_MouseDoubleClick" MouseRightButtonDown="Calendar_MouseRightButtonDown"></Calendar>
             <Button Grid.Row="1" Content="Tage speichern" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nirmala UI" Height="28" Width="120" Foreground="#EBEBEB" FontWeight="Bold" x:Name="btnSafeDays" Click="btnSafeDays_Click" BorderBrush="Transparent" Background="#8B0000">
                 <Button.Resources>
@@ -29,6 +29,8 @@
                 </Button.Resources>
             </Button>
             <TextBlock Grid.Row="2" Margin="0 20 0 5" VerticalAlignment="Bottom" x:Name="UserName" FontSize="16" Foreground="#8B0000" FontWeight="Light"/>
+
+
         </Grid>
     </Grid>
 </UserControl>

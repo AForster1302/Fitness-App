@@ -27,7 +27,7 @@
     <Property Name="RoutineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoutineName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UserID" Type="Int32" />
-    <NavigationProperty Name="RoutineHistory" Relationship="Self.FK__RoutineHi__Routi__31EC6D26" FromRole="Routine" ToRole="RoutineHistory" />
+    <NavigationProperty Name="RoutineHistory" Relationship="Self.FK__RoutineHi__Routi__5441852A" FromRole="Routine" ToRole="RoutineHistory" />
     <NavigationProperty Name="RoutineExercises" Relationship="Self.fk_routine" FromRole="Routine" ToRole="RoutineExercises" />
     <NavigationProperty Name="Users" Relationship="Self.Routine_Users" FromRole="Routine" ToRole="Users" />
   </EntityType>
@@ -50,8 +50,10 @@
     </Key>
     <Property Name="HistoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="RoutineID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" />
     <Property Name="DateHistory" Type="DateTime" Precision="3" />
-    <NavigationProperty Name="Routine" Relationship="Self.FK__RoutineHi__Routi__31EC6D26" FromRole="RoutineHistory" ToRole="Routine" />
+    <NavigationProperty Name="Routine" Relationship="Self.FK__RoutineHi__Routi__5441852A" FromRole="RoutineHistory" ToRole="Routine" />
+    <NavigationProperty Name="Users" Relationship="Self.RoutineHistory_Users" FromRole="RoutineHistory" ToRole="Users" />
   </EntityType>
   <EntityType Name="Users">
     <Key>
@@ -63,6 +65,7 @@
     <Property Name="Salt" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Reminders" Relationship="Self.fk_User" FromRole="Users" ToRole="Reminders" />
     <NavigationProperty Name="Routine" Relationship="Self.Routine_Users" FromRole="Users" ToRole="Routine" />
+    <NavigationProperty Name="RoutineHistory" Relationship="Self.RoutineHistory_Users" FromRole="Users" ToRole="RoutineHistory" />
   </EntityType>
   <Association Name="fk_exercises">
     <End Role="Exercise" Type="Self.Exercise" Multiplicity="1" />
@@ -88,7 +91,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__RoutineHi__Routi__31EC6D26">
+  <Association Name="FK__RoutineHi__Routi__5441852A">
     <End Role="Routine" Type="Self.Routine" Multiplicity="1" />
     <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
     <ReferentialConstraint>
@@ -124,7 +127,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="MyWorkoutRoutinesContext" annotation:LazyLoadingEnabled="true">
+  <Association Name="RoutineHistory_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="RoutineHistory" Type="Self.RoutineHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="RoutineHistory">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyWorkoutRoutinesCtx" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Exercise" EntityType="Self.Exercise" />
     <EntitySet Name="Reminders" EntityType="Self.Reminders" />
     <EntitySet Name="Routine" EntityType="Self.Routine" />
@@ -139,7 +154,7 @@
       <End Role="Users" EntitySet="Users" />
       <End Role="Reminders" EntitySet="Reminders" />
     </AssociationSet>
-    <AssociationSet Name="FK__RoutineHi__Routi__31EC6D26" Association="Self.FK__RoutineHi__Routi__31EC6D26">
+    <AssociationSet Name="FK__RoutineHi__Routi__5441852A" Association="Self.FK__RoutineHi__Routi__5441852A">
       <End Role="Routine" EntitySet="Routine" />
       <End Role="RoutineHistory" EntitySet="RoutineHistory" />
     </AssociationSet>
@@ -150,6 +165,10 @@
     <AssociationSet Name="Routine_Users" Association="Self.Routine_Users">
       <End Role="Users" EntitySet="Users" />
       <End Role="Routine" EntitySet="Routine" />
+    </AssociationSet>
+    <AssociationSet Name="RoutineHistory_Users" Association="Self.RoutineHistory_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="RoutineHistory" EntitySet="RoutineHistory" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

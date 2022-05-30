@@ -74,22 +74,22 @@
       <DependentUpon>AddRepetitionsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Exercise.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Context.cs">
+    <Compile Include="MyWorkoutRoutineDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.cs">
+    <Compile Include="MyWorkoutRoutineDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model1.Designer.cs">
+    <Compile Include="MyWorkoutRoutineDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="PanelCreatingRoutine.xaml.cs">
       <DependentUpon>PanelCreatingRoutine.xaml</DependentUpon>
@@ -107,19 +107,19 @@
       <DependentUpon>PanelStartRoutine.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reminders.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Routine.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
     <Compile Include="RoutineExercises.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
     <Compile Include="RoutineHistory.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Users.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>MyWorkoutRoutineDB.tt</DependentUpon>
     </Compile>
     <Compile Include="WindowLogin.xaml.cs">
       <DependentUpon>WindowLogin.xaml</DependentUpon>
@@ -242,16 +242,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Model1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Model1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
-    </Content>
     <Resource Include="MyWorkoutRoutine.ico" />
     <Resource Include="Pictures\bauch.png" />
     <Resource Include="Pictures\brust.png" />
@@ -261,12 +251,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model1.edmx">
+    <EntityDeploy Include="MyWorkoutRoutineDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+      <LastGenOutput>MyWorkoutRoutineDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
+    <None Include="MyWorkoutRoutineDB.edmx.diagram">
+      <DependentUpon>MyWorkoutRoutineDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -279,6 +269,18 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MyWorkoutRoutineDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyWorkoutRoutineDB.edmx</DependentUpon>
+      <LastGenOutput>MyWorkoutRoutineDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MyWorkoutRoutineDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyWorkoutRoutineDB.edmx</DependentUpon>
+      <LastGenOutput>MyWorkoutRoutineDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

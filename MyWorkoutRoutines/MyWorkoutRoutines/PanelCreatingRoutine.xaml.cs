@@ -28,9 +28,9 @@ namespace MyWorkoutRoutines
 
         List<Exercise> listExercise = new List<Exercise>();
 
-        ICollectionView CollectionView;
+        ICollectionView collectionView;
 
-        public MyWorkoutRoutinesEntities2 Context = new MyWorkoutRoutinesEntities2();
+        public MyWorkoutRoutinesCtx context = new MyWorkoutRoutinesCtx();
 
         public PanelCreatingRoutine(MainWindow _mainWindow)
         {
@@ -41,16 +41,16 @@ namespace MyWorkoutRoutines
 
         private void CreateRoutinePage_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.Exercise.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
-            ParentGrid.DataContext = CollectionView;
+            context.Exercise.Load();
+            collectionView = CollectionViewSource.GetDefaultView(context.Exercise.Local);
+            ParentGrid.DataContext = collectionView;
         }
 
         private void tBtnStomach_Checked(object sender, RoutedEventArgs e)
         {
-            if (btnStomach.IsChecked == true )
+            if (btnStomach.IsChecked == true)
             {
-                CollectionView.Filter = x => ((Exercise)x).Category == "Bauch";
+                collectionView.Filter = x => ((Exercise)x).Category == "Bauch";
                 btnBack.IsHitTestVisible = false;
                 btnChest.IsHitTestVisible = false;
                 btnArms.IsHitTestVisible = false;
@@ -61,10 +61,10 @@ namespace MyWorkoutRoutines
 
         private void tBtnBack_Checked(object sender, RoutedEventArgs e)
         {
-            
+
             if (btnBack.IsChecked == true)
             {
-                CollectionView.Filter = x => ((Exercise)x).Category == "Rücken";
+                collectionView.Filter = x => ((Exercise)x).Category == "Rücken";
                 btnStomach.IsHitTestVisible = false;
                 btnChest.IsHitTestVisible = false;
                 btnArms.IsHitTestVisible = false;
@@ -75,10 +75,10 @@ namespace MyWorkoutRoutines
 
         private void tBtnChest_Checked(object sender, RoutedEventArgs e)
         {
-            
+
             if (btnChest.IsChecked == true)
             {
-                CollectionView.Filter = x => ((Exercise)x).Category == "Brust";
+                collectionView.Filter = x => ((Exercise)x).Category == "Brust";
                 btnStomach.IsHitTestVisible = false;
                 btnBack.IsHitTestVisible = false;
                 btnArms.IsHitTestVisible = false;
@@ -89,10 +89,10 @@ namespace MyWorkoutRoutines
 
         private void tBtnArms_Checked(object sender, RoutedEventArgs e)
         {
-;
+            ;
             if (btnArms.IsChecked == true)
             {
-                CollectionView.Filter = x => ((Exercise)x).Category == "Arm";
+                collectionView.Filter = x => ((Exercise)x).Category == "Arm";
                 btnStomach.IsHitTestVisible = false;
                 btnBack.IsHitTestVisible = false;
                 btnChest.IsHitTestVisible = false;
@@ -103,10 +103,10 @@ namespace MyWorkoutRoutines
 
         private void tBtnShoulders_Checked(object sender, RoutedEventArgs e)
         {
-            
+
             if (btnShoulders.IsChecked == true)
             {
-                CollectionView.Filter = x => ((Exercise)x).Category == "Schultern";
+                collectionView.Filter = x => ((Exercise)x).Category == "Schultern";
                 btnStomach.IsHitTestVisible = false;
                 btnBack.IsHitTestVisible = false;
                 btnChest.IsHitTestVisible = false;
@@ -117,10 +117,10 @@ namespace MyWorkoutRoutines
 
         private void tBtnLegs_Checked(object sender, RoutedEventArgs e)
         {
-            
+
             if (btnLegs.IsChecked == true)
             {
-                CollectionView.Filter = x => ((Exercise)x).Category == "Beine";
+                collectionView.Filter = x => ((Exercise)x).Category == "Beine";
                 btnStomach.IsHitTestVisible = false;
                 btnBack.IsHitTestVisible = false;
                 btnChest.IsHitTestVisible = false;
@@ -132,7 +132,7 @@ namespace MyWorkoutRoutines
 
         private void tBtnStomach_Unchecked(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = null;
+            collectionView.Filter = null;
             btnBack.IsHitTestVisible = true;
             btnChest.IsHitTestVisible = true;
             btnArms.IsHitTestVisible = true;
@@ -142,7 +142,7 @@ namespace MyWorkoutRoutines
 
         private void tBtnBack_Unchecked(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = null;
+            collectionView.Filter = null;
             btnStomach.IsHitTestVisible = true;
             btnChest.IsHitTestVisible = true;
             btnArms.IsHitTestVisible = true;
@@ -152,7 +152,7 @@ namespace MyWorkoutRoutines
 
         private void tBtnChest_Unchecked(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = null;
+            collectionView.Filter = null;
             btnStomach.IsHitTestVisible = true;
             btnBack.IsHitTestVisible = true;
             btnArms.IsHitTestVisible = true;
@@ -162,7 +162,7 @@ namespace MyWorkoutRoutines
 
         private void tBtnArms_Unchecked(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = null;
+            collectionView.Filter = null;
             btnStomach.IsHitTestVisible = true;
             btnBack.IsHitTestVisible = true;
             btnChest.IsHitTestVisible = true;
@@ -172,7 +172,7 @@ namespace MyWorkoutRoutines
 
         private void tBtnShoulders_Unchecked(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = null;
+            collectionView.Filter = null;
             btnStomach.IsHitTestVisible = true;
             btnBack.IsHitTestVisible = true;
             btnChest.IsHitTestVisible = true;
@@ -182,7 +182,7 @@ namespace MyWorkoutRoutines
 
         private void tBtnLegs_Unchecked(object sender, RoutedEventArgs e)
         {
-            CollectionView.Filter = null;
+            collectionView.Filter = null;
             btnStomach.IsHitTestVisible = true;
             btnBack.IsHitTestVisible = true;
             btnChest.IsHitTestVisible = true;
@@ -205,7 +205,7 @@ namespace MyWorkoutRoutines
 
         private void btnCreateRoutine(object sender, RoutedEventArgs e)
         {
-            if (Context.Routine.Any(r => r.RoutineName == RoutinenameBox.Text))
+            if (context.Routine.Any(r => r.RoutineName == RoutinenameBox.Text && r.UserID == mainWindow.userid))
             {
                 MessageBox.Show("Dieser Name ist bereits vergeben.");
             }
@@ -219,21 +219,28 @@ namespace MyWorkoutRoutines
                 {
                     Routine routine = new Routine();
 
-                    routine.RoutineName = RoutinenameBox.Text;
-
-                    foreach (Exercise ex in listExercise)
+                    if (RoutinenameBox.Text == "")
                     {
-                        RoutineExercises routineExercise = new RoutineExercises();
-                        routineExercise.ExerciseID = ex.ExerciseID;
-                        routineExercise.RoutineID = routine.RoutineID;
-                        routine.RoutineExercises.Add(routineExercise);
+                        MessageBox.Show("Bitte geben Sie einen Namen an.");
                     }
+                    else
+                    {
+                        routine.RoutineName = RoutinenameBox.Text;
 
-                    routine.UserID = mainWindow.userid;
-                    Context.Routine.Add(routine);
-                    Context.SaveChanges();
-                    lvRoutine.Items.Clear();
-                    RoutinenameBox.Text = "";
+                        foreach (Exercise ex in listExercise)
+                        {
+                            RoutineExercises routineExercise = new RoutineExercises();
+                            routineExercise.ExerciseID = ex.ExerciseID;
+                            routineExercise.RoutineID = routine.RoutineID;
+                            routine.RoutineExercises.Add(routineExercise);
+                        }
+
+                        routine.UserID = mainWindow.userid;
+                        context.Routine.Add(routine);
+                        context.SaveChanges();
+                        lvRoutine.Items.Clear();
+                        RoutinenameBox.Text = "";
+                    }
                 }
             }
         }
@@ -261,15 +268,15 @@ namespace MyWorkoutRoutines
 
         private void lvExercises_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.Exercise.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.Exercise.Local);
-            ParentGrid.DataContext = CollectionView;
+            context.Exercise.Load();
+            collectionView = CollectionViewSource.GetDefaultView(context.Exercise.Local);
+            ParentGrid.DataContext = collectionView;
         }
 
         private void Searchbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string suchstr = Searchbox.Text.ToLower();
-            CollectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(suchstr);
+            collectionView.Filter = x => ((Exercise)x).ExerciseName.ToLower().Contains(suchstr);
         }
 
         private void RoutinenameBox_LostFocus(object sender, RoutedEventArgs e)

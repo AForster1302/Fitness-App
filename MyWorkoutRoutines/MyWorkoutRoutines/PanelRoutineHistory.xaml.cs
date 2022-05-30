@@ -23,8 +23,8 @@ namespace MyWorkoutRoutines
     public partial class PanelRoutineHistory : UserControl
     {
 
-        
-        MyWorkoutRoutinesEntities2 Context = new MyWorkoutRoutinesEntities2();
+
+        MyWorkoutRoutinesCtx context = new MyWorkoutRoutinesCtx();
         ICollectionView CollectionView;
         MainWindow mainWindow;
         public PanelRoutineHistory(MainWindow _mainWindow)
@@ -37,10 +37,9 @@ namespace MyWorkoutRoutines
 
         private void RoutineHistoryPage_Loaded(object sender, RoutedEventArgs e)
         {
-            Context.RoutineHistory.Load();
-            CollectionView = CollectionViewSource.GetDefaultView(Context.RoutineHistory.Local);
+            context.RoutineHistory.Load();
+            CollectionView = CollectionViewSource.GetDefaultView(context.RoutineHistory.Where(rh => rh.UserID == mainWindow.userid).ToList());
             ParentGrid.DataContext = CollectionView;
         }
-
     }
 }

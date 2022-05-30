@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MyWorkoutRoutinesModelStoreContainer" CdmEntityContainer="MyWorkoutRoutinesContext">
+  <EntityContainerMapping StorageEntityContainer="MyWorkoutRoutinesModelStoreContainer" CdmEntityContainer="MyWorkoutRoutinesCtx">
     <EntitySetMapping Name="Exercise">
       <EntityTypeMapping TypeName="MyWorkoutRoutinesModel.Exercise">
         <MappingFragment StoreEntitySet="Exercise">
@@ -47,6 +47,7 @@
         <MappingFragment StoreEntitySet="RoutineHistory">
           <ScalarProperty Name="HistoryID" ColumnName="HistoryID" />
           <ScalarProperty Name="RoutineID" ColumnName="RoutineID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
           <ScalarProperty Name="DateHistory" ColumnName="DateHistory" />
         </MappingFragment>
       </EntityTypeMapping>

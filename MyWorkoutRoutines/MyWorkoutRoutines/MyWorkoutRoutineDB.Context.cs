@@ -13,10 +13,10 @@ namespace MyWorkoutRoutines
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MyWorkoutRoutinesEntities2 : DbContext
+    public partial class MyWorkoutRoutinesCtx : DbContext
     {
-        public MyWorkoutRoutinesEntities2()
-            : base("name=MyWorkoutRoutinesEntities2")
+        public MyWorkoutRoutinesCtx()
+            : base("name=MyWorkoutRoutinesCtx")
         {
         }
     
